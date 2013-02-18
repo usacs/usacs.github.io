@@ -30,6 +30,11 @@ h4 {
 	font-size: 19px;
 }
 
+.main-content {
+	padding-left: 2px;
+	padding-right: 2px;
+}
+
 .usacs-logo {
 	font-family: neou;
 	font-weight: bold;
@@ -43,7 +48,6 @@ h4 {
 
 .content-block {
 	background-color: #fefefe;
-	padding: 10px;
 	border-radius: 3px;
 	border-style: solid;
 	border-width: 10px;
@@ -73,4 +77,14 @@ h4 {
 
 .schedule-item {
 	list-style-type: none;
+}
+
+.title .subheader {
+	margin-top: -12px;
+	font-family: neou;
+	margin-bottom: 0px;
+}
+
+.usacs-menu {
+	top-margin: 0px;
 }
