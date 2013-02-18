@@ -1,0 +1,76 @@
+@font-face {
+	font-family: colorBasic;
+	src: url('../fonts/color\ basic.otf');
+}
+
+@font-face {
+	font-family: neou;
+	src: url('../fonts/Neou-Thin.otf');
+}
+@font-face {
+	font-family: neou;
+	src: url('../fonts/Neou-Bold.otf');
+	font-weight: bold;
+}
+
+body {
+	background-image: url('../images/grey_@2X.png');
+	font-color: white;
+}
+
+h2 {
+	font-size: 27px;
+}
+
+h3 {
+	font-size: 23px;
+}
+
+h4 {
+	font-size: 19px;
+}
+
+.usacs-logo {
+	font-family: neou;
+	font-weight: bold;
+	font-size: 60px;
+	margin-bottom: 0px;
+}
+
+.hacker-hour {
+	font-family: colorBasic;
+}
+
+.content-block {
+	background-color: #fefefe;
+	padding: 10px;
+	border-radius: 3px;
+	border-style: solid;
+	border-width: 10px;
+	border-color: #eeeeee;
+	margin-top: 10px;
+	box-sizing:border-box;
+}
+
+/* so that images line up with the h# tag margins */
+.content-block img {
+	margin-top: 14px;
+}
+
+.slider-block {
+	background-color: #fefefe;
+	border-radius: 3px;
+	border-style: solid;
+	border-width: 10px;
+	border-color: #eeeeee;
+	padding-bottom: 0px;
+	box-sizing:border-box;
+}
+
+.slider-block #slider {
+	margin: 0px;
+}
+
+.schedule-item {
+	list-style-type: none;
+}
