@@ -87,5 +87,14 @@ h4 {
 }
 
 .usacs-menu {
-	top-margin: 0px;
+	margin-top: 0px;
 }
+
+.about {
+	line-height: 2em;
+}
+
+.person img {
+	margin-bottom: 14px;
+}
+
