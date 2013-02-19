@@ -88,6 +88,14 @@ h4 {
 
 .usacs-menu {
 	margin-top: 0px;
+	margin-right: -2px;
+}
+
+.usacs-subheader {
+	font-weight: bold;
+	margin-bottom: 0px;
+	padding-bottom: 0px;
+	line-height: 30pxh
 }
 
 .about {
@@ -98,3 +106,28 @@ h4 {
 	margin-bottom: 14px;
 }
 
+
+/* just to note, from here down I'm basically a bad person 
+ * because I'm directly overwriting foundation's CSS */
+.nav-bar {
+	background: none;
+	border: none;
+}
+
+.nav-bar li {
+	border: none;
+	background: #efefef;
+	margin: 2px;
+}
+
+.nav-bar li:hover {
+	background: #e0e0e0;
+}
+
+.nav-bar > li:last-child {
+	border-right: none;
+}
+
+.nav-bar li a {
+	color: #222;
+}
