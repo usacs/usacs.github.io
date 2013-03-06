@@ -131,3 +131,8 @@ h4 {
 .nav-bar li a {
 	color: #222;
 }
+
+.google-group {
+	height: 100%;
+	text-align: center;
+}
