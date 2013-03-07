@@ -133,6 +133,22 @@ h4 {
 }
 
 .google-group {
-	height: 100%;
+	height: 1000px;
 	text-align: center;
+}
+
+.google-group a {
+	background-color: #d14836;
+	color: #ffffff;
+	border: 1px #b0281a;
+	border-bottom-color: #af301f;
+	border-radius: 3px;
+	padding: 11px;
+	margin-top: 15px;
+}
+
+.google-group a span {
+	font-size: 14px;
+	font-weight: bold;
+	font-family: 'Helvetica Neue', Arial, Helvetica, sans-serif;
 }
