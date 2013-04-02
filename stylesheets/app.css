@@ -7,9 +7,21 @@
 	font-family: neou;
 	src: url('../fonts/Neou-Thin.otf');
 }
+
 @font-face {
 	font-family: neou;
 	src: url('../fonts/Neou-Bold.otf');
+	font-weight: bold;
+}
+
+@font-face {
+	font-family: alteHaasGrotesk;
+	src: url('../fonts/AlteHaasGroteskRegular.ttf');
+}
+
+@font-face {
+	font-family: alteHaasGrotesk;
+	src: url('../fonts/AlteHaasGroteskBold.ttf');
 	font-weight: bold;
 }
 
