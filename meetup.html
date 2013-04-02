@@ -10,23 +10,24 @@
 	<!-- Set the viewport width to device width for mobile -->
 	<meta name="viewport" content="width=device-width" />
 
-	<title>Rutgers USACS</title>
+	<title>Rutgers USACS - RU Tech Meetup</title>
 
 	<!-- Included CSS Files (Compressed) -->
 	<link rel="stylesheet" href="stylesheets/foundation.min.css">
 	<link rel="stylesheet" href="stylesheets/app.css">
+	<link rel="stylesheet" href="stylesheets/meetup.css">
 
 	<script src="javascripts/modernizr.foundation.js"></script>
 </head>
-<body>
+<body class="meetup">
 
-	<div class="main-content">
+	<div class=" main-content">
 		<!-- Header -->
 		
 		<div class="row collapse">
 			<div class="three columns title">
 				<a href="./"><h1 class="usacs-logo">USACS</h1></a>
-				<h4 class="subheader show-for-small">Undergraduate Student Alliance of Computer Scientists</h4>
+				<h4 class="subheader show-for-small white">Undergraduate Student Alliance of Computer Scientists</h4>
 			</div>
 			<div class="nine columns usacs-menu">
 				<ul class="nav-bar right">
@@ -41,30 +42,37 @@
 			</div>
 		</div>
 		<div class="row collapse title hide-for-small">	
-			<h4 class="subheader">Undergraduate Student Alliance of Computer Scientists</h4>
+			<h4 class="subheader white">Undergraduate Student Alliance of Computer Scientists</h4>
 		</div>
 		
 		<!-- End Header and Nav -->
 
-		<div class="row content-block google-group">
-			<a class="button" href="mailto:ru_cs+subscribe@googlegroups.com?subject=I%20want%20to%20join%20the%20USACS%20Mailing%20List!&body=By%20sending%20an%20email%20to%20this%20address%20you%20will%20be%20automatically%20subscribed%20to%20the%20USACS%20ru_cs%20mailing%20list.%20%0A%0AYou'll%20get%20updates%20about%20upcoming%20USACS%20sponsored%20events%2C%20and%20news%20about%20internships%2C%20hackathons%2C%20and%20opportunities.">
-				<span>SUBSCRIBE TO THE MAILING LIST</span>
-			</a>
-			<iframe id="forum_embed"
-				src="javascript:void(0)"
-				scrolling="no"
-				frameborder="0"
-				width="100%"
-				height="100%">
-			</iframe>
-			<script type="text/javascript">
-				document.getElementById('forum_embed').src =
-				'https://groups.google.com/forum/embed/?place=forum/ru_cs'
-				+ '&showsearch=false&showpopout=false&showtabs=false';
-				//+ '&parenturl=' + encodeURIComponent(window.location.href);
-			</script> 
-
+		<div class="row content-block white">
+			
+			<div class="twelve columns meetup-header">
+				<h1><span class="ru">RU</span> Tech Meetup</h1>
+				<h2 class="subheader white">April 5th, 2013 - Presented by <a href="http://usacs.rutgers.edu">USACS</a> and <a href="http://www.rumad.us">RUMAD</a></h2>
 			</div>
+			<div class="ten columns centered">
+				<p>
+				Rutgers Tech Meetup is a chance for the programming student body of Rutgers to come together and demo the awesome projects that they've been working on over the past year. Come see what open source projects, production ready apps, and side-project hacks your fellow students have built in their free time over the past year. We'll also be serving hot burritos and some awesome guest speaker talks.
+				</p>
+			</div>
+			<div class="twelve columns speakers">
+
+				<h3>Guest Speakers</h3>
+				<ul>
+					<li>Mike Swift - <a href="www.sendgrid.com">SendGrid</a></li>
+				</ul>
+				<h3>Student Demos</h3>
+				<ul>
+					<li>Where RU Working? - Devon Peticolas</li>
+					<li>Prank Roulett - Kenny Bambridge & Sam Agnew</li>
+					<li>Where O' Where - Kaushal Parikh</li>
+				</ul>
+				<p class="signup">Have something awesome? We want to see it! <a href="https://docs.google.com/forms/d/1pxSk2BB3ynuuLgKklNGYC1hDK96AEH9aLupn7IKDJXI/viewform">Sign up to demo here!</a></p>
+			</div>
+		</div>
 
 		<!-- Footer -->
 
