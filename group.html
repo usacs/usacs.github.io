@@ -1,84 +1,24 @@
-<!DOCTYPE html>
+---
+layout: default
+title: "Mailing List"
+---
 
-<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
-<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
-<!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
-<head>
-	<meta charset="utf-8" />
+<div class="row content-block google-group">
+  <a class="button" href="mailto:ru_cs+subscribe@googlegroups.com?subject=I%20want%20to%20join%20the%20USACS%20Mailing%20List!&body=By%20sending%20an%20email%20to%20this%20address%20you%20will%20be%20automatically%20subscribed%20to%20the%20USACS%20ru_cs%20mailing%20list.%20%0A%0AYou'll%20get%20updates%20about%20upcoming%20USACS%20sponsored%20events%2C%20and%20news%20about%20internships%2C%20hackathons%2C%20and%20opportunities.">
+    <span>SUBSCRIBE TO THE MAILING LIST</span>
+  </a>
+  <iframe id="forum_embed"
+    src="javascript:void(0)"
+    scrolling="no"
+    frameborder="0"
+    width="100%"
+    height="100%">
+  </iframe>
+  <script type="text/javascript">
+document.getElementById('forum_embed').src =
+'https://groups.google.com/forum/embed/?place=forum/ru_cs'
++ '&showsearch=false&showpopout=false&showtabs=false';
+//+ '&parenturl=' + encodeURIComponent(window.location.href);
+  </script>
 
-	<!-- Set the viewport width to device width for mobile -->
-	<meta name="viewport" content="width=device-width" />
-
-	<title>Rutgers USACS</title>
-
-	<!-- Included CSS Files (Compressed) -->
-	<link rel="stylesheet" href="stylesheets/foundation.min.css">
-	<link rel="stylesheet" href="stylesheets/app.css">
-	<script type="text/javascript" src="/javascripts/retina.js"></script>
-	<script src="javascripts/modernizr.foundation.js"></script>
-</head>
-<body>
-
-	<div class="main-content">
-		<!-- Header -->
-		
-		<div class="row collapse">
-			<div class="three columns title">
-				<a href="./"><h1 class="usacs-logo">USACS</h1></a>
-				<h4 class="subheader show-for-small">Undergraduate Student Alliance of Computer Scientists</h4>
-			</div>
-			<div class="nine columns usacs-menu">
-				<ul class="nav-bar right">
-					<li><a href="./#about">About</a></li>
-					<li><a href="./events.html">Events</a></li>
-					<li><a href="./group.html">Mailing List</a></li>
-					<li><a href="./people.html">People</a></li>
-					<li><a href="http://www.hackru.org">HackRU</a></li>
-					<li><a href="./meetup.html">Meetup</a></li>
-					<li><a href="mailto:rutgersusacs@gmail.com">Contact Us</a></li>
-				</ul>
-			</div>
-		</div>
-		<div class="row collapse title hide-for-small">	
-			<h4 class="subheader">Undergraduate Student Alliance of Computer Scientists</h4>
-		</div>
-		
-		<!-- End Header and Nav -->
-
-		<div class="row content-block google-group">
-			<a class="button" href="mailto:ru_cs+subscribe@googlegroups.com?subject=I%20want%20to%20join%20the%20USACS%20Mailing%20List!&body=By%20sending%20an%20email%20to%20this%20address%20you%20will%20be%20automatically%20subscribed%20to%20the%20USACS%20ru_cs%20mailing%20list.%20%0A%0AYou'll%20get%20updates%20about%20upcoming%20USACS%20sponsored%20events%2C%20and%20news%20about%20internships%2C%20hackathons%2C%20and%20opportunities.">
-				<span>SUBSCRIBE TO THE MAILING LIST</span>
-			</a>
-			<iframe id="forum_embed"
-				src="javascript:void(0)"
-				scrolling="no"
-				frameborder="0"
-				width="100%"
-				height="100%">
-			</iframe>
-			<script type="text/javascript">
-				document.getElementById('forum_embed').src =
-				'https://groups.google.com/forum/embed/?place=forum/ru_cs'
-				+ '&showsearch=false&showpopout=false&showtabs=false';
-				//+ '&parenturl=' + encodeURIComponent(window.location.href);
-			</script> 
-
-			</div>
-
-		<!-- Footer -->
-
-		<footer class="row">
-		<div class="twelve columns">
-			<br />
-		</div> 
-		</footer>
-
-		<!-- Included JS Files (Compressed) -->
-		<script src="javascripts/jquery.js"></script>
-		<script src="javascripts/foundation.min.js"></script>
-
-		<!-- Initialize JS Plugins -->
-		<script src="javascripts/app.js"></script>
-	</body>
-</html>
+</div>

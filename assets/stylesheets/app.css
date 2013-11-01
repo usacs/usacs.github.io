@@ -47,11 +47,13 @@ h4 {
 	padding-right: 2px;
 }
 
-.usacs-logo {
+.usacs-logo,
+.usacs-logo a{
 	font-family: neou;
 	font-weight: bold;
 	font-size: 60px;
 	margin-bottom: 0px;
+  color: #222;
 }
 
 .hacker-hour {
@@ -119,7 +121,7 @@ h4 {
 }
 
 
-/* just to note, from here down I'm basically a bad person 
+/* just to note, from here down I'm basically a bad person
  * because I'm directly overwriting foundation's CSS */
 .nav-bar {
 	background: none;
@@ -147,6 +149,7 @@ h4 {
 .google-group {
 	height: 1000px;
 	text-align: center;
+  overflow: hidden;
 }
 
 .google-group a {
