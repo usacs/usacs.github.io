@@ -17,7 +17,7 @@ body {
 	color: #fff;
 }
 
-.subheader.white {
+.title .subheader {
 	color: #fff;
 }
 
@@ -43,7 +43,8 @@ body {
 	margin-top: 60px;
 }
 
-.usacs-logo {
+.usacs-logo,
+.usacs-logo a{
 	color: #eee;
 }
 
