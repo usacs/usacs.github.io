@@ -26,20 +26,31 @@
 }
 
 body {
-	background-image: url('../images/grey_@2X.png');
-	font-color: white;
+    background-color: #fefefe;
+    color: #404040;
+}
+
+p {
+    font-size: 18px;
 }
 
 h2 {
-	font-size: 27px;
+    color: #142F58;
+	font-size: 32px;
 }
 
 h3 {
-	font-size: 23px;
+    color: #142F58;
+	font-size: 24px;
 }
 
 h4 {
-	font-size: 19px;
+    color: #142F58;
+	font-size: 20px;
+}
+
+li {
+    font-size: 18px;
 }
 
 .main-content {
@@ -53,7 +64,7 @@ h4 {
 	font-weight: bold;
 	font-size: 60px;
 	margin-bottom: 0px;
-  color: #222;
+    color: #ffffff;
 }
 
 .hacker-hour {
@@ -61,13 +72,8 @@ h4 {
 }
 
 .content-block {
-	background-color: #fefefe;
-	border-radius: 3px;
-	border-style: solid;
-	border-width: 10px;
-	border-color: #eeeeee;
 	margin-top: 10px;
-	box-sizing:border-box;
+	box-sizing: border-box;
 }
 
 /* so that images line up with the h# tag margins */
@@ -76,13 +82,9 @@ h4 {
 }
 
 .slider-block {
-	background-color: #fefefe;
-	border-radius: 3px;
-	border-style: solid;
-	border-width: 10px;
-	border-color: #eeeeee;
 	padding-bottom: 0px;
-	box-sizing:border-box;
+	box-sizing: border-box;
+    margin-top: 10px;
 }
 
 .slider-block #slider {
@@ -93,23 +95,8 @@ h4 {
 	list-style-type: none;
 }
 
-.title .subheader {
-	margin-top: -12px;
-	font-family: neou;
-	margin-bottom: 0px;
-	color: #222222
-}
-
-.usacs-menu {
-	margin-top: 0px;
-	margin-right: -2px;
-}
-
-.usacs-subheader {
-	font-weight: bold;
-	margin-bottom: 0px;
-	padding-bottom: 0px;
-	line-height: 30pxh
+.menu {
+   top: 0; 
 }
 
 .about {
@@ -120,6 +107,19 @@ h4 {
 	margin-bottom: 14px;
 }
 
+#header {
+    background: #bbbbbb;
+    top: 0;
+    width: 920px;
+}
+
+#header-bg {
+    position: absolute;
+    background: #303030;
+    width: 100%;
+    height: 80px;
+    margin: 0 -2px;
+}
 
 /* just to note, from here down I'm basically a bad person
  * because I'm directly overwriting foundation's CSS */
@@ -128,27 +128,35 @@ h4 {
 	border: none;
 }
 
+.menu ul {
+    margin: 0 80px;
+}
+
 .nav-bar li {
+    background: none;
 	border: none;
-	background: #efefef;
-	margin: 2px;
+    height: 80px;
+    line-height: 80px;
+    font-size: 80px;
 }
 
 .nav-bar li:hover {
-	background: #e0e0e0;
+	background: #4f4f4f;
 }
 
 .nav-bar > li:last-child {
-	border-right: none;
 }
 
 .nav-bar li a {
-	color: #222;
+	color: #fefefe;
+}
+
+.nav-bar>li>a:first-child {
+    font-size: 14px;
 }
 
 .mail-signup {
-	text-align: center;
-  overflow: hidden;
+    overflow: hidden;
 }
 
 .mail-signup a {
