@@ -62,8 +62,9 @@ li {
 .usacs-logo a{
 	font-family: neou;
 	font-weight: bold;
-	font-size: 60px;
+//	font-size: 60px;
 	margin-bottom: 0px;
+	margin-top: 1px;
     color: #ffffff;
 }
 
@@ -173,4 +174,9 @@ li {
 	font-size: 14px;
 	font-weight: bold;
 	font-family: 'Helvetica Neue', Arial, Helvetica, sans-serif;
+}
+
+.top-bar {
+	padding-top: 2px;
+}
 }
