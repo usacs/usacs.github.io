@@ -34,7 +34,6 @@ p {
     font-size: 18px;
 }
 
-h2 {
     color: #142F58;
 	font-size: 32px;
 }
@@ -65,6 +64,7 @@ li {
 //	font-size: 60px;
 	margin-bottom: 0px;
 	margin-top: 1px;
+    padding-top: 4px;
     color: #ffffff;
 }
 
@@ -177,5 +177,5 @@ li {
 }
 
 .top-bar {
-	margin-bottom: 0px;
+
 }
