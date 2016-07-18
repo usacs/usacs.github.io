@@ -1,0 +1,118 @@
+#landing {
+    height: 100vh;
+    min-height: 450px;
+    position: relative;
+}
+#landing:before {
+    content: '';
+    background-image: url(assets/img/landing-bg.jpg);
+    background-size: cover;
+    background-position: center top;
+    opacity: 1;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+#landing:after {
+    content: '';
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    background-color: rgba(0, 0, 0, .8);
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+.center-wrapper {
+    width: 100%;
+    height: 100%;
+    padding-top: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    vertical-align: middle;
+    padding: 30px;
+    position: relative;
+    z-index: 3;
+}
+.center-wrapper > img {
+    margin-bottom: 15px;
+}
+h6 {
+    max-width: 560px;
+    margin: 0 auto;
+    color: white;
+    font-size: 3rem;
+    text-align: center;
+}
+.social-media {
+    bottom: 0px;
+    left: 0;
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    z-index: 4;
+    padding: 20px;
+}
+.social-media img {
+    width: 50px;
+    height: 50px;
+    padding: 10px;
+    display: inline-block;
+    transition: all .2s ease-in-out;
+}
+.social-media a:hover img{
+    transform: scale(1.15);
+}
+#main-events {
+    background-color: white;
+    padding: 50px;
+    background-image: url(assets/img/bg.svg);
+    background-position: center bottom;
+    background-size: cover;
+}
+.event {
+    height: 100px;
+}
+.event > div {
+    display: inline-block;
+    float: left;
+}
+.event-date {
+    height: 100%;
+    margin-right: 15px;
+    font-family: 'Gotham Book';
+    color: #b22828;
+    text-align: center;
+}
+.event-date .day {
+    display: block;
+    font-size: 3.8rem;
+    line-height: 35px;
+}
+
+.event-date .month {
+    font-family: 'Gotham Bold';
+    text-transform: uppercase;
+    font-size: 100%;
+    display: block;
+    font-size: 1.5rem;
+    letter-spacing: 5px;
+}
+.event-description {
+    width: calc(100% - 100px);
+    height: 100%;
+}
+.event-description > span {
+    display: block;
+}
+.event-description .title {
+    font-size: 1.7rem;
+    color: #b22828;
+}
+.event-description .description {
+    font-size: 1.3rem;
+}
