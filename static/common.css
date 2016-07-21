@@ -1,0 +1,172 @@
+@font-face {
+	font-family: 'Gotham Bold';
+	src: url('./assets/fonts/Gotham-Bold.ttf') format('truetype'), src: url('./assets/fonts/gotham-bold-webfont.woff') format('woff');
+}
+
+@font-face {
+	font-family: 'Gotham Book';
+	src: url('./assets/fonts/Gotham-Book.ttf') format('truetype'), src: url('./assets/fonts/gotham-book-webfont.woff') format('woff');
+}
+
+@font-face {
+	font-family: 'Gotham Black';
+	src: url('./assets/fonts/Gotham-Black.ttf') format('truetype')
+}
+
+@import url(https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic);
+* {
+	-web-kit-box-sizing: border-box;
+	-mox-box-sizing: border-box;
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	font-family: 'Lato', sans-serif;
+}
+
+a {
+	text-decoration: none;
+}
+
+li {
+	list-style: none;
+}
+
+h1 {
+	font-family: 'Gotham Bold', sans-serif;
+	font-size: 2.8rem;
+	color: #b22828;
+	text-align: center;
+}
+
+h2 {
+	text-align: center;
+	color: #b22828;
+}
+
+p {
+	font-family: 'Lato', sans-serif;
+	font-size: 1.5rem;
+	color: #4C4C4C;
+	text-align: center;
+}
+
+
+/******* NAV ********/
+
+nav {
+	position: fixed;
+	width: 100%;
+	top: 0;
+	left: 0;
+	height: 50px;
+	display: block;
+	border-bottom: 1px solid rgba(57, 57, 57, 0.24);
+	background-color: white;
+	z-index: 10;
+}
+
+.logo {
+	height: 50px;
+	padding: 15px 0px;
+    float: left;
+    position: relative;
+}
+.logo a {
+    height: 100%;
+    width: 100%;
+    padding: 15px;
+}
+nav > ul {
+	display: inline-block;
+	float: right;
+	height: 50px;
+    
+}
+
+nav > ul > li {
+	display: inline-block;
+	width: 120px;
+	max-height: 50px;
+	min-height: 50px;
+	overflow: hidden;
+	transition: all .2s ease-in-out;
+    margin-right: 0px;
+    float: left;
+    text-align: center;
+}
+
+nav ul li a {
+	height: 50px;
+	display: block;
+	padding: 0px 20px;
+	line-height: 50px;
+	color: #383838;
+	transition: all .2s ease-in-out;
+}
+
+nav ul li ul {
+	opacity: 0;
+	height: 0px;
+	transition: all .2s ease-in-out;
+}
+
+nav ul li ul li {
+	display: block;
+}
+
+nav ul li a:hover {
+	color: white;
+	text-decoration: none;
+}
+nav > ul > li:hover > a {
+    color: white;
+}
+nav > ul > li:hover {
+	max-height: 200px;
+	background-color: #b22828;
+}
+
+nav > ul > li:hover ul {
+	background-color: #B22828;
+	opacity: 1;
+	height: 200px;
+}
+
+nav > ul > li > ul > li a:hover,
+nav ul li a:hover {
+	background-color: #FF3939;
+}
+
+nav > ul > li > ul > li {
+	background-color: white;
+}
+
+
+/*landing section nav adjustments*/
+
+nav.special {
+	text-align: center;
+	border-bottom: none;
+	background-color: rgba(0, 0, 0, 0);
+	position: absolute;
+}
+
+nav.special ul li a {
+	color: white;
+}
+
+.special .logo {
+	display: none;
+}
+
+nav.special ul {
+	float: none;
+	margin: 0 auto;
+}
+
+nav.special > ul > li > ul > li {
+	background-color: rgba(0, 0, 0, 0);
+}
