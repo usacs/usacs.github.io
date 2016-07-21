@@ -1,6 +1,4 @@
 ###USACS SITE
-New site is in static folder. Still unsure how we should go about organizing the repo.
-
 
 ###CSS FILE DEFINITIONS:
 *common.css*

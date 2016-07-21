@@ -6,13 +6,18 @@
         <link rel="stylesheet" href="common.css">
         <link rel="stylesheet" href="modules.css">
         <link rel="stylesheet" href="landing.css">
+        <script type="application/javascript" src="./assets/js/sticky-nav.js"></script>
     </head>
 
     <body>
         <section id="landing">
             <nav class="special">
+                <ul class="logo">
+                    <a href="index.html">
+                        <img src="assets/img/usacs.svg">
+                    </a>
+                </ul>
                 <ul>
-                    <img class="logo" src="assets/img/usacs.svg">
                     <li><a href="#">Home</a>
                         <ul>
                             <li><a href="#">Sublink 1</a></li>
@@ -81,8 +86,8 @@
         <section id="main-events">
             <div class="container">
                 <div class="row">
-                    <div class="col-xs-2"></div>
-                    <div class="col-xs-8">
+                    <div class="col-md-2"></div>
+                    <div class="col-md-8">
                         <div class="events-wrapper">
                             <h1>Upcoming Events:</h1>
                             <div class="event">
@@ -96,22 +101,107 @@
                                 </div>
                             </div>
                             <div class="event">
-                                
+                                <div class="event-date">
+                                    <span class="day">31</span>
+                                    <span class="month">jan</span>
+                                </div>
+                                <div class="event-description">
+                                    <span class="title">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</span>
+                                    <span class="description">Fusce vel dui convallis eros suscipit ullamcorper auctor eu lectus. Pellentesque habitant morbi tristique senectus et netus et</span>
+                                </div>
+                            </div>
+                            <div class="event">
+                                <div class="event-date">
+                                    <span class="day">14</span>
+                                    <span class="month">feb</span>
+                                </div>
+                                <div class="event-description">
+                                    <span class="title">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</span>
+                                    <span class="description">Fusce vel dui convallis eros suscipit ullamcorper auctor eu lectus. Pellentesque habitant morbi tristique senectus et netus et</span>
+                                </div>
                             </div>
                             <div class="button-container">
                                 <a class="button">
                                     See Full Calendar
                                 </a>
                             </div>
+                            <h2 style="margin: 20px 0px 10px;">Wanna learn more about how to get more involved?</h2>
+                            <p style="margin-bottom: 20px;">Fusce vel dui convallis eros suscipit ullamcorper auctor eu lectus. Pellentesque habitant morbi tristique senectus et netus et.</p>
                             <div class="button-container">
                                 <a class="button">
                                     Get Involved
                                 </a>
                             </div>
                         </div>
-                        <div class="col-xs-2"></div>
+                        <div class="col-md-2"></div>
                     </div>
                 </div>
-                </section>
-            </body>
-        </html>
+            </div>
+        </section>
+        <section id="locations">
+            <div class="locations-header">
+                locations
+            </div>
+            <div class="loc1">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-8">
+                            <div class="location-description">
+                                <h1>the cave</h1>
+                                <p>Vestibulum et mollis turpis. Aliquam gravida urna justo, at ornare dui feugiat eget. Maecenas ipsum metus, venenatis quis ante at, sagittis dapibus dui. Ut molestie ultricies velit, eu bibendum erat laoreet non.</p>
+                                <p>Quis ante at, sagittis dapibus dui. Ut molestie ultricies velit, eu bibendum erat laoreet non.</p>
+                            </div>
+                        </div>
+                        <div class="col-sm-4"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="loc2">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-8">
+                            <div class="location-description">
+                                <h1>command center</h1>
+                                <p>Vestibulum et mollis turpis. Aliquam gravida urna justo, at ornare dui feugiat eget. Maecenas ipsum metus, venenatis quis ante at, sagittis dapibus dui. Ut molestie ultricies velit, eu bibendum erat laoreet non.</p>
+                                <p>Quis ante at, sagittis dapibus dui. Ut molestie ultricies velit, eu bibendum erat laoreet non.</p>
+                            </div>
+                        </div>
+                        <div class="col-sm-4"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="loc3">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-8">
+                            <div class="location-description">
+                                <h1>hackerspace</h1>
+                                <p>Vestibulum et mollis turpis. Aliquam gravida urna justo, at ornare dui feugiat eget. Maecenas ipsum metus, venenatis quis ante at, sagittis dapibus dui. Ut molestie ultricies velit, eu bibendum erat laoreet non.</p>
+                                <p>Quis ante at, sagittis dapibus dui. Ut molestie ultricies velit, eu bibendum erat laoreet non.</p>
+                            </div>
+                        </div>
+                        <div class="col-sm-4"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="loc4">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-8">
+                            <div class="location-description">
+                                <h1>makerspace</h1>
+                                <p>Vestibulum et mollis turpis. Aliquam gravida urna justo, at ornare dui feugiat eget. Maecenas ipsum metus, venenatis quis ante at, sagittis dapibus dui. Ut molestie ultricies velit, eu bibendum erat laoreet non.</p>
+                                <p>Quis ante at, sagittis dapibus dui. Ut molestie ultricies velit, eu bibendum erat laoreet non.</p>
+                            </div>
+                        </div>
+                        <div class="col-sm-4"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="footer">
+            <!--No idea what to put here, sakib never told us yet-->
+        </section>
+    </body>
+
+</html>
