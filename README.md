@@ -4,9 +4,11 @@ New site is in static folder. Still unsure how we should go about organizing the
 
 ###CSS FILE DEFINITIONS:
 *common.css*
-This holds all things universally found on all webpages, such as fonts, navs, default html tag styling etc. 
+This holds all things universally found on all webpages, such as fonts, navs, default html tag styling, etc. 
+
 *modules.css*
-Self contained objects that can be placed anywhere and planned or may be reused in the future that don't depend on page specific css to work properly. Such as, buttons, article cards, 
+Self contained objects that can be placed anywhere and planned or may be reused in the future that don't depend on page specific css to work properly. Such as, buttons, article cards, header-areas, etc.
+
 *page-specific-css*
 Used to override common.css stylings if needed, make custom adjustments or additions to a page. Also mainly used to style elements that don't ever plan to be reused.
 
