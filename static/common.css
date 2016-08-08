@@ -1,16 +1,16 @@
 @font-face {
 	font-family: 'Gotham Bold';
-	src: url('./assets/fonts/Gotham-Bold.ttf') format('truetype'), src: url('./assets/fonts/gotham-bold-webfont.woff') format('woff');
+	src: url('./assets/fonts/Gotham-Bold.ttf') format('truetype'), url('./assets/fonts/gotham-bold-webfont.woff') format('woff');
 }
 
 @font-face {
 	font-family: 'Gotham Book';
-	src: url('./assets/fonts/Gotham-Book.ttf') format('truetype'), src: url('./assets/fonts/gotham-book-webfont.woff') format('woff');
+	src: url('./assets/fonts/Gotham-Book.ttf') format('truetype'), url('./assets/fonts/gotham-book-webfont.woff') format('woff');
 }
 
 @font-face {
 	font-family: 'Gotham Black';
-	src: url('./assets/fonts/Gotham-Black.ttf') format('truetype')
+	src: url('./assets/fonts/Gotham-Black.ttf') format('truetype');
 }
 
 @import url(https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic);
@@ -57,15 +57,17 @@ p {
 /******* NAV ********/
 
 nav {
+    font-size: 12px;
 	position: fixed;
 	width: 100%;
-	top: 0;
+	top: -50px;
 	left: 0;
 	height: 50px;
 	display: block;
 	border-bottom: 1px solid rgba(57, 57, 57, 0.24);
 	background-color: white;
 	z-index: 10;
+    transition: all .2s ease-in-out;
 }
 
 .logo {
@@ -73,22 +75,23 @@ nav {
 	padding: 15px 0px;
     float: left;
     position: relative;
+    left: 0;
+    transition: all .2s ease-in-out;
 }
 .logo a {
     height: 100%;
     width: 100%;
     padding: 15px;
 }
-nav > ul {
+nav > ul:last-child {
 	display: inline-block;
 	float: right;
 	height: 50px;
-    
+    transition: all .2s ease-in-out;
 }
 
 nav > ul > li {
 	display: inline-block;
-	width: 120px;
 	max-height: 50px;
 	min-height: 50px;
 	overflow: hidden;
@@ -152,6 +155,8 @@ nav.special {
 	border-bottom: none;
 	background-color: rgba(0, 0, 0, 0);
 	position: absolute;
+    top: 0px !important;    
+    transition: all .2s ease-in-out;
 }
 
 nav.special ul li a {
@@ -166,7 +171,21 @@ nav.special ul {
 	float: none;
 	margin: 0 auto;
 }
-
+nav.special ul li {
+    font-size: 14px;
+}
 nav.special > ul > li > ul > li {
 	background-color: rgba(0, 0, 0, 0);
+}
+@media screen and (max-width: 940px) {
+    .logo {
+        left: -200px;
+        position: fixed;
+    }
+    nav:not(.special) > ul:last-child {
+        width: 100%;
+    }
+    nav:not(.special) > ul > li {
+        width: calc(100% / 7);
+    }
 }

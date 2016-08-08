@@ -88,7 +88,7 @@ h6 {
 	transform: scale(1.15);
 }
 
-#main-events {
+#content {
 	background-color: white;
 	background-image: url(assets/img/bg.svg);
 	background-position: center bottom;
@@ -161,18 +161,20 @@ h6 {
 	border-left: 0px;
 	border-right: 0px;
 }
+
 .location-description p {
-    margin-bottom: 20px;
+	margin-bottom: 20px;
 }
+
 .loc1,
 .loc2,
 .loc3,
 .loc4 {
-    padding-bottom: 30px;
-    position: relative;
+	padding-bottom: 30px;
+	position: relative;
 	border-bottom: 1px solid lightgray;
-    background-color: rgba(0, 0, 0, .6);
-    background-blend-mode: multiply;
+	background-color: rgba(0, 0, 0, .6);
+	background-blend-mode: multiply;
 }
 
 .loc1:before,
@@ -182,20 +184,17 @@ h6 {
 	content: '';
 	top: 0;
 	left: 0;
-    z-index: -1;
-    display: block;
+	z-index: -1;
+	display: block;
 	width: 100%;
 	height: 100%;
 	position: absolute;
-    background-size: cover;
-    background-position: center top;
-    background-repeat: no-repeat;
-    -ms-background-size: cover;
-    -o-background-size: cover;
-    -moz-background-size: cover;
-    -webkit-background-size: cover;
-    background-size: cover;
-    opacity: 1;
+	background-size: cover;
+	background-position: center top;
+	background-repeat: no-repeat;
+	-ms-background-size: cover;
+	background-size: cover;
+	opacity: 1;
 }
 
 .loc1:before {
@@ -230,7 +229,7 @@ h6 {
 	font-size: 4.4rem;
 	text-align: left;
 	color: white;
-    text-transform: uppercase;
+	text-transform: uppercase;
 }
 
 .location-description > p {
@@ -239,14 +238,22 @@ h6 {
 	text-align: left;
 	color: white;
 }
+
 #footer {
-    height: 50px;
-    display: block;
-    width: 100%;
-    background-color: #b22828;
+	height: 50px;
+	display: block;
+	width: 100%;
+	background-color: #b22828;
 }
+
+::-moz-selection {
+	background-color: #b22828;
+	color: white;
+}
+
 ::selection {
-    background-color: #b22828;
-    color: white;
+	background-color: #b22828;
+	color: white;
 }
+
 @media screen and (max-width: 900px) {}
