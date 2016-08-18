@@ -53,14 +53,13 @@ p {
 	text-align: center;
 }
 
-
 /******* NAV ********/
 
 nav {
     font-size: 12px;
 	position: fixed;
 	width: 100%;
-	top: -50px;
+	top: 0px;
 	left: 0;
 	height: 50px;
 	display: block;
