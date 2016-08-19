@@ -1,3 +1,22 @@
+h1 {
+    font-family: 'Gotham Bold', sans-serif;
+    font-size: 1.9375rem;
+    color: #b22828;
+    text-align: center;
+}
+
+h2 {
+    text-align: center;
+    color: #b22828;
+}
+
+p {
+    font-family: 'Lato', sans-serif;
+    font-size: 0.8125rem;
+    color: #4C4C4C;
+    text-align: center;
+}
+
 #landing {
 	height: 100vh;
 	min-height: 450px;
@@ -9,6 +28,7 @@
 	background-image: url('./assets/img/landing-bg.jpg');
 	background-size: cover;
 	background-position: center top;
+    background-attachment: fixed;
 	opacity: 1;
 	height: 100%;
 	width: 100%;
@@ -60,7 +80,7 @@ h6 {
 	max-width: 560px;
 	margin: 0 auto;
 	color: white;
-	font-size: 3rem;
+	font-size: 2rem;
 	text-align: center;
 }
 
@@ -88,13 +108,6 @@ h6 {
 	transform: scale(1.15);
 }
 
-#content {
-	background-color: white;
-	background-image: url(assets/img/bg.svg);
-	background-position: center bottom;
-	background-size: cover;
-}
-
 .events-wrapper {
 	padding: 20px 20px 50px;
 }
@@ -119,16 +132,15 @@ h6 {
 .event-date .day {
 	display: block;
 	min-width: 60px;
-	font-size: 3.8rem;
+    font-size: 2.25rem;
 	line-height: 35px;
 }
 
 .event-date .month {
 	font-family: 'Gotham Bold';
 	text-transform: uppercase;
-	font-size: 100%;
 	display: block;
-	font-size: 1.5rem;
+    font-size: 1.0625rem;
 	letter-spacing: 5px;
 }
 
@@ -141,12 +153,12 @@ h6 {
 }
 
 .event-description .title {
-	font-size: 1.7rem;
+    font-size: 1.125rem;
 	color: #b22828;
 }
 
 .event-description .description {
-	font-size: 1.3rem;
+    font-size: 0.8125rem;
 }
 
 .locations-header {
@@ -155,7 +167,7 @@ h6 {
 	text-transform: capitalize;
 	color: #b22828;
 	line-height: 50px;
-	font-size: 2.8rem;
+    font-size: 1.9375rem;
 	font-family: 'Gotham Bold';
 	border: 1px solid lightgray;
 	border-left: 0px;
@@ -175,6 +187,7 @@ h6 {
 	border-bottom: 1px solid lightgray;
 	background-color: rgba(0, 0, 0, .6);
 	background-blend-mode: multiply;
+    min-height: 400px;
 }
 
 .loc1:before,
@@ -226,33 +239,16 @@ h6 {
 
 .location-description > h1 {
 	font-family: 'Gotham Black';
-	font-size: 4.4rem;
+    font-size: 3.75rem;
 	text-align: left;
 	color: white;
 	text-transform: uppercase;
 }
 
 .location-description > p {
-	font-size: 1.3rem;
+	font-size: 1rem;
 	font-family: 'Lato';
 	text-align: left;
-	color: white;
-}
-
-#footer {
-	height: 50px;
-	display: block;
-	width: 100%;
-	background-color: #b22828;
-}
-
-::-moz-selection {
-	background-color: #b22828;
-	color: white;
-}
-
-::selection {
-	background-color: #b22828;
 	color: white;
 }
 

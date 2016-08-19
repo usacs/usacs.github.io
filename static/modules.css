@@ -43,13 +43,13 @@
 .button-container {
 	text-align: center;
 	padding: 10px;
+    margin-bottom: 20px;
 }
 
 .button {
 	display: inline-block;
 	font-family: 'Gotham Bold', sans-serif;
-	;
-	font-size: 1.6rem;
+    font-size: 1.0625rem;
 	color: white;
 	letter-spacing: 3px;
 	padding: 5px 20px;
@@ -123,22 +123,67 @@
 	color: #b22828;
 	font-family: 'Gotham Bold';
 	text-transform: capitalize;
-	font-size: 16px;
+	font-size: 1rem;
 }
 
 .m-major {
 	color: lightslategray;
 }
 
-.m-description {}
+.m-description {
+    
+}
 
 
 /*banner*/
 
 .banner {
-	height: 5.4rem;
 	display: block;
 	background-repeat: no-repeat;
 	background-position: center;
 	margin-bottom: 30px;
+    overflow: hidden;
+    position: relative;
+    height: 226px;
+    width: 100%;
+}
+.banner img {
+    width: 100%;
+}
+
+/*subnav*/
+
+.page-nav {
+    border: 1px solid rgba(0,0,0,.2);
+    border-left: 0px;
+    border-right: 0px;
+    margin-bottom: 20px;
+}
+.page-nav a {
+    display: inline-block;
+    text-align: center;
+    padding: 10px;
+    color: #383838;
+    transition: color .2s ease-in-out,
+        background-color .2s ease-in-out;
+    text-decoration: none;
+    
+}
+.page-nav a:hover {
+    background-color: rgba(0,0,0,.1);
+}
+.page-nav ul {
+    text-align: center;    
+}
+.page-nav .current {
+    position: relative;
+    color: #b22828;
+}
+.page-nav .current::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    left: 0;
+    bottom: 0;
+    border-bottom: 3px solid #b22828;
 }
