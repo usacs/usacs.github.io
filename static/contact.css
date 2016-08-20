@@ -1,0 +1,16 @@
+a {
+	text-align: center;
+	color: b22828;
+}
+
+.social-media{
+	  background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) );
+	  display:inline;
+	  position: absolute;
+	  
+}
+
+.social-media-wrapper{
+	display:inline;
+
+}
