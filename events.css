@@ -3,10 +3,8 @@ events-wrapper {
 }
 
 
-.event-month h3{
-	border-style: solid;
-	border-width: 1px;
-	border-color: #b22828;
+.event-month h2{
+	
 }
 
 .event {
@@ -57,4 +55,8 @@ events-wrapper {
 
 .event-description .description {
     font-size: 0.8125rem;
+}
+
+.event-wrapper{
+	margin-bottom:20px;
 }
