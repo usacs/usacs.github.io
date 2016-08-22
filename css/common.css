@@ -1,16 +1,16 @@
 @font-face {
     font-family: 'Gotham Bold';
-    src: url('./assets/fonts/Gotham-Bold.ttf') format('truetype'), url('./assets/fonts/gotham-bold-webfont.woff') format('woff');
+    src: url('../assets/fonts/Gotham-Bold.ttf') format('truetype'), url('../assets/fonts/gotham-bold-webfont.woff') format('woff');
 }
 
 @font-face {
     font-family: 'Gotham Book';
-    src: url('./assets/fonts/Gotham-Book.ttf') format('truetype'), url('./assets/fonts/gotham-book-webfont.woff') format('woff');
+    src: url('../assets/fonts/Gotham-Book.ttf') format('truetype'), url('../assets/fonts/gotham-book-webfont.woff') format('woff');
 }
 
 @font-face {
     font-family: 'Gotham Black';
-    src: url('./assets/fonts/Gotham-Black.ttf') format('truetype');
+    src: url('../assets/fonts/Gotham-Black.ttf') format('truetype');
 }
 
 @import url(https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic);
@@ -196,7 +196,7 @@ nav.normal {
 }
 #content {
     background-color: white;
-    background-image: url('./assets/img/bg.svg');
+    background-image: url('../assets/img/bg.svg');
     background-position: center bottom;
     background-size: contain;
     background-attachment: fixed;
