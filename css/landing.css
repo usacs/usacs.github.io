@@ -25,7 +25,7 @@ p {
 
 #landing:before {
 	content: '';
-	background-image: url('./assets/img/landing-bg.jpg');
+	background-image: url('../assets/img/landing-bg.jpg');
 	background-size: cover;
 	background-position: center top;
     background-attachment: fixed;
@@ -211,19 +211,19 @@ h6 {
 }
 
 .loc1:before {
-	background-image: url("./assets/img/cave-bg.jpg");
+	background-image: url("../assets/img/cave-bg.jpg");
 }
 
 .loc2:before {
-	background-image: url("./assets/img/cave-bg.jpg");
+	background-image: url("../assets/img/cave-bg.jpg");
 }
 
 .loc3:before {
-	background-image: url("./assets/img/cave-bg.jpg");
+	background-image: url("../assets/img/cave-bg.jpg");
 }
 
 .loc4:before {
-	background-image: url("./assets/img/makerspace-bg.jpg");
+	background-image: url("../assets/img/makerspace-bg.jpg");
 }
 
 .location-description {
