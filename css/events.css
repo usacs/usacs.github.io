@@ -1,16 +1,6 @@
-events-wrapper {
-	padding: 20px 20px 50px;
-}
-
-
-.event-month h2{
-	
-}
-
 .event {
 	display: inline-block;
 	margin-bottom: 20px;
-	
 }
 
 .event > div {
@@ -23,6 +13,7 @@ events-wrapper {
 	font-family: 'Gotham Book';
 	color: #b22828;
 	text-align: center;
+	margin-left: 20px;
 }
 
 .event-date .day {
@@ -58,5 +49,7 @@ events-wrapper {
 }
 
 .event-wrapper{
-	margin-bottom:20px;
+	margin-bottom: 20px;
+	margin-left: 27%;
+	width: 40%;
 }
