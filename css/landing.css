@@ -239,7 +239,7 @@ h6 {
 
 .location-description > h1 {
 	font-family: 'Gotham Black';
-    font-size: 3.75rem;
+    font-size: 1.75rem;
 	text-align: left;
 	color: white;
 	text-transform: uppercase;
@@ -247,7 +247,7 @@ h6 {
 
 .location-description > p {
 	font-size: 1rem;
-	font-family: 'Lato';
+	font-family: 'Lato', sans-serif;
 	text-align: left;
 	color: white;
 }

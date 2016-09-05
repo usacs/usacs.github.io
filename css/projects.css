@@ -1,3 +1,11 @@
-h3{
+.card a{
 	text-align: center;
+	color: #333333;
+
 }
+.card p{
+	text-align: center;
+	color: #333333;
+}
+
+h3{text-align: center;}
