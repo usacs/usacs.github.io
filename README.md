@@ -23,8 +23,8 @@ Used to override common.css stylings if needed, make custom adjustments or addit
 ---
 
 *Things that people can publicly fix*
-1. Contacts.html needs a email image next to the email at the top of the page.
-2. We need an image a large image of the Command Center and the Hackerspace for index.html
-3. A JS script that can read a json file and populate the events.html page with JQuery
-4. Resource page
-5. Add an interactive Alumni Map
+- Contacts.html needs a email image next to the email at the top of the page.
+- We need an image a large image of the Command Center and the Hackerspace for index.html
+- A JS script that can read a json file and populate the events.html page with JQuery
+- Resource page
+- Add an interactive Alumni Map
