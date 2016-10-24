@@ -1,3 +1,7 @@
+###USACS SITE
+New site is in static folder. Still unsure how we should go about organizing the repo.
+
+
 ###CSS FILE DEFINITIONS:
 *common.css*
 This holds all things universally found on all webpages, such as fonts, navs, default html tag styling, etc. 
@@ -19,12 +23,3 @@ Used to override common.css stylings if needed, make custom adjustments or addit
 - Finalize links in nav
 - Make nav either animate fadeIn/fadeOut or moveUp/moveDown on scroll
 - QA for other devices
-
----
-
-*Things that people can publicly fix*
-- Contacts.html needs a email image next to the email at the top of the page.
-- We need an image a large image of the Command Center and the Hackerspace for index.html
-- A JS script that can read a json file and populate the events.html page with JQuery
-- Resource page
-- Add an interactive Alumni Map
