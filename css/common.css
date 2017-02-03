@@ -215,7 +215,7 @@ nav.normal {
     background-color: white;
     background-image: url('../assets/img/bg.svg');
     background-position: center bottom;
-    background-size: contain;
+    background-size: cover;
     background-attachment: fixed;
     background-repeat: repeat-y;
 }
