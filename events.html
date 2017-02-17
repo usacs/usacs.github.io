@@ -1,52 +1,118 @@
 <html>
 
-<head>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-    <link rel="stylesheet" href="bootstrap/css/bootstrap.css">
-    <link rel="stylesheet" href="css/common.css">
-    <link rel="stylesheet" href="css/modules.css">
-    <link rel="stylesheet" href="css/events.css">
-    <script src="./assets/js/interactions.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.15.2/moment.min.js"></script>
-    <script src="./assets/js/events.js"></script>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-</head>
+    <head>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+        <link rel="stylesheet" href="bootstrap/css/bootstrap.css">
+        <link rel="stylesheet" href="css/common.css">
+        <link rel="stylesheet" href="css/modules.css">
+        <link rel="stylesheet" href="css/events.css">
 
-<body>
-    <nav class="normal">
-        <ul class="logo">
-            <a href="index.html">
-                <img src="assets/img/usacs.svg">
-            </a>
-        </ul>
-        <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="events.html">Events</a></li>
-            <li><a href="get-involved.html">Get Involved</a></li>
-            <li><a href="mentorship.html">Mentorship</a></li>
-            <li><a href="projects.html">Projects</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="contact.html">Contact</a></li>
-            <li><a href="https://docs.google.com/document/d/1rfdTi3SQ0uE2_wW2vqnZON9-uK1QcxLA0peom3USzLk/edit?usp=sharing">Alumni</a></li>
-            <li><a href="https://medium.com/@rutgersusacs">Blog</a></li>
-        </ul>
-    </nav>
-    <section id="content" class="pages">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-8"></div>
-                <div class="col-md-12">
-                    <h1>Events Calendar</h1>
-                    <div class="events-full"></div>
+        <script type="application/javascript" src="./assets/js/interactions.js"></script>
+        <script type="application/javascript" src="./assets/js/events-list.js"></script>
+    </head>
+
+    <body>
+        <nav class="normal">
+            <ul class="logo">
+                <a href="index.html">
+                    <img src="assets/img/usacs.svg">
+                </a>
+            </ul>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="events.html">Events</a></li>
+                <li><a href="get-involved.html">Get Involved</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            	<li><a href="https://docs.google.com/document/d/1rfdTi3SQ0uE2_wW2vqnZON9-uK1QcxLA0peom3USzLk/edit?usp=sharing">Alumni</a></li>
+				<li><a href="https://medium.com/@rutgersusacs">Blog</a></li>
+			</ul>
+        </nav>
+        
+		<section id="content" class="pages">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-8"></div>
+                        <div class="col-md-12">
+
+                            <h1>Events Calendar</h1>
+	
+                            <div class="event-wrapper">
+                                <div class="event">
+                                    <div class="event-date">
+                                        <span class="day">20</span>
+                                        <span class="month">Oct</span>
+                                    </div>
+                                    <div class="event-description">
+                                        <span class="title">Weekly Board Meeting - CAVE from 7:00-9:00 PM</span>
+                                        <span class="description">Stop by to find out and partake in planning upcoming USACS events.</span>
+                                    </div>
+                                </div>
+                            </div>
+						
+                            <div class="event-wrapper">
+                                <div class="event">
+                                    <div class="event-date">
+
+                                        <span class="day">21</span>
+                                        <span class="month">Oct</span>
+                                    </div>
+                                    <div class="event-description">
+                                        <span class="title">Hacker Hour - Databases - CAVE from 6:00-7:00 PM</span>
+                                        <span class="description">Learn how to create database and interacting with one via MySQL and MonogDB.</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="event-wrapper">
+                                <div class="event">
+                                    <div class="event-date">
+
+                                        <span class="day">22</span>
+                                        <span class="month">Oct</span>
+                                    </div>
+                                    <div class="event-description">
+                                        <span class="title">HackRU! - College Ave Student Center</span>
+                                        <span class="description">Come hack with us for 24 hours on College Ave!</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="event-wrapper">
+                                <div class="event">
+                                    <div class="event-date">
+                                        <span class="day">27</span>
+                                        <span class="month">Oct</span>
+                                    </div>
+                                    <div class="event-description">
+                                        <span class="title">Weekly Board Meeting - CAVE from 7:00-9:00 PM</span>
+                                        <span class="description">Hang out with eboard while we organize upcoming USACS events. </span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="event-wrapper">
+                                <div class="event">
+                                    <div class="event-date">
+                                        <span class="day">28</span>
+                                        <span class="month">Oct</span>
+                                    </div>
+                                    <div class="event-description">
+                                        <span class="title">Hacker Hour - What happens when? - CAVE from 6:00-7:00 PM</span>
+                                        <span class="description">Learn what happens when you type something into Google.com.</span>
+                                    </div>
+                                </div>
+                            </div>
+
+						</div>
+                    </div>
+
+                    <h4>To find out about more events outside this month, checkout the offical USACS Google Calendar</h4>
+                    <div class="button-container button-inline">
+                        <a class="button" href="https://calendar.google.com/calendar/embed?src=rutgersusacs%40gmail.com&ctz=America/New_York"> USACS Calendar</a>
+                    </div>
                 </div>
             </div>
-            <h4>To find out about more events beyond the next couple of days, checkout the official USACS Google Calendar!</h4>
-            <div class="button-container button-inline">
-                <a class="button" href="https://calendar.google.com/calendar/embed?src=rutgersusacs%40gmail.com&ctz=America/New_York"> USACS Calendar</a>
-            </div>
-        </div>
-        </div>
-    </section>
-</body>
-
+        </section>
+    </body>
 </html>

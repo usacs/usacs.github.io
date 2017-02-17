@@ -1,6 +1,6 @@
 @font-face {
     font-family: 'Gotham Bold';
-    src: url('../assets/fonts/Gotham-Bold.ttf') format('truetype'), url('../assets/fonts/gotham-bold-webfont.woff') format('woff');
+    src: url('..css/assets/fonts/Gotham-Bold.ttf') format('truetype'), url('../assets/fonts/gotham-bold-webfont.woff') format('woff');
 }
 
 @font-face {
@@ -13,8 +13,7 @@
     src: url('../assets/fonts/Gotham-Black.ttf') format('truetype');
 }
 
-@import url('https://fonts.googleapis.com/css?family=Lato');
-
+@import url(https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic);
 * {
     -web-kit-box-sizing: border-box;
     -mox-box-sizing: border-box;
@@ -22,9 +21,8 @@
     margin: 0;
     padding: 0;
 }
-
 html {
-    font-size: 18px;
+    font-size: 16px;
 }
 
 body {
@@ -44,27 +42,21 @@ h1 {
     font-family: 'Gotham Bold';
     text-align: center;
 }
-
 h2 {
     font-size: 1.25rem;
     font-family: 'Gotham Bold';
     text-align: center;
 }
-
 h3 {
     font-size: 0.9375rem;
 }
-
-h2,
-h3 {
+h2, h3 {
     color: #b22828;
     margin-bottom: 20px;
 }
-
 p {
     margin-bottom: 20px;
 }
-
 
 /******* NAV ********/
 
@@ -90,13 +82,11 @@ nav {
     left: 0;
     transition: all .2s ease-in-out;
 }
-
 .logo a {
     height: 100%;
     width: 100%;
     padding: 15px;
 }
-
 nav > ul:last-child {
     display: inline-block;
     float: right;
@@ -138,11 +128,9 @@ nav ul li a:hover {
     color: white;
     text-decoration: none;
 }
-
 nav > ul > li:hover > a {
     color: white;
 }
-
 nav > ul > li:hover {
     max-height: 200px;
     background-color: #b22828;
@@ -171,7 +159,7 @@ nav.special {
     border-bottom: none;
     background-color: rgba(0, 0, 0, 0);
     position: absolute;
-    top: 0px !important;
+    top: 0px !important;    
     transition: all .2s ease-in-out;
 }
 
@@ -187,30 +175,24 @@ nav.special ul {
     float: none;
     margin: 0 auto;
 }
-
 nav.special ul li {
     font-size: 0.875rem;
 }
-
 nav.special > ul > li > ul > li {
     background-color: rgba(0, 0, 0, 0);
 }
-
 nav.normal {
     top: 0px;
 }
-
 #content.pages {
     padding-top: 50px;
 }
-
 #footer {
     height: 50px;
     display: block;
     width: 100%;
     background-color: #b22828;
 }
-
 #content {
     background-color: white;
     background-image: url('../assets/img/bg.svg');
@@ -219,18 +201,15 @@ nav.normal {
     background-attachment: fixed;
     background-repeat: repeat-y;
 }
-
 @media (max-width:990px) {
     #content {
         background-size: cover;
     }
 }
-
 .active-wrap {
     overflow: hidden;
     position: relative;
 }
-
 .active-area {
     display: inline-block;
     padding-bottom: 50px;
@@ -240,13 +219,12 @@ nav.normal {
     transition: all .2s ease-in-out;
     opacity: 1;
 }
-
 .active-area:not(.current) {
     opacity: 0;
 }
+p {
 
-p {}
-
+}
 ::-moz-selection {
     background-color: #b22828;
     color: white;

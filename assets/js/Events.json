@@ -1,0 +1,268 @@
+{
+	"events": [
+	{
+		"summary": "Board meeting",
+		"startTime": "2016-02-04T18:30:00-05:00",
+		"endTime": "2016-02-04T19:30:00-05:00",
+		"location": "Hill 252 (The Cave)"
+	},
+	{
+		"summary": "Code Red",
+		"startTime": "2016-02-05T13:00:00-05:00",
+		"endTime": "2016-02-05T18:00:00-05:00",
+		"location": "Hill 252 (The Cave)"
+	},
+	{
+		"summary": "Hacker Hour",
+		"startTime": "2016-02-05T18:00:00-05:00",
+		"endTime": "2016-02-05T19:00:00-05:00",
+		"location": "Hill 252 (The Cave)"
+	},
+	{
+		"summary": "Hack Night",
+		"startTime": "2016-02-10T01:00:00+00:00",
+		"endTime": "2016-02-10T03:00:00+00:00",
+		"location": "BCC (The Cove)"
+	},
+	{
+		"summary": "Code Red",
+		"startTime": "2016-02-12T13:00:00-05:00",
+		"endTime": "2016-02-12T18:00:00-05:00",
+		"location": "Hill 252 (The Cave)"
+	},
+	{
+		"summary": "Code Red",
+		"startTime": "2016-02-12T13:00:00-05:00",
+		"endTime": "2016-02-12T18:00:00-05:00",
+		"location": "Hill 252 (The Cave)"
+	},
+	{
+		"summary": "Hacker Hour",
+		"startTime": "2016-02-12T18:00:00-05:00",
+		"endTime": "2016-02-12T19:00:00-05:00",
+		"location": "Hill 252 (The Cave)"
+	},
+	{
+		"summary": "Hacker Hour",
+		"startTime": "2016-02-12T18:00:00-05:00",
+		"endTime": "2016-02-12T19:00:00-05:00",
+		"location": "Hill 252 (The Cave)"
+	},
+	{
+		"summary": "Code Red",
+		"startTime": "2016-03-04T13:00:00-05:00",
+		"endTime": "2016-03-04T18:00:00-05:00",
+		"location": "Hill 252 (The Cave)"
+	},
+	{
+		"summary": "Hack Night",
+		"startTime": "2016-03-09T01:00:00+00:00",
+		"endTime": "2016-03-09T03:00:00+00:00",
+		"location": "Red Lion Cafe"
+	},
+	{
+		"summary": "Hack Night",
+		"startTime": "2016-03-23T00:00:00+00:00",
+		"endTime": "2016-03-23T02:00:00+00:00",
+		"location": "BCC (The Cove)"
+	},
+	{
+		"summary": "Code Red",
+		"startTime": "2016-04-01T13:00:00-04:00",
+		"endTime": "2016-04-01T18:00:00-04:00",
+		"location": "Hill 252 (The Cave)"
+	},
+	{
+		"summary": "Hacker Hour",
+		"startTime": "2016-04-08T18:00:00-04:00",
+		"endTime": "2016-04-08T19:00:00-04:00",
+		"location": "Hill 252 (The Cave)"
+	},
+	{
+		"summary": "Hack Night",
+		"startTime": "2016-04-20T00:00:00+00:00",
+		"endTime": "2016-04-20T02:00:00+00:00",
+		"location": "BCC (The Cove)"
+	},
+	{
+		"summary": "Involvement Fair",
+		"startTime": "2016-09-05T19:00:00+00:00",
+		"endTime": "2016-09-05T21:00:00+00:00",
+		"location": "College Avenue"
+	},
+	{
+		"summary": "First Day of the Semester",
+		"startTime": "2016-09-06",
+		"endTime": "2016-09-07",
+		"location": "Rutgers–New Brunswick, New Brunswick, NJ 08901, USA"
+	},
+	{
+		"summary": "Game Night",
+		"startTime": "2016-09-09T22:00:00+00:00",
+		"endTime": "2016-09-10T01:00:00+00:00",
+		"location": "Hill Center, Piscataway Township, NJ 08854, USA"
+	},
+	{
+		"summary": "First Mentorship Meeting",
+		"startTime": "2016-09-14T23:00:00+00:00",
+		"endTime": "2016-09-15T01:00:00+00:00",
+		"location": "Hill Center, Piscataway Township, NJ 08854, USA"
+	},
+	{
+		"summary": "CS Social",
+		"startTime": "2016-09-16T20:00:00+00:00",
+		"endTime": "2016-09-16T22:00:00+00:00",
+		"location": "Science and Engineering Resource Center, Piscataway Township, NJ 08854, USA"
+	},
+	{
+		"summary": "Hacker Hour - Meet the Professors",
+		"startTime": "2016-09-16T22:00:00+00:00",
+		"endTime": "2016-09-16T23:00:00+00:00",
+		"location": "Hill Center, Piscataway Township, NJ 08854, USA"
+	},
+	{
+		"summary": "Ice Cream Social",
+		"startTime": "2016-09-16T23:00:00+00:00",
+		"endTime": "2016-09-17T00:00:00+00:00",
+		"location": "Hill Center, Piscataway Township, NJ 08854, USA"
+	},
+	{
+		"summary": "Second Mentorship Meeting",
+		"startTime": "2016-09-22T23:00:00+00:00",
+		"endTime": "2016-09-23T01:00:00+00:00",
+		"location": "Hill Center, Piscataway Township, NJ 08854, USA"
+	},
+	{
+		"summary": "Hacker Hour - Surviving CS + Intro to Hackathons",
+		"startTime": "2016-09-23T22:00:00+00:00",
+		"endTime": "2016-09-23T23:00:00+00:00",
+		"location": "Hill Center, Piscataway Township, NJ 08854, USA"
+	},
+	{
+		"summary": "Hack Night - Twitch Plays Pokemon with Sam Agnew",
+		"startTime": "2016-09-28T00:00:00+00:00",
+		"endTime": "2016-09-28T02:00:00+00:00",
+		"location": "Busch Campus Center, 604 Bartholomew Rd, Piscataway Township, NJ 08854, USA"
+	},
+	{
+		"summary": "Hack Night - Kicking Ass Outside of the Classroom with Eddie Zaneski",
+		"startTime": "2016-09-28T00:00:00+00:00",
+		"endTime": "2016-09-28T02:00:00+00:00",
+		"location": "Busch Campus Center, 604 Bartholomew Rd, Piscataway Township, NJ 08854, USA"
+	},
+	{
+		"summary": "Google Visit",
+		"startTime": "2016-09-30T18:00:00+00:00",
+		"endTime": "2016-09-30T20:00:00+00:00",
+		"location": "Google, 4, 76 9th Ave, New York, NY 10011, USA"
+	},
+	{
+		"summary": "Hacker Hour - Intro to the Shell & Text Editors",
+		"startTime": "2016-09-30T22:00:00+00:00",
+		"endTime": "2016-09-30T23:00:00+00:00",
+		"location": "Hill Center, Piscataway Township, NJ 08854, USA"
+	},
+	{
+		"summary": "Hack Night - How a Company Works with Mike Swift from MLH",
+		"startTime": "2016-10-05T00:00:00+00:00",
+		"endTime": "2016-10-05T02:00:00+00:00",
+		"location": "Busch Campus Center, 604 Bartholomew Rd, Piscataway Township, NJ 08854, USA"
+	},
+	{
+		"summary": "Google Mock Interview Workshop",
+		"startTime": "2016-10-06T18:00:00+00:00",
+		"endTime": "2016-10-06T20:00:00+00:00",
+		"location": "Busch Campus Center, 604 Bartholomew Rd, Piscataway Township, NJ 08854, USA"
+	},
+	{
+		"summary": "Hacker Hour - Distributed Systems & Infrastructure",
+		"startTime": "2016-10-07T22:00:00+00:00",
+		"endTime": "2016-10-07T23:00:00+00:00",
+		"location": "Hill Center, Piscataway Township, NJ 08854, USA"
+	},
+	{
+		"summary": "Hacker Hour - Git & Version Control",
+		"startTime": "2016-10-14T22:00:00+00:00",
+		"endTime": "2016-10-14T23:00:00+00:00",
+		"location": "Hill Center, Piscataway Township, NJ 08854, USA"
+	},
+	{
+		"summary": "FIGS Visit CAVE",
+		"startTime": "2016-10-18T15:30:00+00:00",
+		"endTime": "2016-10-18T16:50:00+00:00",
+		"location": "Hill Center, Piscataway Township, NJ 08854, USA"
+	},
+	{
+		"summary": "HackRU Workshop",
+		"startTime": "2016-10-19T00:00:00+00:00",
+		"endTime": "2016-10-19T02:00:00+00:00",
+		"location": "Busch Campus Center, 604 Bartholomew Rd, Piscataway Township, NJ 08854, USA"
+	},
+	{
+		"summary": "Intro to Manual Labor (Setting Up HackRU)",
+		"startTime": "2016-10-21T22:00:00+00:00",
+		"endTime": "2016-10-21T23:00:00+00:00",
+		"location": "Rutgers Student Center, 126 College Ave, New Brunswick, NJ 08901, USA"
+	},
+	{
+		"summary": "HackRU",
+		"startTime": "2016-10-22",
+		"endTime": "2016-10-24",
+		"location": "Rutgers Student Center, 126 College Ave, New Brunswick, NJ 08901, USA"
+	},
+	{
+		"summary": "Hacker Hour - Hackathon Showcase",
+		"startTime": "2016-10-28T22:00:00+00:00",
+		"endTime": "2016-10-28T23:00:00+00:00",
+		"location": "Hill Center, Piscataway Township, NJ 08854, USA"
+	},
+	{
+		"summary": "Hack Night - Slackbot/wit.ai with David Awad",
+		"startTime": "2016-11-02T00:00:00+00:00",
+		"endTime": "2016-11-02T02:00:00+00:00",
+		"location": "Busch Campus Center, 604 Bartholomew Rd, Piscataway Township, NJ 08854, USA"
+	},
+	{
+		"summary": "Hacker Hour - How does the Internet work?",
+		"startTime": "2016-11-04T22:00:00+00:00",
+		"endTime": "2016-11-04T23:00:00+00:00",
+		"location": "Hill Center, Piscataway Township, NJ, United States"
+	},
+	{
+		"summary": "Hacker Hour - What happens when you type in Google.com?",
+		"startTime": "2016-11-11T23:00:00+00:00",
+		"endTime": "2016-11-12T00:00:00+00:00",
+		"location": "Hill Center, Piscataway Township, NJ, United States"
+	},
+	{
+		"summary": "Hack Night - TBA",
+		"startTime": "2016-11-16T01:00:00+00:00",
+		"endTime": "2016-11-16T03:00:00+00:00",
+		"location": "Busch Campus Center, Bartholomew Road, Piscataway Township, NJ, United States"
+	},
+	{
+		"summary": "Hacker Hour - Introduction to Web Development",
+		"startTime": "2016-11-18T23:00:00+00:00",
+		"endTime": "2016-11-19T00:00:00+00:00",
+		"location": "Hill Center, Piscataway Township, NJ, United States"
+	},
+	{
+		"summary": "Hacker Hour - Databases",
+		"startTime": "2016-12-02T23:00:00+00:00",
+		"endTime": "2016-12-03T00:00:00+00:00",
+		"location": "Hill Center, Piscataway Township, NJ 08854, USA"
+	},
+	{
+		"summary": "Local Hack Day",
+		"startTime": "2016-12-03",
+		"endTime": "2016-12-04",
+		"location": "Hill 252 (The Cave)"
+	},
+	{
+		"summary": "Mentorship Reflection + Ice Cream Social + Secret Santa Gift Exchange",
+		"startTime": "2016-12-07T01:00:00+00:00",
+		"endTime": "2016-12-07T03:00:00+00:00",
+		"location": "Busch Campus Center, Bartholomew Road, Piscataway Township, NJ, United States"
+	}
+	]
+}
