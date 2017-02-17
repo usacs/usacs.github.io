@@ -1,132 +1,193 @@
-<!DOCTYPE html>
+<html>
 
-<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
-<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
-<!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
-<head>
-  <meta charset="utf-8" />
+    <head>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+        <link rel="stylesheet" href="bootstrap/css/bootstrap.css">
+        <link rel="stylesheet" href="css/common.css">
+        <link rel="stylesheet" href="css/modules.css">
+        <link rel="stylesheet" href="css/landing.css">
+        <script type="application/javascript" src="./assets/js/sticky-nav.js"></script>
+    </head>
 
-  <!-- Set the viewport width to device width for mobile -->
-  <meta name="viewport" content="width=device-width" />
+    <body>
+        <section id="landing">
+            <nav class="special">
+                <ul class="logo">
+                    <a href="index.html">
+                        <img src="./assets/img/usacs.svg">
+                    </a>
+                </ul>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="events.html">Events</a></li>
+                    <li><a href="get-involved.html">Get Involved</a></li>
+                    <li><a href="projects.html">Projects</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+					<li><a href="https://docs.google.com/document/d/1rfdTi3SQ0uE2_wW2vqnZON9-uK1QcxLA0peom3USzLk/edit?usp=sharing">Alumni</a></li>
+					<li><a href="https://medium.com/@rutgersusacs">Blog</a></li>
 
-  <title>Rutgers USACS</title>
-  
-  <!-- Included CSS Files (Compressed) -->
-  <link rel="stylesheet" href="stylesheets/foundation.min.css">
-  <link rel="stylesheet" href="stylesheets/app.css">
 
-  <script src="javascripts/modernizr.foundation.js"></script>
-</head>
-<body>
+                </ul>
+            </nav>
+            <div class="container">
+                <div class="row">
+                    <div class="center-wrapper">
+                        <img src="assets/img/usacs-logo.svg"/>
+                        <h6>Undergraduate Student Alliance of Computer Scientists</h6>
+                        <div class="social-media">
+                            <a href="https://www.facebook.com/rutgers.usacs/?ref=br_tf"><img src="assets/img/fb.svg"></a>
+                            <a href="https://twitter.com/Rutgers_Usacs"><img src="assets/img/twitter.svg"></a>
+                            <a href="https://www.instagram.com/Rutgers_Usacs/"><img src="assets/img/insta.svg"></a>
+                        </div>
 
-	<div class=" main-content">
-		<!-- Header -->
-		
-		<div class="row collapse">
-			<div class="four columns title">
-				<h1 class="usacs-logo">USACS</h1>
-				<h4 class="subheader show-for-small">Undergraduate Student Alliance of Computer Scientists</h4>
-			</div>
-			<div class="eight columns usacs-menu">
-				<ul class="nav-bar right">
-					<li><a href="#about">About</a></li>
-					<li><a href="#schedule">Schedule</a></li>
-					<li><a href="./people.html">People</a></li>
-					<li><a href="http://www.hackru.org">HackRU</a></li>
-					<li><a href="mailto:rutgersusacs@gmail.com">Contact Us</a></li>
-				</ul>
-			</div>
-		</div>
-		<div class="row collapse title hide-for-small">	
-			<h4 class="subheader">Undergraduate Student Alliance of Computer Scientists</h4>
-		</div>
-		
-		<!-- End Header and Nav -->
-		
-		
-		<!-- First Band (Slider) -->
-			
-		<div class="row slider-block">
-			<div id="slider">
-				<img src="./images/slider_images/slider2.jpg" alt="Mentor Program">
-				<img src="./images/slider_images/slider1.jpg" alt="HackRu Fall 2012">
-				<img src="./images/slider_images/slider6.jpg" alt="Friday night Hacker Hour lessons">
-				<img src="./images/slider_images/slider3.jpg" alt="Hacking at HackRU Fall 2012">
-				<img src="./images/slider_images/slider4.jpg" alt="Fall 2012 USACS Social">
-				<img src="./images/slider_images/slider5.jpg" alt="Two hackers at HackRU Fall 2012">
-			</div> 
-		</div>
-		
-		
-		<!-- Second Band (Image Left with Text) -->
-		
-		<div class="row content-block">
-			<div class="four columns">
-				<img src="./images/social-group-photo.jpg" />
-			</div>
-			<div class="eight columns" id="about">
-				<h2>USACS is.. </h2>
-				<p>USACS, also known as the Undergraduate Student Alliance of Computer Scientists is a Computer Science interest group. Primarily USACS exists as a club that strings together a series of events for the Rutgers CS community. Our "members" are loosely defined as event regulars attendees and participants.</p>
-					
-				<p>In addition to our two big events that we plan on a semesterly basis, USACS runs Code Red every Friday from 3pm to 5pm in Hill 252, a program set up for 111 and 112 students to come in and get free tutoring from USACS members. After Code Red at 6pm we hold a weekly Hacker Hour session. Each Hacker Hour an upper classmen teaches an awesome subject that CS students would normally never get to learn in the standard CS curriculum.</p>
+                        <!-- I just want to add this quickly. -->
+                        <!-- TODO: apply css once I know the proper location to for the MailingListBtn-->
+                        <br/>   
+                        <br/>
+                        <br/>
+                        <br/>
+                        
+						<div class="button-container button-inline">
+                            <a class="button" href="http://eepurl.com/NrOvb">
+                            get on the mailing list</a>
+                        </div>
+                        
 
-				<p>USACS also manages a mentoring program that connects aspiring underclassmen CS students with experience upperclassmen who can teach them practical job-oriented CS skills. If you're interested in being mentored, come to Hacker hour and speak with one of the organizers about getting paired up!</p>
-			</div>
-		</div>
-		
-		
-		<!-- Third Band (Image Right with Text) -->
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="content">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-2"></div>
+                    <div class="col-md-8">
+                        <div class="events-wrapper">
+                            <h1>Upcoming Events</h1>
+							
+                            <div class="event-wrapper">
+                                <div class="event">
+                                    <div class="event-date">
+                                        <span class="day">20</span>
+                                        <span class="month">Oct</span>
+                                    </div>
+                                    <div class="event-description">
+                                        <span class="title">Weekly Board Meeting - CAVE from 7:00-9:00 PM</span>
+                                        <span class="description">Stop by to find out and partake in planning upcoming USACS events.</span>
+                                    </div>
+                                </div>
+                            </div>
+						
+                            <div class="event-wrapper">
+                                <div class="event">
+                                    <div class="event-date">
 
-		<div class="row content-block" id="schedule">
-			<div class="twelve columns">	
-				<h2>Schedule for Spring 2013 Semester</h2>
-				<ul>
+                                        <span class="day">21</span>
+                                        <span class="month">Oct</span>
+                                    </div>
+                                    <div class="event-description">
+                                        <span class="title">Hacker Hour - Databases - CAVE from 6:00-7:00 PM</span>
+                                        <span class="description">Learn how to create database and interacting with one via MySQL and MonogDB.</span>
+                                    </div>
+                                </div>
+                            </div>
 
-					<li class="schedule-item">	
-					<h3>Hacker Hour</h3>
-					<p>Hacker Hour will be being held on Friday nights at 6pm in Hill 252 (the CAVE). Here's our upcoming Hacker Hour Schedule.</p>
+                            <div class="event-wrapper">
+                                <div class="event">
+                                    <div class="event-date">
 
-					<ul>
-						<li>
-						<h4>Friday, Feburary 22nd - Getting a Job and Killing the Technical Interview</h4>
-						<p>Come learn how to land an interview to ace the technical questions for your next job or internship. We'll	talk about building an online presence, writing a baller resume, and strategy on how to take on the hardest technical interview questions.</p>
-						</li>
-						<li>
-						<h4>Friday, March 1st and 8th - Game Development in HTML5 and Javascript</h4>
-						<p>This will be a two part series on how to get started in writing games on the web. But not the derpy flash games that you grew up on. This will be lean, mean, HTML5 Javascript games that can be played better, faster, and on any browser.</p>
-						</li>
-					</ul>
-					</li>
+                                        <span class="day">22</span>
+                                        <span class="month">Oct</span>
+                                    </div>
+                                    <div class="event-description">
+                                        <span class="title">HackRU! - College Ave Student Center</span>
+                                        <span class="description">Come hack with us for 24 hours on College Ave!</span>
+                                    </div>
+                                </div>
+                            </div>
 
-					<li class="schedule-item">
-					<h3>HackRU</h3>	
-					<p>USACS will be holding HackRU once more this spring. Expect an over-night programming challenge of epic proportions. With help of local tech-company sponsors we will be eating, hacking, and competing for 24-hours in the Cook Campus Center on March 30th to 31st. Come compete, win prizes, make job connections, build something awesome, and have fun! Details are on <a href="http://www.hackru.org">HackRU.org</a></p>
-					</li>
+							<div class="button-container">
+                                <a class="button" href="events.html">
+                                    See Full Calendar
+                                </a>
+                            </div>
+ 
 
-					<li class="schedule-item">
-					<h3>Rutgers Tech Meetup</h3>
-					<p>This semester we will be hosting the first ever Rutgers Tech Meetup. Come and share some of your awesome work with the community, see others demo their work, eat burritos and have fun. Details to follow in the next few weeks.</p>
-					</li>
-				</div>	
-			</div>
-	</div>
+                            <h2 style="margin: 20px 0px 10px;">Wanna learn about how to get more involved?</h2>
+                            <p style="margin-bottom: 20px; font-size: 1rem">Get outside the classroom and come see what USACS events you are missing out on!</p>
+                            <div class="button-container">
+                                <a class="button" href="get-involved.html">
+                                    Get Involved
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-md-2"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="locations">
+            <div class="locations-header">
+                locations
+            </div>
+            <div class="loc1">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-8">
+                            <div class="location-description">
+                                <h1>the cave</h1>
+                                <p>The CAVE (Collaborative Academic Versatile Environment) is located on the second floor of the Hill Bldg Annex in Room 252. Part of the Computer Science Instructional Labs, The CAVE was designed to provide students their own atmosphere for collaboration and group projects.</p>
+                                
+                            </div>
+                        </div>
+                        <div class="col-sm-4"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="loc2">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-8">
+                            <div class="location-description">
+                                <h1>command center</h1>
+                                <p>Right next door to the CAVE, the command center is stocked with Linux machines and whiteboards, perfect for late night cram sessions.</p>
+                            </div>
+                        </div>
+                        <div class="col-sm-4"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="loc3">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-8">
+                            <div class="location-description">
+                                <h1>hackerspace</h1>
+                                <p>The Hack-R-space is located on the second floor of the Hill Bldg Annex in Room 254. As one of the newest additions to the Computer Science Instructional Labs, the Hack-R-Space is a workshop for students to tinker and build. The Hack-R-Space offers students access to an abundance of resources, including 3D printing, Robotics, Oculus Rifts, and Instrumental recording hardware. </p>
+                                
+                            </div>
+                        </div>
+                        <div class="col-sm-4"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="loc4">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-8">
+                            <div class="location-description">
+                                <h1>makerspace</h1>
+                                <p>The Makerspace is designed for Rutgers affiliates of all experience levels to bring their ideas to life. Located near Livingston Campus, the Makerspace is a tech atelier for students to design and construct hardware. 
+                                </p>
+                               
+                            </div>
+                        </div>
+                        <div class="col-sm-4"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </body>
 
-  
-  
-  <!-- Footer -->
-  
-  <footer class="row">
-    <div class="twelve columns">
-      <br />
-    </div> 
-  </footer>
-	  
-  <!-- Included JS Files (Compressed) -->
-  <script src="javascripts/jquery.js"></script>
-  <script src="javascripts/foundation.min.js"></script>
-  
-  <!-- Initialize JS Plugins -->
-  <script src="javascripts/app.js"></script>
-</body>
 </html>
