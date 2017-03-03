@@ -1,11 +1,10 @@
 /****** CARD ********/
 
 .card {
-	width: 250px;
-	height: 325px;
+	width: 450px;
+	height: 125px;
 	border: 1px solid #b22828;
 	background-color: #fff;
-	display: inline-block;
 	-webkit-transition: all .2s ease-in-out;
 	transition: all .2s ease-in-out;
 	cursor: pointer;
