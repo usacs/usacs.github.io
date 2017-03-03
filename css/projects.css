@@ -1,6 +1,7 @@
 .card
 {
-	float: left;
+	margin: 0 auto;
+    margin-bottom: 15px;
 }
 .card a{
 	text-align: center;
@@ -17,6 +18,10 @@
 	text-align: center;
 	color: #333333;
 	margin-bottom:10px;
+}
+
+.card h1{
+	color: #333333;
 }
 
 h3{
