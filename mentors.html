@@ -1,12 +1,17 @@
 <html>
 
     <head>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+        <!-- CSS includes - all are needed! -->
         <link rel="stylesheet" href="bootstrap/css/bootstrap.css">
         <link rel="stylesheet" href="css/common.css">
         <link rel="stylesheet" href="css/modules.css">
         <link rel="stylesheet" href="css/mission.css">
         <link rel="stylesheet" href="css/mentors.css">
+        <!-- Scripts -->
+        <script src="assets/js/jquery-3.2.1.min.js"></script>
+        <script src="assets/js/plugins.js"></script>
+        <script src="assets/js/sly.js"></script>
+        <script src="assets/js/dataManage.js"></script>
         <script type="application/javascript" src="./assets/js/interactions.js"></script>
     </head>
 
@@ -31,46 +36,34 @@
         </nav>
 
 
-      <div class="row" id="list">
-        <div class="wrap">
-              <div class="scrollbarL">
-                <div class="handle">
-                  <div class="mousearea"></div>
+        <!-- The top list of people -->
+        <div class="row" id="list">
+          <div class="wrap">
+            <div class="scrollbarL">
+              <div class="handle">
+                <div class="mousearea"></div>
+              </div>
+            </div>
+            <div class="frame" id="basic">
+              <ul class="clearfix">
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- The mentor-based content -->
+        <section id="content" class="pages">
+          <div class="row" id="picture">
+          </div>
+          <div class="row" id="info">
+            <div class="wrap">
+              <div class="frame nonitembased" id="nonitembased">
+                <div class="slidee">
                 </div>
               </div>
-              <div class="frame" id="basic">
-      				<ul class="clearfix">
-      				</ul>
-      			</div>
-        </div>
-    </div>
-    <div class="row" id="picture">
-      
-    </div>
-    <div class="row" id="info">
-     <div class="wrap">
-      <div class="scrollbar">
-            <div class="handle">
-                   <div class="mousearea"></div>
             </div>
-      </div>
-      <div class="frame nonitembased" id="nonitembased">
-            <div class="slidee">
+          </div>
+        </section>
 
-            </div>
-      </div>
-     </div>
-    </div>
-
-
-
-
-
-
-<!-- Scripts -->
-    <script src="assets/js/jquery-3.2.1.min.js"></script>
-    <script src="assets/js/plugins.js"></script>
-    <script src="assets/js/sly.js"></script>
-    <script src="assets/js/dataManage.js"></script>
     </body>
 </html>

@@ -84,87 +84,82 @@ function findInfo(name){
   }
 }
 
+function setContentTo(mentor){
+    $('#picture').empty();
+    $('#picture').append(`<img src="${mentor.pictureToRepresentYou.replace("open","uc")}">`)
+    $('.slidee').empty();
+    $('.slidee').append(`
+      <p class="subsection-header">What Are Your Goals Being a Mentor?</p>
+      <p>${mentor.whatAreYourGoalsBeingAMentor}</p>
+      <br>
+      <p class="subsection-header">What are your tech Interests?</p>
+      <p>${mentor.whatWouldYouLikeToFocusOnWithYourMentees}</p>
+      <br>
+      <p class="subsection-header">What have you worked on in the past?</p>
+      <p>${mentor.whatHaveYouWorkedOnInThePastcurrently}</p>
+      <br>
+      <p class="subsection-header">What are some of your interests outside of tech?</p>
+      <p>${mentor.whatAreSomeOfYourInterestsOutsideOfTech}</p>
+      `);
+
+}
+
 $(function(){
-  $('#picture').append(`<img src="${mentors[0].pictureToRepresentYou.replace("open","uc")}">`)
-  $('.slidee').append(`
-    <p class="subsection-header">What Are Your Goals Being a Mentor?</p>
-    <p>${mentors[0].whatAreYourGoalsBeingAMentor}</p>
-    <p class="subsection-header">What are your tech Interests?</p>
-    <p>${mentors[0].whatWouldYouLikeToFocusOnWithYourMentees}</p>
-    <p class="subsection-header">What have you worked on in the past?</p>
-    <p>${mentors[0].whatHaveYouWorkedOnInThePastcurrently}</p>
-    <p class="subsection-header">What are some of your interests outside of tech?</p>
-    <p>${mentors[0].whatAreSomeOfYourInterestsOutsideOfTech}</p>
-    `);
+
+  setContentTo(mentors[0]);
 
   for(var i = 0; i < mentors.length; i++){
     $(".clearfix").append(`<li>${mentors[i].fullName.toUpperCase()}</li>`)
   }
 
   $("li").click(function() {
-    currentM = findInfo($(this).text());
-    $('#picture').empty();
-    $('#picture').append(`<img src="${currentM.pictureToRepresentYou.replace("open","uc")}">`)
-    $('.slidee').empty();
-    $('.slidee').append(`
-      <p class="subsection-header">What Are Your Goals Being a Mentor?</p>
-      <p>${currentM.whatAreYourGoalsBeingAMentor}</p>
-      <br>
-      <p class="subsection-header">What are your tech Interests?</p>
-      <p>${currentM.whatWouldYouLikeToFocusOnWithYourMentees}</p>
-      <br>
-      <p class="subsection-header">What have you worked on in the past?</p>
-      <p>${currentM.whatHaveYouWorkedOnInThePastcurrently}</p>
-      <br>
-      <p class="subsection-header">What are some of your interests outside of tech?</p>
-      <p>${currentM.whatAreSomeOfYourInterestsOutsideOfTech}</p>
-      `);
+    setContentTo(findInfo($(this).text()));
   });
 
 
   (function () {
-		var $frame  = $('#basic');
-		var $slidee = $frame.children('ul').eq(0);
-		var $wrap   = $frame.parent();
+    var $frame  = $('#basic');
+    var $slidee = $frame.children('ul').eq(0);
+    var $wrap   = $frame.parent();
 
-		// Call Sly on frame
-		$frame.sly({
-			horizontal: 1,
-			itemNav: 'basic',
-			smart: 1,
-			activateOn: 'click',
-			mouseDragging: 1,
-			touchDragging: 1,
-			releaseSwing: 1,
-			startAt: 0,
-			scrollBar: $wrap.find('.scrollbarL'),
-			scrollBy: 1,
-			speed: 300,
-			elasticBounds: 1,
-			easing: 'easeOutExpo',
-			dragHandle: 1,
-			dynamicHandle: 1,
-			clickBar: 1
-		});
+    // Call Sly on frame
+    $frame.sly({
+      horizontal: 1,
+      itemNav: 'basic',
+      smart: 1,
+      activateOn: 'click',
+      mouseDragging: 1,
+      touchDragging: 1,
+      releaseSwing: 1,
+      startAt: 0,
+      scrollBar: $wrap.find('.scrollbarL'),
+      scrollBy: 1,
+      speed: 300,
+      elasticBounds: 1,
+      easing: 'easeOutExpo',
+      dragHandle: 1,
+      dynamicHandle: 1,
+      clickBar: 1
+    });
 
   }());
 
-  (function () {
-		var $frame = $('#nonitembased');
-		var $wrap  = $frame.parent();
-
-		// Call Sly on frame
-		$frame.sly({
-			speed: 300,
-			easing: 'easeOutExpo',
-			scrollBar: $wrap.find('.scrollbar'),
-			scrollBy: 100,
-			dragHandle: 1,
-			dynamicHandle: 1,
-			clickBar: 1,
-      scrollTrap: true
-		});
-	}());
+  // (function () {
+  //   var $frame = $('#nonitembased');
+  //   var $wrap  = $frame.parent();
+  //
+  //   // Call Sly on frame
+  //   $frame.sly({
+  //     speed: 300,
+  //     easing: 'easeOutExpo',
+  //     scrollBar: $wrap.find('.scrollbar'),
+  //     scrollBy: 100,
+  //     dragHandle: 1,
+  //     dynamicHandle: 1,
+  //     clickBar: 1,
+  //     scrollTrap: true
+  //   });
+  // }());
 
 
 
