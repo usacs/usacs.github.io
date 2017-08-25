@@ -3,7 +3,11 @@
   position: relative;
   float: left;
   width: 100%;
-  margin: 0 40px 3em 0;
+  margin: 0 40px 0 0;
+}
+
+#list {
+  padding-top: 50px;
 }
 
 /* Frame */
@@ -50,7 +54,7 @@
 /* Scrollbar */
 .scrollbarL {
   margin: 0 0 1em 0;
-  height: 80px;
+  height: 20px;
   background: #ccc;
   line-height: 0;
 }
