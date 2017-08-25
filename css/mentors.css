@@ -5,18 +5,21 @@
   width: 100%;
   margin: 0 40px 3em 0;
 }
+
 /* Frame */
 .frame {
   max-width: 93%;
   margin: 0 auto;
-  overflow-x: hidden;
+  overflow: hidden;
 }
+
 .frame ul {
   list-style: none;
   margin: 0;
   padding: 0;
   font-size: 50px;
 }
+
 .frame ul li {
   float: left;
   display: flex;
@@ -31,16 +34,19 @@
   text-align: center;
   cursor: pointer;
 }
+
 .frame ul li.active {
   color: #fff;
   background: #a03232;
 }
+
 .frame .slidee {
   padding: 20px 25px;
   background: #fff;
   margin-left: 30%;
   margin-right:30%;
 }
+
 /* Scrollbar */
 .scrollbarL {
   margin: 0 0 1em 0;
@@ -48,12 +54,14 @@
   background: #ccc;
   line-height: 0;
 }
+
 .scrollbarL .handle {
   width: inherit;
   height: 100%;
   background: #292a33;
   cursor: pointer;
 }
+
 .scrollbarL .handle .mousearea {
   position: absolute;
   top: -9px;
@@ -61,6 +69,7 @@
   width: 100%;
   height: 20px;
 }
+
 .scrollbar {
   position: absolute;
   right: 70px;
@@ -69,12 +78,14 @@
   background: #ccc;
   line-height: 0;
 }
+
 .scrollbar .handle {
   width: 100%;
   height: 100px;
   background: #292a33;
   cursor: pointer;
 }
+
 .scrollbar .handle .mousearea {
   position: absolute;
   top: 0;
@@ -82,9 +93,7 @@
   width: 22px;
   height: 100%;
 }
-#list{
 
-}
 #picture{
   display: flex;
   flex-flow: row;
@@ -92,22 +101,28 @@
   align-items: center;
   padding-bottom: 2%;
 }
+
 #picture img{
   height: 40%;
   width: auto;
 }
+
 #info{
   padding-bottom: 2%;
 }
 
 .slidee{
   overflow-y: scroll;
+  height: 100%;
+  border-bottom: 1px solid rgba(0,0,0,0.2);
+  border-top: 1px solid rgba(0,0,0,0.2);
 }
 
 .subsection-header{
   font-size: 20px !important;
   text-decoration: underline;
 }
+
 #nonitembased{
-  height:575px;
+  height: 575px;
 }
