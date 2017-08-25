@@ -144,23 +144,4 @@ $(function(){
 
   }());
 
-  // (function () {
-  //   var $frame = $('#nonitembased');
-  //   var $wrap  = $frame.parent();
-  //
-  //   // Call Sly on frame
-  //   $frame.sly({
-  //     speed: 300,
-  //     easing: 'easeOutExpo',
-  //     scrollBar: $wrap.find('.scrollbar'),
-  //     scrollBy: 100,
-  //     dragHandle: 1,
-  //     dynamicHandle: 1,
-  //     clickBar: 1,
-  //     scrollTrap: true
-  //   });
-  // }());
-
-
-
 });
