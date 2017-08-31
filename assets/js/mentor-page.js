@@ -8,7 +8,7 @@ function findInfo(name, mentors){
 
 function setContentTo(mentor){
     $('#picture').empty();
-    $('#picture').append(`<img src="${mentor.pictureToRepresentYou.replace("open","uc")}">`)
+    $('#picture').append(`<img src="${mentor.pictureToRepresentYou}">`)
     $('.slidee').empty();
     $('.slidee').append(`
       <p class="subsection-header">What Are Your Goals Being a Mentor?</p>
@@ -28,7 +28,7 @@ function setContentTo(mentor){
 
 $(function(){
 
-  $.get('/assets/mentors.json', function (data) {
+  $.get('http://usacs.rutgers.edu/assets/mentors.json', function (data) {
 
     var mentors = JSON.parse(data);
 
@@ -42,34 +42,33 @@ $(function(){
       setContentTo(findInfo($(this).text(), mentors));
     });
 
+    (function () {
+      var $frame  = $('#basic');
+      var $slidee = $frame.children('ul').eq(0);
+      var $wrap   = $frame.parent();
+
+      // Call Sly on frame
+      $frame.sly({
+        horizontal: 1,
+        itemNav: 'basic',
+        smart: 1,
+        activateOn: 'click',
+        mouseDragging: 1,
+        touchDragging: 1,
+        releaseSwing: 1,
+        startAt: 0,
+        scrollBar: $wrap.find('.scrollbarL'),
+        scrollBy: 1,
+        speed: 300,
+        elasticBounds: 1,
+        easing: 'easeOutExpo',
+        dragHandle: 1,
+        dynamicHandle: 1,
+        clickBar: 1
+      });
+
+    }());
+
   });
-
-
-  (function () {
-    var $frame  = $('#basic');
-    var $slidee = $frame.children('ul').eq(0);
-    var $wrap   = $frame.parent();
-
-    // Call Sly on frame
-    $frame.sly({
-      horizontal: 1,
-      itemNav: 'basic',
-      smart: 1,
-      activateOn: 'click',
-      mouseDragging: 1,
-      touchDragging: 1,
-      releaseSwing: 1,
-      startAt: 0,
-      scrollBar: $wrap.find('.scrollbarL'),
-      scrollBy: 1,
-      speed: 300,
-      elasticBounds: 1,
-      easing: 'easeOutExpo',
-      dragHandle: 1,
-      dynamicHandle: 1,
-      clickBar: 1
-    });
-
-  }());
 
 });
