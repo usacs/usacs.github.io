@@ -30,7 +30,7 @@ $(function(){
 
   $.get('http://usacs.rutgers.edu/assets/mentors.json', function (data) {
 
-    var mentors = JSON.parse(data);
+    var mentors = (data);
 
     setContentTo(mentors[0]);
 
