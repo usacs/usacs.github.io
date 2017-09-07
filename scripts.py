@@ -16,7 +16,7 @@ def set_image_sources(json_path, image_processor):
         mentor["pictureToRepresentYou"] = image_processor(mentor["pictureToRepresentYou"], mentor["fullName"], mentor["timestamp"])
 
     with open(json_path, 'w') as out_file:
-        json.dump(mentors, out_file)
+        json.dump(mentors, out_file, indent = 4)
 
 def id_from_gdrive_url(img_src):
     """Get the id param from the gdrive URLs"""
