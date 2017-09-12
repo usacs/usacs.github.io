@@ -84,30 +84,6 @@ h6 {
 	text-align: center;
 }
 
-.social-media {
-	bottom: 0px;
-	left: 0;
-	position: absolute;
-	width: 100%;
-	text-align: center;
-	z-index: 4;
-	padding: 20px;
-}
-
-.social-media img {
-	width: 50px;
-	height: 50px;
-	padding: 10px;
-	display: inline-block;
-	-webkit-transition: all .2s ease-in-out;
-	transition: all .2s ease-in-out;
-}
-
-.social-media a:hover img {
-	-webkit-transform: scale(1.15);
-	transform: scale(1.15);
-}
-
 .events-wrapper {
 	padding: 20px 20px 50px;
 }
@@ -259,6 +235,12 @@ h6 {
 	font-family: 'Lato', sans-serif;
 	text-align: left;
 	color: white;
+}
+
+.social-media {
+    bottom: 0px;
+    left: 0;
+    position: absolute;
 }
 
 @media screen and (max-width: 900px) {}
