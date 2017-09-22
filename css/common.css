@@ -273,5 +273,6 @@ p {
 }
 
 footer {
+    clear: both;
     background: black;
 }
