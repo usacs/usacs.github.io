@@ -69,7 +69,7 @@ nav {
     height: 50px;
     display: block;
     border-bottom: 1px solid rgba(57, 57, 57, 0.24);
-    background-color: white;
+    background-color: rgba(255, 255, 255, 0.9);
     z-index: 10;
     transition: all .2s ease-in-out;
 }
@@ -247,4 +247,31 @@ p {
     nav:not(.special) > ul > li {
         width: calc(100% / 7);
     }
+}
+
+/* FOOTER */
+
+.social-media {
+    width: 100%;
+    text-align: center;
+    z-index: 4;
+    padding: 20px;
+}
+
+.social-media img {
+    width: 50px;
+    height: 50px;
+    padding: 10px;
+    display: inline-block;
+    -webkit-transition: all .2s ease-in-out;
+    transition: all .2s ease-in-out;
+}
+
+.social-media a:hover img {
+    -webkit-transform: scale(1.15);
+    transform: scale(1.15);
+}
+
+footer {
+    background: black;
 }
