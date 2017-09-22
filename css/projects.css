@@ -1,7 +1,7 @@
 .card
 {
-	margin: 0 auto;
-    margin-bottom: 15px;
+	margin: 0;
+        margin-bottom: 15px;
 }
 .card a{
 	text-align: center;
@@ -26,4 +26,12 @@
 
 h3{
 	text-align: center;
+}
+
+.project h1{
+	font-size: 30;
+}
+
+.project {
+	height: 160px;
 }
