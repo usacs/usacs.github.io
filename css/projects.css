@@ -1,37 +1,19 @@
-.card
+.project a
 {
-	margin: 0;
-        margin-bottom: 15px;
+    text-align: center;
+    color: #b22828;
+    font-size:0.65em;
 }
-.card a{
-	text-align: center;
-	color: #333333;
-	font-size:0.65em;
 
-}
-.card h3
+h3
 {
-	margin-bottom:5px;
-}
-
-.card p{
-	text-align: center;
-	color: #333333;
-	margin-bottom:10px;
-}
-
-.card h1{
-	color: #333333;
-}
-
-h3{
-	text-align: center;
+    text-align: center;
 }
 
 .project h1{
-	font-size: 30;
+    font-size: 30;
 }
 
 .project {
-	height: 160px;
+    height: 160px;
 }
