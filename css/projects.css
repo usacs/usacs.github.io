@@ -1,12 +1,13 @@
-.project a
-{
-    text-align: center;
-    color: #b22828;
-    font-size:0.65em;
+.project a{
+	text-align: center;
+	color: .project h1 {
+	    color: #b22828;
+	};
+	font-size:0.65em;
+
 }
 
-h3
-{
+h3{
     text-align: center;
 }
 
@@ -16,4 +17,13 @@ h3
 
 .project {
     height: 160px;
+}
+.project p{
+	  margin:0;
+	  background-color: white;
+	  border-style: solid;
+	  border-color: #b22828;
+	  border-radius: 5px;
+	  padding: 5px;
+	  
 }
