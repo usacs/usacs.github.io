@@ -12,11 +12,8 @@ Used to override common.css stylings if needed, make custom adjustments or addit
 ---
 
 *Things that people can publicly fix*
-- Contacts.html needs a email image next to the email at the top of the page.
 - We need an image a large image of the Command Center and the Hackerspace for index.html
-- A JS script that can read a json file and populate the events.html page with JQuery
-- Resource page
-- Add an interactive Alumni Map
+- GitHub scraping for projects
 - Todo for landing page:
     - Mobile view for nav
     - Mobile adjustments for whole page (shouldn't be a lot)
