@@ -69,7 +69,7 @@ nav {
     height: 50px;
     display: block;
     border-bottom: 1px solid rgba(57, 57, 57, 0.24);
-    background-color: rgba(255, 255, 255, 0.9);
+    background-color: white;
     z-index: 10;
     transition: all .2s ease-in-out;
 }
