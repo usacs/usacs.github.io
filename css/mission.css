@@ -7,7 +7,7 @@ a {
     color: #b22828;
 }
 
-img:not(#usacs-logo) {
+img:not(#usacs-logo):not(.social-media img) {
     max-width: 70%;
     display: block;
     margin: 0 auto;
