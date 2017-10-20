@@ -86,6 +86,13 @@ if __name__ == '__main__':
     elif argv[1] == '-h':
         print("Run {} test-server to run a quick testing server.".format(argv[0]))
         print("Run {} mentor-pics to load the mentor images.".format(argv[0]))
+    elif argv[1]=="build":
+        import compile
+        dirName="views"
+        globalData={}
+        layoutName="layout.mustache"
+        outputDir="."
+        compile.compile(dirName, layoutName, outputDir, globalData)
     else:
         print("Dude, wut?")
         print("Run '-h' for help.")
