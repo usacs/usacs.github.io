@@ -1,6 +1,9 @@
 ul, p {
-    text-align: center;
+    text-align: left;
     padding-bottom: 20px;
+}
+h2 {
+    text-align: left;
 }
 
 a {
