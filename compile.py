@@ -28,7 +28,10 @@ def getFiles(dirName, layoutName, data):
 def compile(dirName, layoutName, outputDir, globalData):
     files=getFiles(dirName, layoutName, globalData)
     
-    renderFunc=(lambda pageData:render(dirName, layoutName, pageData))#.update(globalData)))
+    def renderFunc(pageData):
+        pageData.update(globalData)
+        return render(dirName, layoutName, pageData)
+    
     renderedFiles=list(map(renderFunc, files))
 
     for i in range(0, len(files)):
@@ -36,3 +39,6 @@ def compile(dirName, layoutName, outputDir, globalData):
         content=renderedFiles[i]
         file=open(name, 'w')
         file.write(content)
+
+# example compilation
+#compile("views", "layout.mustache", ".", {'global':'this is a global'})
