@@ -110,6 +110,7 @@
 #picture img{
   height: 40%;
   width: auto;
+  padding-bottom: 0;
 }
 
 #info{
