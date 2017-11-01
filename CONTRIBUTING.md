@@ -6,9 +6,11 @@ Thank you so much!
 
 1. Fork this repo. [Here's what this means.](https://help.github.com/articles/fork-a-repo/)
 1. Do the things.
+    2. EDIT THE FILES IN VIEWS DON'T DIRECTLY EDIT THE HTML!!! ITS MUCH EASIER!!!
     2. Over the course of this, you will have to commit and push.
        At least once for the pull request.
-1. Test the things. You can open the files in chrome since everything is static.
+1. Test the things. Run `python3 scripts.py build` to compile the site.
+   Then you can open the files in chrome since everything is static.
    Make sure the expected things are done. Make sure the rest of the page works.
 1. Open a pull request. [And here's what that means.](https://help.github.com/articles/about-pull-requests/) Don't forget to compare your fork and USACS, so
    head is the USACS repo and base is your branch. It's called a PR.
