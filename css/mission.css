@@ -10,9 +10,14 @@ a {
     color: #b22828;
 }
 
-img:not(#usacs-logo):not(.social-media img) {
+img {
     max-width: 70%;
     display: block;
     margin: 0 auto;
     padding-bottom: 40px;
+}
+
+#usacs-logo {
+    max-width: 100%;
+    display: inline;
 }
