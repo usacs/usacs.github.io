@@ -5,6 +5,9 @@
 4. ???
 5. html files apear in root of git repo
 
+## IMPORTANT NOTE
+the index page isnt compiled like the rest of the site because its fanacy, for now edit it in its html file
+
 ## How to add css or javascript to a individual file
 Add it at the top of the views/<yourfile>.mustache file instead of in a head tag. See /views for examples
 
