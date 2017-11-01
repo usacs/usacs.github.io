@@ -90,7 +90,7 @@ if __name__ == '__main__':
         import compile
         dirName="views"
         globalData={}
-        layoutName="layout.mustache"
+        layoutName="layouts/layout.mustache"
         outputDir="."
         compile.compile(dirName, layoutName, outputDir, globalData)
     else:

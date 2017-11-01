@@ -41,5 +41,5 @@ def compile(dirPath, layoutPath, outputDir='.', globalData={}):
 #compile('views', 'layouts/layout.mustache')
 #compile('views', 'layouts/copyLayout.mustache', globalData={'copyrightYear':'2017'})
 
-globalD={}
-compile('views', 'layouts/layout.mustache', globalData=globalD)
+#globalD={}
+#compile('views', 'layouts/layout.mustache', globalData=globalD)
