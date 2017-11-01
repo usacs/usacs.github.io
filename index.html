@@ -1,46 +1,162 @@
----
-layout: default
----
+<html>
 
-<!-- First Band (Slider) -->
-<div class="row slider-block">
-  <div class="twelve columns" id="about">
-    <div id="slider">
-        <img src="/assets/images/slider_images/hacker-hr-1.jpg" alt="Hacker Hour #1">
-        <img src="/assets/images/slider_images/usacs-elections-1.jpg" alt="USACS Elections #1">
-        <img src="/assets/images/slider_images/hacker-hr-2.jpg" alt="Hacker Hour #2">
-        <img src="/assets/images/slider_images/hack-night-2.jpg" alt="Hack Night #2">
-        <img src="/assets/images/slider_images/usacs-elections-2.jpg" alt="USACS Elections #2">
-        <img src="/assets/images/slider_images/usacs-elections-3.jpg" alt="USACS Elections #3">
-        <img src="/assets/images/slider_images/hacker-hr-3.jpg" alt="Hacker Hour #3">
-    </div>
-  </div>
-</div>
+    <head>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+        <link rel="stylesheet" href="bootstrap/css/bootstrap.css">
+        <link rel="stylesheet" href="css/common.css">
+        <link rel="stylesheet" href="css/modules.css">
+        <link rel="stylesheet" href="css/landing.css">
+        <script type="application/javascript" src="./assets/js/sticky-nav.js"></script>
+        <script type="application/javascript" src="./assets/js/events-list.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
+        <title>Rutgers - USACS</title>
+    </head>
 
-<!-- Second Band (Information) -->
-<div class="row content-block">
-  <div class="twelve columns" id="about">
-    <h2>USACS is...</h2>
-    <p>USACS, also known as the <b>Undergraduate Student Alliance of Computer
-    Scientists</b>, is a Computer Science interest group at Rutgers University.
-    USACS primarily exists as a club that strings together a series of events
-    for the Rutgers CS community. Our "members" are loosely defined as event
-    regulars attendees and participants.</p>
+    <body>
+        <section id="landing">
+            <nav class="special">
+                <ul class="logo">
+                    <a href="index.html">
+                        <img id="usacs-logo" src="./assets/img/usacs.svg">
+                    </a>
+                </ul>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="events.html">Events</a></li>
+                    <li><a href="get-involved.html">Get Involved</a></li>
+                    <li><a href="projects.html">Projects</a></li>
+                    <li><a href="mission.html">Mission</a></li>
+                    <li><a href="mentors.html">Mentors</a></li>
+                    <li><a href="outreach.html">Outreach</a></li>
+                    <li><a href="https://docs.google.com/document/d/1rfdTi3SQ0uE2_wW2vqnZON9-uK1QcxLA0peom3USzLk/edit?usp=sharing">Alumni</a></li>
 
-    <p>In addition to our two big events that we plan on a semesterly basis,
-    USACS runs <b>Code Red</b> every Friday from 1pm to 6pm in Hill 252, a
-    program set up for 111 and 112 students to come in and get free tutoring 
-    from USACS members. We also hold a weekly <b>Hacker Hour</b> session on 
-    Fridays at 6pm after Code Red where upperclassmen teach subjects that CS 
-    students would normally never have the opportunity to learn in the standard 
-    CS curriculum at each Hacker Hour.</p>
 
-    <p>USACS also manages a mentoring program that connects aspiring
-    underclassmen CS students with experienced upperclassmen who can teach them
-    practical, job-oriented CS skills.</a></p>
+                </ul>
+            </nav>
+            <div class="container">
+                <div class="row">
+                    <div class="center-wrapper">
+                        <img src="assets/img/usacs-logo.svg"/>
+                        <h6>Undergraduate Student Alliance of Computer Scientists</h6>
+                        <div class="social-media">
+                            <a href="https://www.facebook.com/rutgers.usacs/?ref=br_tf"><img src="assets/img/fb.svg"></a>
+                            <a href="https://twitter.com/Rutgers_Usacs"><img src="assets/img/twitter.svg"></a>
+                            <a href="https://www.instagram.com/Rutgers_Usacs/"><img src="assets/img/insta.svg"></a>
+                            <a href="https://github.com/usacs"><img src="assets/img/github-mark.png"></a>
+                            <a href="https://medium.com/@rutgersusacs"><img src="assets/img/medium_logo.png"></a>
+                            <a href="https://usacs.slack.com/"><img src="assets/img/slack-mark.png"></a>
+                        </div>
 
-    <h2>Mission Statement</h2>
-    <p>To provide the tools and resources necessary for people interested in
-    Computer Science to succeed inside and outside the classroom.</p>
-  </div>
-</div>
+                        <!-- I just want to add this quickly. -->
+                        <!-- TODO: apply css once I know the proper location to for the MailingListBtn-->
+                        <br/>
+                        <br/>
+                        <br/>
+                        <br/>
+
+						<div class="button-container button-inline">
+                            <a class="button" href="http://eepurl.com/NrOvb">
+                            get on the mailing list</a>
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="content">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-2"></div>
+                    <div class="col-md-8">
+                        <div class="events-wrapper">
+                            <h1>Upcoming Events</h1>
+
+                            <div class="events-upcoming"></div>
+
+							<div class="button-container">
+                                <a class="button" href="events.html">
+                                    See Full Calendar
+                                </a>
+                            </div>
+
+
+                            <h2 style="margin: 20px 0px 10px;">Wanna learn about how to get more involved?</h2>
+                            <p style="margin-bottom: 20px; font-size: 1rem">Get outside the classroom and come see what USACS events you are missing out on!</p>
+                            <div class="button-container">
+                                <a class="button" href="get-involved.html">
+                                    Get Involved
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-md-2"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="locations">
+            <div class="locations-header">
+                locations
+            </div>
+            <div class="locations-flex">
+                <div class="loc1">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-sm-8">
+                                <div class="location-description">
+                                    <h1>the cave</h1>
+                                    <p>The CAVE (Collaborative Academic Versatile Environment) is located on the second floor of the Hill Bldg Annex in Room 252. Part of the Computer Science Instructional Labs, The CAVE was designed to provide students their own atmosphere for collaboration and group projects.</p>
+
+                                </div>
+                            </div>
+                            <div class="col-sm-4"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="loc2">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-sm-8">
+                                <div class="location-description">
+                                    <h1>command center</h1>
+                                    <p>Right next door to the CAVE, the command center is stocked with Linux machines and whiteboards, perfect for late night cram sessions.</p>
+                                </div>
+                            </div>
+                            <div class="col-sm-4"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="loc3">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-sm-8">
+                                <div class="location-description">
+                                    <h1>hackerspace</h1>
+                                    <p>The Hack-R-space is located on the second floor of the Hill Bldg Annex in Room 254. As one of the newest additions to the Computer Science Instructional Labs, the Hack-R-Space is a workshop for students to tinker and build. The Hack-R-Space offers students access to an abundance of resources, including 3D printing, Robotics, Oculus Rifts, and Instrumental recording hardware. </p>
+
+                                </div>
+                            </div>
+                            <div class="col-sm-4"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="loc4">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-sm-8">
+                                <div class="location-description">
+                                    <h1>makerspace</h1>
+                                    <p>The Makerspace is designed for Rutgers affiliates of all experience levels to bring their ideas to life. Located near Livingston Campus, the Makerspace is a tech atelier for students to design and construct hardware.
+                                    </p>
+
+                                </div>
+                            </div>
+                            <div class="col-sm-4"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </body>
+
+</html>

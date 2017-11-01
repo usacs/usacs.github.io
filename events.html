@@ -1,72 +1,65 @@
----
-layout: default
-title: "Events"
----
+<html>
 
-<div class="row content-block">
-    <div class="twelve columns">
-        <h2>Upcoming Events</h2>
-        <div class="two columns">
-            <h4>HackRU</h4>
-        </div>
-        <div class="ten columns">
-            <p>
-                <b>April 17 @ College Ave Student Center</b><br/>
-                Come join hackers from around the country in a 24 hour hackathon
-                for money and prizes!  More information at <b><a 
-                href="http://www.hackru.org">hackru.org</a></b>.<br/>
-            </p>
-        </div>
+    <head>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+        <link rel="stylesheet" href="bootstrap/css/bootstrap.css">
+        <link rel="stylesheet" href="css/common.css">
+        <link rel="stylesheet" href="css/modules.css">
+        <link rel="stylesheet" href="css/events.css">
+        <script type="application/javascript" src="./assets/js/interactions.js"></script>
+        <script type="application/javascript" src="./assets/js/events-list.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
+        <title>Events</title>
+    </head>
 
-        <h2>Weekly Events</h2>
-        <div class="two columns">
-            <h4>Code Red</h4>
-        </div>
-        <div class="ten columns">
-            <p>
-                <b>Fridays - 1-6pm @ The Cave (Hill 252)</b><br/>
-                Weekly tutoring for students in CS111 and CS112.<br/>
-            </p>
-        </div>
+    <body>
+        <nav class="normal">
+            <ul class="logo">
+                <a href="index.html">
+                    <img id="usacs-logo" src="assets/img/usacs.svg">
+                </a>
+            </ul>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="events.html">Events</a></li>
+                <li><a href="get-involved.html">Get Involved</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="mission.html">Mission</a></li>
+                <li><a href="mentors.html">Mentors</a></li>
+                <li><a href="outreach.html">Outreach</a></li>
+            	<li><a href="https://docs.google.com/document/d/1rfdTi3SQ0uE2_wW2vqnZON9-uK1QcxLA0peom3USzLk/edit?usp=sharing">Alumni</a></li>
+			</ul>
+        </nav>
 
-        <div class="two columns">
-            <h4>Hacker Hour</h4>
-        </div>
-        <div class="ten columns">
-            <p>
-                <b>Fridays - 6-7pm @ The Cave (Hill 252)</b><br/> 
-                A weekly series aimed to teach students CS skills not learned in
-                class. Topics include Python, website creation, Git, JavaScript,
-                and more.<br/>
-            </p>
-        </div>
+        <section id="content" class="pages">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-8"></div>
+                    <div class="col-md-12">
 
-        <div class="two columns">
-            <h4>Hack Night</h4>
-        </div>
-        <div class="ten columns">
-            <p>
-                <b>For Spring 16: Tuesdays 2/9, 3/22, 4/19 - 8pm-10pm @ Busch Campus Center (The Cove)</b><br/>
-                This biweekly series of in-depth tech talks aims to teach
-                students useful technologies for building projects outside of
-                class and at hackathons. Each talk is followed by a workshop
-                where students have an opportunity to work on a project with 
-                help from mentors.<br/>
-            </p>
-        </div>
+                        <h1>Events Calendar</h1>
 
-        <div class="two columns">
-            <h4>Board Meetings</h4>
-        </div>
-        <div class="ten columns">
-            <p>
-                <b>Thursdays - 6:30pm @ The Cave (Hill 252)</b><br/> 
-                Interested in getting more involved with USACS? Come join us at
-                our board meetings to help us plan new and exciting events!<br/>
-            </p>
+                        <div class="events-full"></div>
 
-        </div>
-        <h2>Calendar<h2>
-        <iframe src="https://calendar.google.com/calendar/embed?src=rutgersusacs%40gmail.com&ctz=America/New_York" style="border: 0; display: block; margin: 0 auto" width="800" height="600" frameborder="0" scrolling="no"></iframe>
-    </div>
-</div>
+                    </div>
+                </div>
+
+                <h4>To find out about more events outside this month, checkout the offical USACS Google Calendar</h4>
+                <div class="button-container button-inline">
+                    <a class="button" href="https://calendar.google.com/calendar/embed?src=rutgersusacs%40gmail.com&ctz=America/New_York"> USACS Calendar</a>
+                </div>
+            </div>
+            </div>
+        </section>
+        <footer>
+            <div class="social-media">
+                <a href="https://www.facebook.com/rutgers.usacs/?ref=br_tf"><img src="assets/img/fb.svg"></a>
+                <a href="https://twitter.com/Rutgers_Usacs"><img src="assets/img/twitter.svg"></a>
+                <a href="https://www.instagram.com/Rutgers_Usacs/"><img src="assets/img/insta.svg"></a>
+                <a href="https://github.com/usacs"><img src="assets/img/github-mark.png"></a>
+                <a href="https://medium.com/@rutgersusacs"><img src="assets/img/medium_logo.png"></a>
+                <a href="https://usacs.slack.com/"><img src="assets/img/slack-mark.png"></a>
+            </div>
+        </footer>
+    </body>
+</html>

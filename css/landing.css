@@ -1,0 +1,246 @@
+h1 {
+    font-family: 'Gotham Bold', sans-serif;
+    font-size: 1.9375rem;
+    color: #b22828;
+    text-align: center;
+}
+
+h2 {
+    text-align: center;
+    color: #b22828;
+}
+
+p {
+    font-family: 'Lato', sans-serif;
+    font-size: 0.8125rem;
+    color: #4C4C4C;
+    text-align: center;
+}
+
+#landing {
+	height: 100vh;
+	min-height: 450px;
+	position: relative;
+}
+
+#landing:before {
+	content: '';
+	background-image: url('../assets/img/landing-bg.jpg');
+	background-size: cover;
+	background-position: center top;
+    background-attachment: fixed;
+	opacity: 1;
+	height: 100%;
+	width: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 1;
+}
+
+#landing:after {
+	content: '';
+	height: 100%;
+	width: 100%;
+	position: absolute;
+	background-color: rgba(0, 0, 0, .8);
+	top: 0;
+	left: 0;
+	z-index: 2;
+}
+
+.center-wrapper {
+	width: 100%;
+	height: 100%;
+	padding-top: 50px;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	-webkit-flex-direction: column;
+	-ms-flex-direction: column;
+	flex-direction: column;
+	-webkit-box-pack: center;
+	-webkit-justify-content: center;
+	-ms-flex-pack: center;
+	justify-content: center;
+	vertical-align: middle;
+	padding: 30px;
+	position: relative;
+	z-index: 3;
+}
+
+.center-wrapper > img {
+	margin-bottom: 15px;
+}
+
+h6 {
+	max-width: 560px;
+	margin: 0 auto;
+	color: white;
+	font-size: 2rem;
+	text-align: center;
+}
+
+.events-wrapper {
+	padding: 20px 20px 50px;
+}
+
+.event {
+	display: inline-block;
+	margin-bottom: 20px;
+}
+
+.event > div {
+	display: inline-block;
+	float: left;
+}
+
+.event-date {
+	margin-right: 15px;
+	font-family: 'Gotham Book';
+	color: #b22828;
+	text-align: center;
+}
+
+.event-date .day {
+	display: block;
+	min-width: 60px;
+    font-size: 2.25rem;
+	line-height: 35px;
+}
+
+.event-date .month {
+	font-family: 'Gotham Bold';
+	text-transform: uppercase;
+	display: block;
+    font-size: 1.0625rem;
+	letter-spacing: 5px;
+}
+
+.event-description {
+	width: calc(100% - 100px);
+}
+
+.event-description > span {
+	display: block;
+}
+
+.event-description .title {
+    font-size: 1.125rem;
+	color: #b22828;
+}
+
+.event-description .description {
+    font-size: 0.8125rem;
+}
+
+.locations-header {
+	height: 50px;
+	text-align: center;
+	text-transform: capitalize;
+	color: #b22828;
+	line-height: 50px;
+    font-size: 1.9375rem;
+	font-family: 'Gotham Bold';
+	border: 1px solid lightgray;
+	border-left: 0px;
+	border-right: 0px;
+}
+
+.location-description p {
+	margin-bottom: 20px;
+}
+
+.locations-flex {
+    display: flex;
+    flex-flow: row wrap;
+}
+
+.locations-flex > div {
+    flex-grow: 1;
+}
+
+.loc1,
+.loc2,
+.loc3,
+.loc4 {
+    padding-bottom: 30px;
+    position: relative;
+    border-bottom: 1px solid lightgray;
+    background-color: rgba(0, 0, 0, .6);
+    background-blend-mode: multiply;
+    min-height: 400px;
+}
+
+.loc1:before,
+.loc2:before,
+.loc3:before,
+.loc4:before {
+	content: '';
+	top: 0;
+	left: 0;
+	z-index: -1;
+	display: block;
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	background-size: cover;
+	background-position: center top;
+	background-repeat: no-repeat;
+	-ms-background-size: cover;
+	background-size: cover;
+	opacity: 1;
+}
+
+.loc1:before {
+	background-image: url("../assets/img/cave-bg.jpg");
+}
+
+.loc2:before {
+	background-image: url("../assets/img/commandCenter-bg.jpg");
+}
+
+.loc3:before {
+	background-image: url("../assets/img/hackerspace-bg.jpg");
+}
+
+.loc4:before {
+	background-image: url("../assets/img/makerspace-bg.jpg");
+}
+
+.location-description {
+	color: white;
+	display: inline-block;
+}
+
+.location-description * {
+	float: left;
+	display: block;
+	width: 100%;
+}
+
+.location-description > h1 {
+	font-family: 'Gotham Black';
+    font-size: 1.75rem;
+	text-align: left;
+	color: white;
+	text-transform: uppercase;
+}
+
+.location-description > p {
+	font-size: 1rem;
+	font-family: 'Lato', sans-serif;
+	text-align: left;
+	color: white;
+}
+
+.social-media {
+    bottom: 0px;
+    left: 0;
+    position: absolute;
+}
+
+@media screen and (max-width: 900px) {}
