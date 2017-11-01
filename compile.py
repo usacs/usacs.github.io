@@ -1,44 +1,45 @@
-# python3 compile.py build <dirname> <layout name> <output dir> <optional json data>
-
-# builds json array from files to build
-# excludes layout file
-
+# copyright Michael J Winters 2017
+# licensed under apache 2.0
 
 import pystache
 renderer=pystache.Renderer()
 
-def file2json(dirName, fileName, data):
-    filePath=dirName+'/'+fileName
-    title=fileName.replace('.mustache', '')
-    outputName=fileName.replace('.mustache', '.html')
-    fileContents=renderer.render_path(filePath, data)
-    return {'title':title, 'body':fileContents, 'outputName':outputName}
+def file2json(dirPath, data):
+    def curriedFunc(fileName):
+        filePath=dirPath+'/'+fileName
+        title=fileName.replace('.mustache', '')
+        outputName=fileName.replace('.mustache', '.html')
+        fileContents=renderer.render_path(filePath, data)
+        return {'title':title, 'body':fileContents, 'outputName':outputName}
+    return curriedFunc
 
-def render (dirName, layoutName, pageData):
-    layoutLocation=dirName+"/"+layoutName
-    return renderer.render_path(layoutLocation, pageData)
+def render(dirPath, layoutPath, globalData):
+    def curriedFunc(pageData):
+        pageData.update(globalData)
+        return renderer.render_path(layoutPath, pageData)
+    return curriedFunc
 
-def getFiles(dirName, layoutName, data):
+# builds json array from files to build
+def getFiles(dirPath, layoutPath, globalData):
     from os import listdir
-    files=listdir(dirName)
-    files=filter((lambda x:x!=layoutName),files)
-    files=list(map((lambda fileName:file2json(dirName, fileName, data)),files))
+    viewNames=listdir(dirPath)
+    files=list(map(file2json(dirPath, globalData),viewNames))
     return files
 
-def compile(dirName, layoutName, outputDir, globalData):
-    files=getFiles(dirName, layoutName, globalData)
+def compile(dirPath, layoutPath, outputDir='.', globalData={}):
+    files=getFiles(dirPath, layoutPath, globalData)
     
-    def renderFunc(pageData):
-        pageData.update(globalData)
-        return render(dirName, layoutName, pageData)
-    
-    renderedFiles=list(map(renderFunc, files))
+    renderedFiles=list(map(render(dirPath, layoutPath, globalData), files))
 
     for i in range(0, len(files)):
-        name=outputDir+"/"+files[i]['outputName']
+        name=outputDir+'/'+files[i]['outputName']
         content=renderedFiles[i]
         file=open(name, 'w')
         file.write(content)
 
 # example compilation
-#compile("views", "layout.mustache", ".", {'global':'this is a global'})
+#compile('views', 'layouts/layout.mustache')
+#compile('views', 'layouts/copyLayout.mustache', globalData={'copyrightYear':'2017'})
+
+globalD={}
+compile('views', 'layouts/layout.mustache', globalData=globalD)
