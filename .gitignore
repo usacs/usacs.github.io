@@ -1,4 +1,9 @@
+#some body does emacs on a Mac...
 .DS_Store
 .DS_STORE
 *~
 \#*\#
+
+#no python thrash
+venv/
+__pycache__/
