@@ -10,9 +10,13 @@ a {
     color: #b22828;
 }
 
-img {
+.item img {
     width: 750px;
+    max-width: 750px;
+    min-width: 750px;
     height: 500px;
+    max-height: 500px;
+    min-height: 500px;
     display: block;
     margin: 0 auto;
     padding-bottom: 40px;
