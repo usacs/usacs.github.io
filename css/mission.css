@@ -11,7 +11,8 @@ a {
 }
 
 img {
-    max-width: 70%;
+    width: 750px;
+    height: 500px;
     display: block;
     margin: 0 auto;
     padding-bottom: 40px;
