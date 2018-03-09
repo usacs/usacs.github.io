@@ -1,0 +1,59 @@
+h3 {
+    text-align: center
+}
+
+#map {
+    border: 2px solid red;
+    background-color: white;
+    display: block;
+    margin: auto;
+    margin-bottom: 3%;
+}
+
+.state {
+    fill: #d7c7ad;
+    stroke: black;
+}
+
+#map-listing {
+    display block;
+    margin: auto;
+    width: 750;
+    padding-left: 150;
+}
+
+.hidden { 
+    display: none; 
+}
+
+div.tooltip {
+    color: #222; 
+    background: #fff; 
+    padding: .5em; 
+    text-shadow: #f5f5f5 0 1px 0;
+    border-radius: 2px; 
+    box-shadow: 0px 0px 2px 0px #a6a6a6; 
+    opacity: 0.9; 
+    position: absolute;
+}
+
+#content {
+    height: 100%;
+}
+
+.state:hover{
+    stroke: #fff;
+    stroke-width: .7px;
+}
+
+#map-entry-point p {
+    text-align: center;
+}
+
+.selected-state {
+    fill: green;
+}
+
+body {
+    height: 150%;
+}
