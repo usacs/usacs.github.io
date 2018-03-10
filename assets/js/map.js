@@ -36,13 +36,13 @@ function getMapPath(width, height) {
     const scale = width / MAP_BASE_WIDTH;
     const area = 1;
 
-    var simplify = d3.geo.transform({
+    const simplify = d3.geo.transform({
         point: function(x, y, z) {
             if (z >= area) this.stream.point(x * scale, y * scale);
         }
     });
 
-    var clip = d3.geo.clipExtent()
+    const clip = d3.geo.clipExtent()
         .extent([[0, 0], [width, height]]);
 
     return d3.geo.path()
@@ -54,7 +54,9 @@ function getMapPath(width, height) {
 /*
  * Draws the map.
  */
-function draw(width, height) {
+function draw() {
+    const width = $('#map-entry-point').outerWidth() - 370;
+    const height = (width / 2) + 50;
     const tooltip = d3.select(".tooltip");
     const path = getMapPath(width, height);
     const statesGroup = svg.select("g");
@@ -62,7 +64,14 @@ function draw(width, height) {
     // set map width/height and define pan/zoom behavior
     svg.attr("width", width)
         .attr("height", height)
-        .call(d3.behavior.zoom().scaleExtent([1, 8]).on("zoom", move));
+        .call(d3.behavior.zoom().scaleExtent([1, 8]).on("zoom", () => {
+            const translate = d3.event.translate;
+            const scale = d3.event.scale;
+            const strokeWidth = 1 / scale;
+
+            svg.select("g").style("stroke-width", strokeWidth)
+                .attr("transform", `translate(${translate}) scale(${scale})`);
+        }));
 
     // update state elements in map
     const statesUpdate = statesGroup.selectAll(".state").data(states);
@@ -78,15 +87,17 @@ function draw(width, height) {
     // define interactivity for new state elements in map
     statesEnter
         .on("click", function(state, i) { 
+            const stateName = state.properties['NAME10'];
+
             // toggle selected state
             statesGroup.select(".selected-state").classed("selected-state", false);
             d3.select(this).classed("selected-state", true);
 
             // update state name on page
-            d3.select("#state-name").html(state.properties['NAME10']);
+            d3.select("#state-name").html(stateName);
 
             // bind peoples' data to list
-            var people = d3.select("#map-listing")
+            const people = d3.select("#map-listing")
                 .selectAll("li")
                 .data(state.properties.people);
 
@@ -107,8 +118,10 @@ function draw(width, height) {
             }
         })
         .on("mousemove", function(state,i) {
+            const stateName = state.properties['NAME10'];
+
             // get mouse position
-            var mouse = d3.mouse(svg.node()).map( function(d) { return parseInt(d); } );
+            const mouse = d3.mouse(svg.node()).map( function(d) { return parseInt(d); } );
 
             // offsets for tooltip relative to mouse position
             const offsetL = $('#map-entry-point').offset()['left'] + (width/30);
@@ -116,15 +129,15 @@ function draw(width, height) {
 
             tooltip
                 .classed("hidden", false)
-                .attr("style", "left:"+(mouse[0]+offsetL)+"px;top:"+(mouse[1]+offsetT)+"px")
-                .html(state.properties['NAME10'])
+                .attr("style", `left: ${mouse[0] + offsetL}px; top: ${mouse[1] + offsetT}px;`)
+                .html(stateName);
         })
         .on("mouseout",  function(d,i) {
             tooltip.classed("hidden", true)
         }); 
 
-    // remove loading img
-    d3.select("#map-loading").remove();
+    // hide loading img
+    d3.select("#map-loading").classed("hidden", true);
 
     // show map
     svg.classed("hidden", false);
@@ -132,36 +145,17 @@ function draw(width, height) {
 }
 
 /*
- * Find current dimensions of window and redraw the map
- */
-function redraw() {
-    const width = $('#map-entry-point').outerWidth() - 370;
-    const height = (width / 2) + 50;
-
-    draw(width, height);
-}
-
-/*
- * Called when a map pan/zoom occurs. Translates and scales map accordingly.
- */
-function move() {
-    const translate = d3.event.translate;
-    const scale = d3.event.scale;  
-
-    svg.select("g").style("stroke-width", 1 / scale)
-        .attr("transform", "translate(" + translate + ")scale(" + scale + ")");
-}
-
-/*
  * Throttle the amount of times the map is redrawn when the window is resized.
  */
 function throttleRedraw() {
     if (typeof  throttleRedraw.timer === 'undefined') {
-        throttleRedraw.timer = window.setTimeout(() => redraw(), REDRAW_THROTTLE_TIME);
+        throttleRedraw.timer = window.setTimeout(() => draw(),
+            REDRAW_THROTTLE_TIME);
     }
 
     window.clearTimeout(throttleRedraw.timer);
-    throttleRedraw.timer = window.setTimeout(() => redraw(), REDRAW_THROTTLE_TIME);
+    throttleRedraw.timer = window.setTimeout(() => draw(),
+        REDRAW_THROTTLE_TIME);
 }
 
 /* 
@@ -195,19 +189,21 @@ function populateStates(states) {
             for (let state of states) {
                 state['properties']['people'] = [];
                 const peopleList = state['properties']['people'];
-                stateMap[state['properties']['NAME10'].toLowerCase()] = peopleList;
+                const stateName = state['properties']['NAME10'].toLowerCase();
+
+                stateMap[stateName] = peopleList;
             }
 
             // populate lists of people per state
-            var table = resp.getDataTable();
+            const table = resp.getDataTable();
             for (let i = 0; i < table.getNumberOfRows(); i++) {
-                const state = table.getValue(i, 5).toLowerCase();
+                const stateName = table.getValue(i, 5).toLowerCase();
                 const name = table.getValue(i, 2);
                 const company = table.getValue(i, 1);
                 const location = table.getValue(i, 4);
                 const person = { name, company, location };
 
-                stateMap[state].push(person);
+                stateMap[stateName].push(person);
             }
 
             resolve();
@@ -227,7 +223,13 @@ $(document).ready(() => {
 
     getStates().then((val) => {
         states = val;
-        populateStates(states).then(() => redraw());
+        populateStates(states).then(() =>
+            draw()
+        ).catch((err) => {
+            console.log(err);
+        });
+    }).catch((err) => {
+        console.log(err);
     });
 });
 
