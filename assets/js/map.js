@@ -1,89 +1,119 @@
+/*
+ * Map for where RU students/alumni currently are working/interning.
+ *
+ * Much thanks to these resources:
+ * http://techslides.com/demos/d3/d3-worldmap-boilerplate.html
+ * https://medium.com/@mbostock/command-line-cartography-part-1-897aa8f8ca2c
+ * https://bl.ocks.org/mbostock/c1c0426d50ca8a9f4c97
+ * http://alignedleft.com/tutorials/d3/
+ *
+ */
+
+// url for Google Sheet containing everyones' responses.
 const SPREADSHEET_URL = "https://docs.google.com/spreadsheets/d/1HgouuYpc9auDTOLhinS-RWxULmJhb0tcnzHaQ-8W3xQ/edit#gid=1052913673";
+
+// url for map.
 const MAP_JSON_URL = "assets/map/us-states-quantized-topo.json";
-const MAP_WIDTH = 750;
-const MAP_HEIGHT = 400;
 
+// The width that the map was initially projected to. A ratio of this
+// to the current window width defines the scale at which the map should be
+// drawn,
+const MAP_BASE_WIDTH = 750;
+
+// Minimum time (in ms) required before map is redrawn.
+const REDRAW_THROTTLE_TIME = 300;
+
+// A list of geoJSON feautures for each state.
 var states = null;
-var statesGroup = null;
-var path = null;
-var throttleTimer = null;
-var translate = [0, 0];
-var scale = 1;
-var area = 1;
-var tooltip = null;
 
-const zoom = d3.behavior.zoom()
-    .scaleExtent([1, 8])
-    .on("zoom", move);
+// d3 selection for svg element of map.
+var svg = null;
 
-function setup(width, height) {
-    d3.select(window).on("resize", throttle);
-
-    scale = width / MAP_WIDTH;
+/*
+ * Returns the path attribute for the map's <path> elements.
+ */
+function getMapPath(width, height) {
+    const scale = width / MAP_BASE_WIDTH;
+    const area = 1;
 
     var simplify = d3.geo.transform({
         point: function(x, y, z) {
-            if (z >= area) this.stream.point(x * scale + translate[0], y * scale + translate[1]);
+            if (z >= area) this.stream.point(x * scale, y * scale);
         }
     });
 
     var clip = d3.geo.clipExtent()
         .extent([[0, 0], [width, height]]);
 
-    path = d3.geo.path()
+    return d3.geo.path()
         .projection({stream: function(s) {
             return simplify.stream(clip.stream(s)); 
         }});
-
-    svg = d3
-        .select("#map")
-        .attr("width", width)
-        .attr("height", height)
-        .call(zoom);
-
-    tooltip = d3.select(".tooltip");
-
-    statesGroup = svg.select("g");
 }
 
+/*
+ * Draws the map.
+ */
 function draw(width, height) {
-    //offsets plus width/height of transform, plsu 20 px of padding, plus 20 extra for tooltip offset off mouse
-    var offsetL = $('#map-entry-point').offset()['left'] + (width/30);
-    var offsetT = $('#map-entry-point').offset()['top'] + (height/30);
+    const tooltip = d3.select(".tooltip");
+    const path = getMapPath(width, height);
+    const statesGroup = svg.select("g");
 
-    statesGroup.selectAll(".state").data(states).attr("d", path);
-    statesGroup.selectAll(".state").data(states)
-        .enter()
-        .append("a")
-        .attr("href", "#map-listing")
+    // set map width/height and define pan/zoom behavior
+    svg.attr("width", width)
+        .attr("height", height)
+        .call(d3.behavior.zoom().scaleExtent([1, 8]).on("zoom", move));
+
+    // update state elements in map
+    const statesUpdate = statesGroup.selectAll(".state").data(states);
+    statesUpdate.attr("d", path);
+
+    // add new state elements to map
+    let statesEnter = statesGroup.selectAll(".state").data(states).enter();
+    statesEnter = statesEnter.append("a").attr("href", "#map-listing")
         .append("path")
         .attr("class", "state")
-        .attr("d", path)
+        .attr("d", path);
+
+    // define interactivity for new state elements in map
+    statesEnter
         .on("click", function(state, i) { 
+            // toggle selected state
             statesGroup.select(".selected-state").classed("selected-state", false);
             d3.select(this).classed("selected-state", true);
 
+            // update state name on page
             d3.select("#state-name").html(state.properties['NAME10']);
 
+            // bind peoples' data to list
             var people = d3.select("#map-listing")
                 .selectAll("li")
                 .data(state.properties.people);
 
+            // update existing list elements
             people.text(function(person, i) {return person.name});
 
+            // add new list elements
             people.enter()
                 .append("li")
                 .text(function(person, i) {return person.name});
 
+            // remove any excess list elements
             people.exit().remove();
 
+            // add placeholder text to list, if noone is working in that state
             if (!d3.select("#map-listing").html()) {
                 d3.select("#map-listing").append("li").html("Looks like noone is working here yet!");
             }
-
         })
         .on("mousemove", function(state,i) {
+            // get mouse position
             var mouse = d3.mouse(svg.node()).map( function(d) { return parseInt(d); } );
+
+            // offsets for tooltip relative to mouse position
+            const offsetL = $('#map-entry-point').offset()['left'] + (width/30);
+            const offsetT = $('#map-entry-point').offset()['top'] + (height/30);
+
             tooltip
                 .classed("hidden", false)
                 .attr("style", "left:"+(mouse[0]+offsetL)+"px;top:"+(mouse[1]+offsetT)+"px")
@@ -94,64 +124,103 @@ function draw(width, height) {
         }); 
 }
 
+/*
+ * Find current dimensions of window and redraw the map
+ */
 function redraw() {
-    width = $('#map-entry-point').outerWidth() - 370;
-    height = (width / 2) + 50;
-    setup(width, height);
+    const width = $('#map-entry-point').outerWidth() - 370;
+    const height = (width / 2) + 50;
+
     draw(width, height);
 }
 
+/*
+ * Called when a map pan/zoom occurs. Translates and scales map accordingly.
+ */
 function move() {
-    var t = d3.event.translate;
-    var s = d3.event.scale;  
-    var h = MAP_HEIGHT / 3;
+    const translate = d3.event.translate;
+    const scale = d3.event.scale;  
 
-    zoom.translate(t);
-    statesGroup.style("stroke-width", 1 / s).attr("transform", "translate(" + t + ")scale(" + s + ")");
+    svg.select("g").style("stroke-width", 1 / scale)
+        .attr("transform", "translate(" + translate + ")scale(" + scale + ")");
 }
 
-function throttle() {
-    window.clearTimeout(throttleTimer);
-    throttleTimer = window.setTimeout(function() {
-        redraw();
-    }, 200);
+/*
+ * Throttle the amount of times the map is redrawn when the window is resized.
+ */
+function throttleRedraw() {
+    if (typeof  throttleRedraw.timer === 'undefined') {
+        throttleRedraw.timer = window.setTimeout(() => redraw(), REDRAW_THROTTLE_TIME);
+    }
+
+    window.clearTimeout(throttleRedraw.timer);
+    throttleRedraw.timer = window.setTimeout(() => redraw(), REDRAW_THROTTLE_TIME);
 }
 
-$(document).ready(() => {
-    setup(MAP_WIDTH, MAP_HEIGHT);
+/* 
+ * Returns a list of geoJSON features, one per state.
+ */
+function getStates() {
+    return new Promise((resolve, reject) => {
+        d3.json(MAP_JSON_URL, (err, mapJSON) => {
+            if (err) reject(err);
 
-    d3.json(MAP_JSON_URL, (err, mapJSON) => {
-        if (err) throw err;
+            topojson.presimplify(mapJSON);
+            resolve(topojson.feature(mapJSON, mapJSON.objects.countries)
+                .features);
+        });
+    });
+}
 
-        topojson.presimplify(mapJSON);
-        states = topojson.feature(mapJSON, mapJSON.objects.countries).features;
-
-        // add people to list for appropriate state
-        let query = new google.visualization.Query(SPREADSHEET_URL);
+/*
+ * Grab everyones' info from a Google Sheet and add them to the proper state.
+ */
+function populateStates(states) {
+    return new Promise((resolve, reject) => {
+        const query = new google.visualization.Query(SPREADSHEET_URL);
         query.setQuery("SELECT *");
         query.send((resp) => {
+            if (resp.isError()) reject(resp.getDetailedMessage());
+
             // make map from "state name" to [people in that state]
-            // this will make it easy to quickly find the state for a person
-            var stateMap = {};
+            // this will make it easy to quickly add a person to a state
+            const stateMap = {};
             for (let state of states) {
                 state['properties']['people'] = [];
-                var peopleList = state['properties']['people'];
+                const peopleList = state['properties']['people'];
                 stateMap[state['properties']['NAME10'].toLowerCase()] = peopleList;
             }
 
             // populate lists of people per state
             var table = resp.getDataTable();
-            for (var i = 0; i < table.getNumberOfRows(); i++) {
-                var state = table.getValue(i, 5).toLowerCase();
-                var name = table.getValue(i, 2);
-                var company = table.getValue(i, 1);
-                var location = table.getValue(i, 4);
-                var person = { name, company, location };
+            for (let i = 0; i < table.getNumberOfRows(); i++) {
+                const state = table.getValue(i, 5).toLowerCase();
+                const name = table.getValue(i, 2);
+                const company = table.getValue(i, 1);
+                const location = table.getValue(i, 4);
+                const person = { name, company, location };
+
                 stateMap[state].push(person);
             }
-        });
 
-        draw(MAP_WIDTH, MAP_HEIGHT);
+            resolve();
+        });
+    });
+}
+
+/* 
+ * Init map
+ */
+$(document).ready(() => {
+    // reduce the amount of times we have to redraw the map
+    d3.select(window).on("resize", throttleRedraw);
+
+    // selection for map element
+    svg = d3.select("#map");
+
+    getStates().then((val) => {
+        states = val;
+        populateStates(states).then(() => redraw());
     });
 });
 
