@@ -122,6 +122,13 @@ function draw(width, height) {
         .on("mouseout",  function(d,i) {
             tooltip.classed("hidden", true)
         }); 
+
+    // remove loading img
+    d3.select("#map-loading").remove();
+
+    // show map
+    svg.classed("hidden", false);
+    d3.select("#state-name").classed("hidden", false);
 }
 
 /*

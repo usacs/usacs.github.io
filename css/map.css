@@ -57,3 +57,8 @@ div.tooltip {
 body {
     height: 150%;
 }
+
+#map-loading {
+    display: block;
+    margin: auto;
+}
