@@ -1,0 +1,24 @@
+ul, p {
+    text-align: left;
+    padding-bottom: 20px;
+}
+h2 {
+    text-align: left;
+}
+
+a {
+    color: #b22828;
+}
+
+img {
+    max-width: 70%;
+    display: block;
+    margin: 0 auto;
+    padding-bottom: 40px;
+}
+
+/* prevent the above rule from messing up the USACS logo */
+#usacs-logo {
+    max-width: 100%;
+    display: inline;
+}

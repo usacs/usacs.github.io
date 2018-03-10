@@ -1,118 +1,65 @@
+<!DOCTYPE html>
 <html>
+  <head>
+    <title>events</title>
+    <script src="assets/js/jquery-3.2.1.min.js"></script>
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/modules.css">
+  </head>
 
-    <head>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-        <link rel="stylesheet" href="bootstrap/css/bootstrap.css">
-        <link rel="stylesheet" href="css/common.css">
-        <link rel="stylesheet" href="css/modules.css">
+  <body>
+    <nav class="normal">
+      <ul class="logo">
+        <a ref="index.html">
+          <img id="usacs-logo" src="assets/img/usacs.svg">
+        </a>
+      </ul>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="events.html">Events</a></li>
+        <li><a href="get-involved.html">Get Involved</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="mission.html">Mission</a></li>
+        <li><a href="mentors.html">Mentors</a></li>
+        <li><a href="outreach.html">Outreach</a></li>
+        <li><a href="map.html">Map</a></li>
+      </ul>
+    </nav>
+    <section id="content" class="pages">
+      <div class="container">
         <link rel="stylesheet" href="css/events.css">
+<script type="application/javascript" src="./assets/js/interactions.js"></script>
+<script type="application/javascript" src="./assets/js/events-list.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
+<div class="row">
+  <div class="col-md-8"></div>
+  <div class="col-md-12">
 
-        <script type="application/javascript" src="./assets/js/interactions.js"></script>
-        <script type="application/javascript" src="./assets/js/events-list.js"></script>
-    </head>
+    <h1>Events Calendar</h1>
 
-    <body>
-        <nav class="normal">
-            <ul class="logo">
-                <a href="index.html">
-                    <img src="assets/img/usacs.svg">
-                </a>
-            </ul>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="events.html">Events</a></li>
-                <li><a href="get-involved.html">Get Involved</a></li>
-                <li><a href="projects.html">Projects</a></li>
-                <li><a href="contact.html">Contact</a></li>
-                <li><a href="map.html">Map</a></li>
-				<li><a href="https://medium.com/@rutgersusacs">Blog</a></li>
-			</ul>
-        </nav>
-        
-		<section id="content" class="pages">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-8"></div>
-                        <div class="col-md-12">
+    <div class="events-full"></div>
 
-                            <h1>Events Calendar</h1>
-	
-                            <div class="event-wrapper">
-                                <div class="event">
-                                    <div class="event-date">
-                                        <span class="day">20</span>
-                                        <span class="month">Oct</span>
-                                    </div>
-                                    <div class="event-description">
-                                        <span class="title">Weekly Board Meeting - CAVE from 7:00-9:00 PM</span>
-                                        <span class="description">Stop by to find out and partake in planning upcoming USACS events.</span>
-                                    </div>
-                                </div>
-                            </div>
-						
-                            <div class="event-wrapper">
-                                <div class="event">
-                                    <div class="event-date">
+  </div>
+</div>
 
-                                        <span class="day">21</span>
-                                        <span class="month">Oct</span>
-                                    </div>
-                                    <div class="event-description">
-                                        <span class="title">Hacker Hour - Databases - CAVE from 6:00-7:00 PM</span>
-                                        <span class="description">Learn how to create database and interacting with one via MySQL and MonogDB.</span>
-                                    </div>
-                                </div>
-                            </div>
+<h4>To find out about more events outside this month, checkout the offical USACS Google Calendar</h4>
+<div class="button-container button-inline">
+  <a class="button" href="https://calendar.google.com/calendar/embed?src=rutgersusacs%40gmail.com&ctz=America/New_York"> USACS Calendar</a>
+</div>
 
-                            <div class="event-wrapper">
-                                <div class="event">
-                                    <div class="event-date">
-
-                                        <span class="day">22</span>
-                                        <span class="month">Oct</span>
-                                    </div>
-                                    <div class="event-description">
-                                        <span class="title">HackRU! - College Ave Student Center</span>
-                                        <span class="description">Come hack with us for 24 hours on College Ave!</span>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="event-wrapper">
-                                <div class="event">
-                                    <div class="event-date">
-                                        <span class="day">27</span>
-                                        <span class="month">Oct</span>
-                                    </div>
-                                    <div class="event-description">
-                                        <span class="title">Weekly Board Meeting - CAVE from 7:00-9:00 PM</span>
-                                        <span class="description">Hang out with eboard while we organize upcoming USACS events. </span>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="event-wrapper">
-                                <div class="event">
-                                    <div class="event-date">
-                                        <span class="day">28</span>
-                                        <span class="month">Oct</span>
-                                    </div>
-                                    <div class="event-description">
-                                        <span class="title">Hacker Hour - What happens when? - CAVE from 6:00-7:00 PM</span>
-                                        <span class="description">Learn what happens when you type something into Google.com.</span>
-                                    </div>
-                                </div>
-                            </div>
-
-						</div>
-                    </div>
-
-                    <h4>To find out about more events outside this month, checkout the offical USACS Google Calendar</h4>
-                    <div class="button-container button-inline">
-                        <a class="button" href="https://calendar.google.com/calendar/embed?src=rutgersusacs%40gmail.com&ctz=America/New_York"> USACS Calendar</a>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </body>
+      </div>
+    </section>
+    <footer>
+      <div class="social-media">
+        <a href="https://www.facebook.com/rutgers.usacs/?ref=br_tf"><img src="assets/img/fb.svg"></a>
+        <a href="https://twitter.com/Rutgers_Usacs"><img src="assets/img/twitter.svg"></a>
+        <a href="https://www.instagram.com/Rutgers_Usacs/"><img src="assets/img/insta.svg"></a>
+        <a href="https://github.com/usacs"><img src="assets/img/github-mark.png"></a>
+        <a href="https://medium.com/@rutgersusacs"><img src="assets/img/medium_logo.png"></a>
+        <a href="https://usacs.slack.com/"><img src="assets/img/slack-mark.png"></a>
+      </div>
+    </footer>
+    <script src="assets/js/footer.js"></script>
+  </body>
 </html>

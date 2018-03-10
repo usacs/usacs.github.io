@@ -1,87 +1,102 @@
+<!DOCTYPE html>
 <html>
-    <head>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-        <link rel="stylesheet" href="bootstrap/css/bootstrap.css">
-        <link rel="stylesheet" href="css/common.css">
-        <link rel="stylesheet" href="css/modules.css">
+  <head>
+    <title>projects</title>
+    <script src="assets/js/jquery-3.2.1.min.js"></script>
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/modules.css">
+  </head>
+
+  <body>
+    <nav class="normal">
+      <ul class="logo">
+        <a ref="index.html">
+          <img id="usacs-logo" src="assets/img/usacs.svg">
+        </a>
+      </ul>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="events.html">Events</a></li>
+        <li><a href="get-involved.html">Get Involved</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="mission.html">Mission</a></li>
+        <li><a href="mentors.html">Mentors</a></li>
+        <li><a href="outreach.html">Outreach</a></li>
+        <li><a href="map.html">Map</a></li>
+      </ul>
+    </nav>
+    <section id="content" class="pages">
+      <div class="container">
         <link rel="stylesheet" href="css/projects.css">
-        <script type="application/javascript" src="./assets/js/interactions.js"></script>
-    </head>
+<script type="application/javascript" src="./assets/js/interactions.js"></script>
 
-    <body>
-        <nav class="normal">
-            <ul class="logo">
-                <a href="index.html">
-                    <img src="assets/img/usacs.svg">
-                </a>
-            </ul>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="events.html">Events</a></li>
-                <li><a href="get-involved.html">Get Involved</a></li>
-                <li><a href="projects.html">Projects</a></li>
-                <li><a href="contact.html">Contact</a></li>
-                <li><a href="map.html">Map</a></li>
-				<li><a href="https://medium.com/@rutgersusacs">Blog</a></li>
-			</ul>
-        </nav>
-        <section id="content" class="pages">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-2"></div>
-                    <div class="col-md-8">
-                        <h1>Projects made by the community!</h1>
-                        <h3>We do fun stuff. We make fun stuff. Check out some of our best work!</h3>
-                        
-                        <div class="row" id="project-container">
+<div class="row">
+  <div class="col-md-2"></div>
+  <div class="col-md-8">
+    <h1>Projects made by the community!</h1>
+    <h3>We do fun stuff. We make fun stuff. Check out some of our best work!</h3>
 
-                            <!-- I just want to go to bed -->
-                            <br/>
-                            <br/>
-                            <br/>
-                            <!-- Ignore me -->
-                            
-                            <div class="card">
-                                <a href="https://github.com/sagnew/Prank-Roulette"> <h1>Prank-Roulette</h1> </a>
-                                <p>A web app that allows users to set up phone calls between two people and enables the user to anonymously listen.</p>
-                            </div>
-                            
-                            <div class="card">
-                                <a href="https://github.com/9/Shrednought"> <h1>Shrednought</h1> </a>
-                                <p>Shrednought takes in audio created from a real guitar and is relayed as controls for a 3D world survival game.</p>
-                            </div>
+    <div class="row" id="project-container">
 
-                            <div class="card">
-                                <a href="http://devpost.com/software/isight"> <h1>iSight</h1> </a>
-                                <p>iSight uses computer vision via tesseract to convert any image file to braille to assist the visually impared.</p>
-                            </div>
+      <!-- I just want to go to bed -->
+      <br/>
+      <br/>
+      <br/>
+      <!-- Ignore me -->
+      <div class="row">
+        <div class="project col-sm-6" style="background-image: url('assets/img/python.png')">
+          <a href="https://github.com/sagnew/Prank-Roulette"> <h1>Prank-Roulette</h1> </a>
+          <p>A web app that allows users to set up phone calls between two people and enables the user to anonymously listen.</p>
+        </div>
 
-                            <div class="card">
-                                <a href="http://devpost.com/software/transakt"> <h1>Transactr</h1> </a>
-                                <p> Transactr tracks your spending habits by updating you through your pebble watch about your recent transactions.</p>
-                            </div>
+        <div class="project col-sm-6" style="background-image: url('assets/img/unity.png')">
+          <a href="https://github.com/9/Shrednought"> <h1>Shrednought</h1> </a>
+          <p>Shrednought takes in audio created from a real guitar and is relayed as controls for a 3D world survival game.</p>
+        </div>
 
-                            <div class="card">
-                                <a href = "http://devpost.com/software/smartfindr"> <h1>SmartFindr</h1> </a>
-                                <p>Helps people quickly browse webpages by targeting the important concepts within a dense amount of material.</p>
-                            </div>
+        <div class="project col-sm-6" style="background-image: url('assets/img/python.png')">
+          <a href="http://devpost.com/software/isight"> <h1>iSight</h1> </a>
+          <p>iSight uses computer vision via tesseract to convert any image file to braille to assist the visually impared.</p>
+        </div>
+        <div class="project col-sm-6" style="background-image: url('assets/img/js.png')">
+          <a href="http://devpost.com/software/transakt"> <h1>Transactr</h1> </a>
+          <p> Transactr tracks your spending habits by updating you through your pebble watch about your recent transactions.</p>
+        </div>
 
-                            <div class="card">
-                                <a href="http://devpost.com/software/wikilio"> <h1>Wikilio</h1> </a> 
-                                <p>Uses Twilio to enable non-smartphone users to research and browse wikipedia through text/image messages.</p>
-                            </div>
+        <div class="project col-sm-6" style="background-image: url('assets/img/chrome.png')">
+          <a href = "http://devpost.com/software/smartfindr"> <h1>SmartFindr</h1> </a>
+          <p>Helps people quickly browse webpages by targeting the important concepts within a dense amount of material.</p>
+        </div>
 
-                        </div>
+        <div class="project col-sm-6" style="background-image: url('assets/img/python.png')">
+          <a href="http://devpost.com/software/wikilio"> <h1>Wikilio</h1> </a>
+          <p>Uses Twilio to enable non-smartphone users to research and browse wikipedia through text/image messages.</p>
+        </div>
+      </div>
+    </div>
 
-                        <!-- apply with css later-->
-                        <br/>
-                        <br/>
-                        <br/>
-                        <!-- Ignore me -->
+    <!-- apply with css later-->
+    <br/>
+    <br/>
+    <br/>
+    <!-- Ignore me -->
 
-                    </div>
-                </div>
-            </div>
-        </section>
-    </body>
+  </div>
+</div>
+
+      </div>
+    </section>
+    <footer>
+      <div class="social-media">
+        <a href="https://www.facebook.com/rutgers.usacs/?ref=br_tf"><img src="assets/img/fb.svg"></a>
+        <a href="https://twitter.com/Rutgers_Usacs"><img src="assets/img/twitter.svg"></a>
+        <a href="https://www.instagram.com/Rutgers_Usacs/"><img src="assets/img/insta.svg"></a>
+        <a href="https://github.com/usacs"><img src="assets/img/github-mark.png"></a>
+        <a href="https://medium.com/@rutgersusacs"><img src="assets/img/medium_logo.png"></a>
+        <a href="https://usacs.slack.com/"><img src="assets/img/slack-mark.png"></a>
+      </div>
+    </footer>
+    <script src="assets/js/footer.js"></script>
+  </body>
 </html>
