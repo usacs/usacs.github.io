@@ -1,0 +1,87 @@
+h3 {
+    text-align: center
+}
+
+#map {
+    border: 2px solid #d0d0d0;
+    border-radius: 5px;
+    background-color: #fff;
+    display: block;
+    margin: auto;
+}
+
+.state {
+    fill: #d7c7ad;
+    stroke: black;
+}
+
+#map-listing {
+    display block;
+    margin: auto;
+    width: 75%;
+    height: 80%;
+    overflow: auto;
+}
+
+.hidden { 
+    display: none; 
+}
+
+div.tooltip {
+    color: #222; 
+    background: #fff; 
+    padding: .5em; 
+    text-shadow: #f5f5f5 0 1px 0;
+    border-radius: 2px; 
+    box-shadow: 0px 0px 2px 0px #a6a6a6; 
+    opacity: 0.9; 
+    position: absolute;
+}
+
+#content {
+    height: 150%;
+}
+
+.state:hover{
+    stroke: #fff;
+    stroke-width: .7px;
+}
+
+#map-entry-point p {
+    text-align: center;
+}
+
+.selected-state {
+    stroke: #fff;
+    stroke-width: .7px;
+}
+
+body {
+    height: 100%;
+}
+
+#map-loading {
+    display: block;
+    margin: auto;
+}
+
+#content .container, #content .row{
+    height: 100%;
+}
+
+#map-entry-point {
+    height: 800px;
+}
+
+#map-container {
+    height: 65%;
+}
+
+#map-listing-container {
+    height: 35%;
+    padding-top: 20px;
+}
+
+#map-heading {
+    height: 20%;
+}
