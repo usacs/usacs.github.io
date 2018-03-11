@@ -65,8 +65,12 @@ body {
     margin: auto;
 }
 
-#content .container, #content .row, #map-entry-point {
+#content .container, #content .row{
     height: 100%;
+}
+
+#map-entry-point {
+    height: 800px;
 }
 
 #map-container {
