@@ -128,13 +128,19 @@ function draw(states) {
 
             // update existing list elements
             people.classed("list-group-item", true)
-                .text(function(person, i) {return person.name});
+                .html(function(person, i) {
+                    const tab = '&nbsp;&nbsp;&nbsp;&nbsp;';
+                    return `${person.name} ${tab}//${tab}     ${person.company} ${tab}//${tab} ${person.location}`
+                });
 
             // add new list elements
             people.enter()
                 .append("li")
                 .classed("list-group-item", true)
-                .text(function(person, i) {return person.name});
+                .html(function(person, i) {
+                    const tab = '&nbsp;&nbsp;&nbsp;&nbsp;';
+                    return `${person.name} ${tab}//${tab}     ${person.company} ${tab}//${tab} ${person.location}`
+                });
 
             // remove any excess list elements
             people.exit().remove();
@@ -143,6 +149,7 @@ function draw(states) {
             if (!d3.select("#map-listing").html()) {
                 d3.select("#map-listing")
                     .append("li")
+                    .classed("list-group-item", true)
                     .html("Looks like noone is working here yet!");
             }
         })
