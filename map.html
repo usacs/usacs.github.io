@@ -8,6 +8,7 @@
         <script type="text/javascript" src="http://www.google.com/jsapi"></script>
         <script> google.load('visualization', '1'); </script>
         <link rel="stylesheet" href="bootstrap/css/bootstrap.css">
+        <link rel="stylesheet" href="./css/bootstrap.4.0.0.min.css">
         <link rel="stylesheet" href="css/common.css">
         <link rel="stylesheet" href="css/modules.css">
         <link rel="stylesheet" href="css/map.css">
@@ -39,14 +40,16 @@
 		<section id="content" class="pages">
             <div class="container">
                 <div class="row">
-                    <div class="col-md-8"></div>
-                        <div class="col-md-12" id="map-entry-point">
-                            <h1>Where RU Working?</h1>
-                            <h3>Check out where other students/alumni are working/interning!</h3>
-                            <p>
-                                Want to be added? Add yourself
-                                <a target="_blank" href="https://goo.gl/forms/jbd9qJAPjlieT3A23">here</a>
-                            </p>
+                    <div class="col-md-12" id="map-entry-point">
+                        <div id="map-container">
+                            <div id="map-heading">
+                                <h1>Where RU Working?</h1>
+                                <h3>Check out where other students/alumni are working/interning!</h3>
+                                <p>
+                                    Want to be added? Add yourself
+                                    <a target="_blank" href="https://goo.gl/forms/jbd9qJAPjlieT3A23">here</a>
+                                </p>
+                            </div>
 
                             <img id="map-loading" src="./assets/img/loading-ring.svg"/>
 
@@ -54,12 +57,13 @@
                                 <g></g>
                             </svg>
                             <div class="tooltip hidden"></div>
+                        </div>
 
+                        <div id="map-listing-container">
                             <h3 id="state-name" class="hidden">
                                 Select a State
                             </h3>
-                            <ul id="map-listing"></ul>
-
+                            <ul id="map-listing" class="list-group list-group-flush"></ul>
                         </div>
                     </div>
                 </div>
