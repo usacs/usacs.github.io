@@ -1,0 +1,42 @@
+.col-md-12 {
+    text-align: center;
+}
+
+h2, h3 {
+    color: #b22828;
+    margin-bottom: 20px;
+    font-size: 15px;
+}
+
+#resource-list {
+    text-align: left;
+    display: block;
+    margin: auto;
+    width: 70%;
+}
+
+.resource {
+    padding-left: 3em;
+    border-top: 0;
+}
+
+.list-group .list-group-item {
+    border-right: 0;
+    border-top: 0;
+    border-bottom: 0;
+    font-weight: bold;
+}
+
+.category-name {
+    font-size: 19px;
+}
+
+.category-name:hover {
+    cursor: pointer;
+    cursor: hand;
+}
+
+.selected {
+    border-bottom: 0;
+}
+
