@@ -48,10 +48,7 @@ function buildResourceListHTMLString(spreadsheet) {
 
     // template for entire resource list
     const resourceListTemplate = (categoryMap) => {
-        return Object.keys(categoryMap)
-            .map((category) => {
-                return [category, categoryMap[category]];
-            })
+        return Object.entries(categoryMap)
             .map(([category, resources]) => {
                 return `
                         <div class="category">
