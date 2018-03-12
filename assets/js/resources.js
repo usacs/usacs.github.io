@@ -41,7 +41,8 @@ function buildResourceListHTMLString(spreadsheet) {
     // template for a resource
     const resourceTemplate = (resource) => {
         return `<li class="resource collapse list-group-item" style="display: none;">
-            &#183; <a href="${resource.link}" target="_blank"> ${resource.name} </a>
+            &#183; <a href="${resource.link}" target="_blank"> ${resource.name}</a>
+            <span class="resource-description">- ${resource.description}</span>
             </li>`;
     };
 

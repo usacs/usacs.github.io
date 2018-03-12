@@ -40,3 +40,7 @@ h2, h3 {
     border-bottom: 0;
 }
 
+.resource-description {
+    font-weight: normal;
+}
+
