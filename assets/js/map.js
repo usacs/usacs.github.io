@@ -249,18 +249,26 @@ function populateStates(states) {
                 stateMap[stateName].push(person);
             }
 
-            // store bg-color per state for heatmap
+            // store color per state for heatmap
             const numPeoplePerState = states.map((state) => state.properties['people'].length);
-            const min = Math.min.apply(Math, numPeoplePerState);
-            const max = Math.max.apply(Math, numPeoplePerState);
-            const range = max - min;
-            const stateColors = numPeoplePerState.map((numPeople) => {
-                const colorGradientRange = 230;
-                const normalizedVal = (numPeople - min) / range;
-                const colorGradientVal = Math.round(colorGradientRange * normalizedVal);
-
-                return `rgb(255, ${colorGradientRange - colorGradientVal}, 0)`;
-            });
+            const [min, max] = d3.extent(numPeoplePerState);
+            const stateColors = numPeoplePerState
+                // normalize
+                .map((numPeople) => {
+                    return (numPeople - min) / (max - min);
+                })
+                // we want the complement percentage since larger numbers
+                // should yield a smaller 'G' value in the RGB
+                .map((normalized) => {
+                    return 1 - normalized;
+                })
+                // calculate 'G' value
+                .map((complement) => {
+                    return Math.round(230 * complement);
+                })
+                .map((g) => {
+                    return `rgb(255, ${g}, 0)`;
+                });
             for (let i = 0; i < stateColors.length; i++) {
                 states[i].properties['bgcolor'] = stateColors[i];
             }
