@@ -2,7 +2,13 @@
  * Resource List for RU students.
  */
 
-const SPREADSHEET_URL = "https://docs.google.com/spreadsheets/d/1YVK9AwOS5iB64B5vLv-bInPz6F-mf4ad1M3oOE_b1bI/edit#gid=1783909318";
+const SPREADSHEET_URL = "https://docs.google.com/spreadsheets/d\
+/1YVK9AwOS5iB64B5vLv-bInPz6F-mf4ad1M3oOE_b1bI/edit#gid=1783909318";
+
+// TODO: should just get some SVG's for this stuff
+const PLUS_SIGN_ENCODED = '%2B';
+const MINUS_SIGN_ENCODED = '%E2%88%92';
+const DOT_HTML_ENTITY = '&#183;';
 
 /*
  * Resolves with a 'DataTable' for a given Google Sheet
@@ -40,9 +46,15 @@ function buildResourceListHTMLString(spreadsheet) {
 
     // template for a resource
     const resourceTemplate = (resource) => {
-        return `<li class="resource collapse list-group-item" style="display: none;">
-            &#183; <a href="${resource.link}" target="_blank"> ${resource.name}</a>
-            <span class="resource-description">- ${resource.description}</span>
+        return `
+            <li class="resource list-group-item" style="display: none;">
+                ${DOT_HTML_ENTITY}
+                <a href="${resource.link}" target="_blank">
+                    ${resource.name}
+                </a>
+                <span class="resource-description">
+                    - ${resource.description}
+                </span>
             </li>`;
     };
 
@@ -52,13 +64,13 @@ function buildResourceListHTMLString(spreadsheet) {
             .map(([category, resources]) => {
                 return `
                         <div class="category">
-                            <li class="category-name list-group-item collapsed">
-                                <span class="category-name-icon">&#43;</span>
+                            <li class="category-name list-group-item">
+                                <span class="category-name-icon">
+                                    ${decodeURIComponent(PLUS_SIGN_ENCODED)}
+                                </span>
                                 ${category} 
                             </li>
-                            ${
-                                resources.map(resourceTemplate).join('\n')
-                            }
+                            ${resources.map(resourceTemplate).join('\n')}
                         </div>`;
             })
             .join('\n');
@@ -109,31 +121,20 @@ function injectResourceList(resourceListHTMLString) {
  * Define interactivity for resource list e.g. onClick()
  */
 function setResourceListInteractions(element) {
-    // <li>'s which are just the category names
     const categoryNames = $(`#${element.attr('id')} .category-name`);
 
     categoryNames.on('click', (e) => {
         const categoryName = $(e.currentTarget);
-        // <li>'s which are resources
         const resources = categoryName.parent().children('.resource');
 
-        // collapse/expand list
+        // toggle list
         resources.slideToggle(200);
-
-        // toggle selected
-        categoryName.toggleClass('selected');
 
         // toggle expand/collapse icon
         const icon = categoryName.children('.category-name-icon');
-        if (categoryName.hasClass('collapsed')) {
-            categoryName.removeClass('collapsed');
-            categoryName.addClass('expanded');
-            icon.html('&#8722;')
-        } else {
-            categoryName.removeClass('expanded');
-            categoryName.addClass('collapsed');
-            icon.html('&#43;')
-        }
+        const iconEncoded = encodeURIComponent(icon.html().trim());
+        icon.html(decodeURIComponent((iconEncoded === PLUS_SIGN_ENCODED) ?
+            MINUS_SIGN_ENCODED : PLUS_SIGN_ENCODED));
     });
 }
 

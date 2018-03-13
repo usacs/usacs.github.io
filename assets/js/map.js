@@ -26,6 +26,25 @@ const MAP_BASE_HEIGHT = 400;
 const REDRAW_THROTTLE_TIME = 300;
 
 /*
+ * Resolves with a 'DataTable' for a given Google Sheet
+ * or rejects with a string detailing the error
+ */
+function getGoogleSheet(spreadsheetUrl) {
+    return new Promise((resolve, reject) => {
+        const query = new google.visualization.Query(spreadsheetUrl);
+        query.setQuery("SELECT *");
+
+        query.send((resp) => {
+            if (resp.isError()) {
+                reject(resp.getDetailedMessage());
+            } else {
+                resolve(resp.getDataTable());
+            }
+        });
+    });
+}
+
+/*
  * Returns the path attribute for the map's <path> elements.
  */
 function getMapPath(width, height) {
@@ -218,71 +237,79 @@ function getStates() {
 /*
  * Grab everyones' info from a Google Sheet and add them to the proper state.
  */
-function populateStates(states) {
-    return new Promise((resolve, reject) => {
-        const query = new google.visualization.Query(SPREADSHEET_URL);
-        query.setQuery("SELECT *");
+function populateStates([states, spreadsheet]) {
+        const normalize = (val, [min, max]) => {
+            return (val - min) / (max - min)
+        };
 
-        query.send((resp) => {
-            if (resp.isError()) reject(resp.getDetailedMessage());
-
-            // make map from "state name" to [people in that state]
-            // this will make it easy to quickly add a person to a state
-            const stateMap = {};
-            for (let state of states) {
-                state['properties']['people'] = [];
-                const peopleList = state['properties']['people'];
-                const stateName = state['properties']['NAME10'].toLowerCase();
-
-                stateMap[stateName] = peopleList;
+        // returns [1, 2, 3, ..., n]
+        const range = (n) => { 
+            arr = new Array(n);
+            for (let i = 0; i < n; i++) {
+                arr[i] = i;
             }
 
-            // populate lists of people per state
-            const table = resp.getDataTable();
-            for (let i = 0; i < table.getNumberOfRows(); i++) {
-                const stateName = table.getValue(i, 5).toLowerCase();
-                const name = table.getValue(i, 2);
-                const company = table.getValue(i, 1);
-                const location = table.getValue(i, 4);
-                const person = { name, company, location };
+            return arr;
+        };
 
-                stateMap[stateName].push(person);
-            }
+        const stateMap = range(spreadsheet.getNumberOfRows())
+            .map((rowIdx) => {
+                return {
+                    name: table.getValue(i, 2);
+                    company: table.getValue(i, 1);
+                    location: table.getValue(i, 4);
+                    state: table.getValue(i, 5).toLowerCase();
+                };
+            })
+            .reduce((stateMap, person) => {
+                if (!stateMap.hasOwnProperty(person.state)) {
+                    stateMap[person.state] = [person];
+                } else {
+                    stateMap[person.state].push(person);
+                }
 
-            // store color per state for heatmap
-            const numPeoplePerState = states.map((state) => state.properties['people'].length);
-            const [min, max] = d3.extent(numPeoplePerState);
-            const stateColors = numPeoplePerState
-                // normalize
-                .map((numPeople) => {
-                    return (numPeople - min) / (max - min);
-                })
-                // we want the complement percentage since larger numbers
-                // should yield a smaller 'G' value in the RGB
-                .map((normalized) => {
-                    return 1 - normalized;
-                })
-                // calculate 'G' value
-                .map((complement) => {
-                    return Math.round(230 * complement);
-                })
-                .map((g) => {
-                    return `rgb(255, ${g}, 0)`;
-                });
-            for (let i = 0; i < stateColors.length; i++) {
-                states[i].properties['bgcolor'] = stateColors[i];
-            }
+                return stateMap;
+            }, {});
+        for (let state of states) {
+            state['properties']['people'] = stateMap[
+                state['properties']['NAME10'].toLowerCase()
+            ];
+        }
 
-            resolve(states);
-        });
-    });
+        // store color per state for heatmap
+        states
+            // get number of people per state
+            .map((state) => {
+                return state.properties['people'].length;
+            })
+            // normalize
+            .map((numPeople, idx, arr) => {
+                return normalize(numPeople, d3.extent(arr));
+            })
+            // we want the complement percentage since larger numbers
+            // should yield a smaller 'G' value in the RGB
+            .map((normalized) => {
+                return 1 - normalized;
+            })
+            // calculate 'G' value
+            .map((complement) => {
+                return Math.round(230 * complement);
+            })
+            .map((g, idx) => {
+                return `rgb(255, ${g}, 0)`;
+            })
+            .reduce((states, color, idx) => {
+                states[idx].properties['bgcolor'] = color;
+            }, states);
+
+        return states;
 }
 
 /* 
  * Init map
  */
 $(document).ready(() => {
-    getStates()
+    Promise.all([getStates(), getGoogleSheet(SPREADSHEET_URL)])
         .then(populateStates)
         .then(draw)
         .catch(console.log);
