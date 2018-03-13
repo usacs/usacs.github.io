@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>map</title>
+    <title>resources</title>
     <script src="assets/js/jquery-3.2.1.min.js"></script>
     <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="css/common.css">
@@ -29,53 +29,28 @@
     </nav>
     <section id="content" class="pages">
       <div class="container">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-<link rel="stylesheet" href="bootstrap/css/bootstrap.css">
-<link rel="stylesheet" href="./css/bootstrap.4.0.0.min.css">
-<link rel="stylesheet" href="css/common.css">
-<link rel="stylesheet" href="css/modules.css">
-<link rel="stylesheet" href="css/map.css">
-<script src="https://d3js.org/d3.v3.js"></script>
-<script src="https://d3js.org/topojson.v1.min.js"></script>
+        <link rel="stylesheet" href="./css/bootstrap.4.0.0.min.css">
+<link rel="stylesheet" href="css/resources.css">
 <script type="text/javascript" src="http://www.google.com/jsapi"></script>
 <script> google.load('visualization', '1'); </script>
+<script type="application/javascript" src="./assets/js/resources.js"></script>
 <script type="application/javascript" src="./assets/js/interactions.js"></script>
 <script type="application/javascript" src="./assets/js/events-list.js"></script>
-<script type="application/javascript" src="./assets/js/map.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
 
-<section id="content" class="pages">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12" id="map-entry-point">
-                <div id="map-container">
-                    <div id="map-heading">
-                        <h1>Where RU Working?</h1>
-                        <h3>Check out where other students/alumni are working/interning!</h3>
-                        <p>
-                            Want to be added? Add yourself
-                            <a target="_blank" href="https://goo.gl/forms/jbd9qJAPjlieT3A23">here</a>
-                        </p>
-                    </div>
+<div class="row">
+    <div class="col-md-12">
+        <h1>Resources</h1>
+        <h3> A community-driven collection of resources to aid you in your CS endeavors. </h3>
 
-                    <img id="map-loading" src="./assets/img/loading-ring.svg"/>
+        <p>
+            Want to add something? 
+            <a target="_blank" href="https://goo.gl/forms/59Sqty3OCPahv4192">Let us know.</a>
+        </p>
 
-                    <svg id="map" class="hidden">
-                        <g></g>
-                    </svg>
-                    <div class="tooltip hidden"></div>
-                </div>
-
-                <div id="map-listing-container">
-                    <h3 id="state-name" class="hidden">
-                        Select a State
-                    </h3>
-                    <ul id="map-listing" class="list-group list-group-flush"></ul>
-                </div>
-            </div>
-        </div>
+        <ul id="resource-list" class="list-group"></ul>
     </div>
-</section>
-
+</div>
 
       </div>
     </section>
