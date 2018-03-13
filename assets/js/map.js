@@ -255,10 +255,10 @@ function populateStates([states, spreadsheet]) {
         const stateMap = range(spreadsheet.getNumberOfRows())
             .map((rowIdx) => {
                 return {
-                    name: table.getValue(i, 2);
-                    company: table.getValue(i, 1);
-                    location: table.getValue(i, 4);
-                    state: table.getValue(i, 5).toLowerCase();
+                    name: spreadsheet.getValue(i, 2);
+                    company: spreadsheet.getValue(i, 1);
+                    location: spreadsheet.getValue(i, 4);
+                    state: spreadsheet.getValue(i, 5).toLowerCase();
                 };
             })
             .reduce((stateMap, person) => {
