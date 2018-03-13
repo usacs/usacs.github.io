@@ -29,8 +29,9 @@ const REDRAW_THROTTLE_TIME = 300;
  * Returns the path attribute for the map's <path> elements.
  */
 function getMapPath(width, height) {
-    const scale = (width < height) ?
-        width / MAP_BASE_WIDTH : height / MAP_BASE_HEIGHT;
+    const widthRatio = width / MAP_BASE_WIDTH;
+    const heightRatio = height / MAP_BASE_HEIGHT;
+    const scale = Math.min(widthRatio, heightRatio);
     const area = 1;
 
     const simplify = d3.geo.transform({
@@ -52,8 +53,15 @@ function getMapPath(width, height) {
  * Returns dimensions of map based on current window dimensions.
  */
 function getNewMapDimensions() {
-    const width = $('#map-container').width() * .75;
-    const height = $("#map-container").height() - $("#map-heading").height();
+    let width = $('#map-container').width() * .75;
+    let height = $("#map-container").height() - $("#map-heading").height();
+
+    // maintain aspect ratio
+    if (width < height) {
+        height = (width * MAP_BASE_HEIGHT) / MAP_BASE_WIDTH;
+    } else {
+        width = ((height * MAP_BASE_WIDTH) / MAP_BASE_HEIGHT) * .75;
+    }
 
     return [width, height];
 }
