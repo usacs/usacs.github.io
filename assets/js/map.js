@@ -238,71 +238,71 @@ function getStates() {
  * Grab everyones' info from a Google Sheet and add them to the proper state.
  */
 function populateStates([states, spreadsheet]) {
-        const normalize = (val, [min, max]) => {
-            return (val - min) / (max - min)
-        };
+    const normalize = (val, [min, max]) => {
+        return (val - min) / (max - min)
+    };
 
-        // returns [1, 2, 3, ..., n]
-        const range = (n) => { 
-            arr = new Array(n);
-            for (let i = 0; i < n; i++) {
-                arr[i] = i;
-            }
-
-            return arr;
-        };
-
-        const stateMap = range(spreadsheet.getNumberOfRows())
-            .map((rowIdx) => {
-                return {
-                    name: spreadsheet.getValue(i, 2);
-                    company: spreadsheet.getValue(i, 1);
-                    location: spreadsheet.getValue(i, 4);
-                    state: spreadsheet.getValue(i, 5).toLowerCase();
-                };
-            })
-            .reduce((stateMap, person) => {
-                if (!stateMap.hasOwnProperty(person.state)) {
-                    stateMap[person.state] = [person];
-                } else {
-                    stateMap[person.state].push(person);
-                }
-
-                return stateMap;
-            }, {});
-        for (let state of states) {
-            state['properties']['people'] = stateMap[
-                state['properties']['NAME10'].toLowerCase()
-            ];
+    // returns [1, 2, 3, ..., n]
+    const range = (n) => { 
+        arr = new Array(n);
+        for (let i = 0; i < n; i++) {
+            arr[i] = i;
         }
 
-        // store color per state for heatmap
-        states
-            // get number of people per state
-            .map((state) => {
-                return state.properties['people'].length;
-            })
-            // normalize
-            .map((numPeople, idx, arr) => {
-                return normalize(numPeople, d3.extent(arr));
-            })
-            // we want the complement percentage since larger numbers
-            // should yield a smaller 'G' value in the RGB
-            .map((normalized) => {
-                return 1 - normalized;
-            })
-            // calculate 'G' value
-            .map((complement) => {
-                return Math.round(230 * complement);
-            })
-            .map((g, idx) => {
-                return `rgb(255, ${g}, 0)`;
-            })
-            .reduce((states, color, idx) => {
-                states[idx].properties['bgcolor'] = color;
-            }, states);
+        return arr;
+    };
 
-        return states;
+    const stateMap = range(spreadsheet.getNumberOfRows())
+        .map((rowIdx) => {
+            return {
+                name: spreadsheet.getValue(rowIdx, 2),
+                company: spreadsheet.getValue(rowIdx, 1),
+                location: spreadsheet.getValue(rowIdx, 4),
+                state: spreadsheet.getValue(rowIdx, 5).toLowerCase()
+            };
+        })
+        .reduce((stateMap, person) => {
+            if (!stateMap.hasOwnProperty(person.state)) {
+                stateMap[person.state] = [person];
+            } else {
+                stateMap[person.state].push(person);
+            }
+
+            return stateMap;
+        }, {});
+    for (let state of states) {
+        state['properties']['people'] = stateMap[
+            state['properties']['NAME10'].toLowerCase()
+        ] || [];
+    }
+
+    // store color per state for heatmap
+    const colors = states
+    // get number of people per state
+        .map((state) => {
+            return state.properties['people'].length;
+        })
+    // normalize
+        .map((numPeople, idx, arr) => {
+            return normalize(numPeople, d3.extent(arr));
+        })
+    // we want the complement percentage since larger numbers
+    // should yield a smaller 'G' value in the RGB
+        .map((normalized) => {
+            return 1 - normalized;
+        })
+    // calculate 'G' value
+        .map((complement) => {
+            return Math.round(230 * complement);
+        })
+        .map((g, idx) => {
+            return `rgb(255, ${g}, 0)`;
+        });
+    for (let i = 0; i < colors.length; i++) {
+        states[i].properties['bgcolor'] = colors[i];
+    }
+
+    return states;
 }
 
 /* 
