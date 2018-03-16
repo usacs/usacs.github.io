@@ -133,7 +133,7 @@ function setResourceListInteractions(element) {
         // toggle expand/collapse icon
         const icon = categoryName.children('.category-name-icon');
         const iconEncoded = encodeURIComponent(icon.html().trim());
-        icon.html(decodeURIComponent((iconEncoded === PLUS_SIGN_ENCODED) ?
+        icon.html(decodeURIComponent(iconEncoded === PLUS_SIGN_ENCODED ?
             MINUS_SIGN_ENCODED : PLUS_SIGN_ENCODED));
     });
 }
