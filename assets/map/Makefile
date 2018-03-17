@@ -15,14 +15,9 @@ GEOPROJECT = $(BIN)/geoproject
 US_STATES_GEO_JSON_URL = https://raw.githubusercontent.com/jgoodall/us-maps/master/geojson/state.geo.json
 MAP_WIDTH = 750
 MAP_HEIGHT = 400
-MAP_HORIZONTAL_OFFSET = 0
-MAP_VERTICAL_OFFSET = 0
 MAP_SCALE = 700
 
 all: $(FINAL_PRODUCT)
-
-$(DEPS):
-	yarn install
 
 # use this target for deployment
 prod: $(FINAL_PRODUCT)
@@ -34,22 +29,25 @@ test: us-states-projected-geo.json $(DEPS)
 
 # to further reduce filesize. some accuracy is lost
 # so this can be tweaked to our liking
-us-states-quantized-topo.json: us-states-projected-topo.json $(DEPS)
+$(FINAL_PRODUCT): us-states-projected-topo.json $(DEPS)
 	$(TOPOQUANTIZE) 1e5 < $< > $@
 
 # a topo.json is preferred because they take up much less space
 # than their geojson counterpart.
 # see: https://github.com/topojson/topojson
 us-states-projected-topo.json: us-states-projected-geo.json $(DEPS)
-	$(GEO2TOPO) countries=$< > $@
+	$(GEO2TOPO) states=$< > $@
 
 # pre-projecting the points will save a lot of time at runtime
 us-states-projected-geo.json: us-states-geo.json $(DEPS)
-	$(GEOPROJECT) 'd3.geoAlbersUsa().translate([($(MAP_WIDTH) / 2) + $(MAP_HORIZONTAL_OFFSET), ($(MAP_HEIGHT) / 2) + $(MAP_VERTICAL_OFFSET)]).scale($(MAP_SCALE))' < $< > $@
+	$(GEOPROJECT) 'd3.geoAlbersUsa().translate([$(MAP_WIDTH) / 2, $(MAP_HEIGHT) / 2]).scale($(MAP_SCALE))' < $< > $@
 
 # grab the raw geojson for the US
 us-states-geo.json:
 	wget -O $@ $(US_STATES_GEO_JSON_URL)
+
+$(DEPS): yarn.lock package.json
+	yarn install
 
 clean:
 	rm -rf $(INTERMEDIATE_FILES) $(FINAL_PRODUCT)
