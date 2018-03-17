@@ -12,7 +12,7 @@ const DOT_HTML_ENTITY = '&#183;';
 
 /*
  * Resolves with a 'DataTable' for a given Google Sheet
- * or rejects with a string detailing the error
+ * or rejects with an Error
  */
 function getGoogleSheet(spreadsheetUrl) {
     return new Promise((resolve, reject) => {
@@ -21,7 +21,7 @@ function getGoogleSheet(spreadsheetUrl) {
 
         query.send((resp) => {
             if (resp.isError()) {
-                reject(resp.getDetailedMessage());
+                reject(new Error(resp.getDetailedMessage()));
             } else {
                 resolve(resp.getDataTable());
             }
@@ -31,7 +31,7 @@ function getGoogleSheet(spreadsheetUrl) {
 
 /*
  * Given a Google Sheet 'DataTable' builds the resource list
- * and returns a string to be inserted in the page
+ * and returns an HTML string to be inserted in the page
  */
 function buildResourceListHTMLString(spreadsheet) {
     // returns [1, 2, 3, ..., n]
@@ -45,49 +45,42 @@ function buildResourceListHTMLString(spreadsheet) {
     };
 
     // template for a resource
-    const resourceTemplate = (resource) => {
-        return `
-            <li class="resource list-group-item" style="display: none;">
-                ${DOT_HTML_ENTITY}
-                <a href="${resource.link}" target="_blank">
-                    ${resource.name}
-                </a>
-                <span class="resource-description">
-                    - ${resource.description}
-                </span>
-            </li>`;
-    };
+    const resourceTemplate = resource =>
+        `<li class="resource list-group-item" style="display: none;">
+             ${DOT_HTML_ENTITY}
+             <a href="${resource.link}" target="_blank">
+                 ${resource.name}
+             </a>
+             <span class="resource-description">
+                 - ${resource.description}
+             </span>
+        </li>`;
 
     // template for entire resource list
-    const resourceListTemplate = (categoryMap) => {
-        return Object.entries(categoryMap)
-            .map(([category, resources]) => {
-                return `
-                        <div class="category">
-                            <li class="category-name list-group-item">
-                                <span class="category-name-icon">
-                                    ${decodeURIComponent(PLUS_SIGN_ENCODED)}
-                                </span>
-                                ${category} 
-                            </li>
-                            ${resources.map(resourceTemplate).join('\n')}
-                        </div>`;
-            })
+    const resourceListTemplate = categoryMap =>
+        Object.entries(categoryMap)
+            .map(([category, resources]) =>
+                `<div class="category">
+                    <li class="category-name list-group-item">
+                        <span class="category-name-icon">
+                            ${decodeURIComponent(PLUS_SIGN_ENCODED)}
+                        </span>
+                        ${category} 
+                    </li>
+                    ${resources.map(resourceTemplate).join('\n')}
+                </div>`)
             .join('\n');
-    };
 
     // A map from 'categoryName: String' to 'resources: List<ResourceObjects>.
     // A resource object is defined in the first call to map().
     const categoryMap = range(spreadsheet.getNumberOfRows())
         // for each row index in spreadsheet, make a resource object
-        .map((rowIdx) => {
-            return {
-                name: spreadsheet.getValue(rowIdx, 1),
+        .map(rowIdx => { 
+            return { name: spreadsheet.getValue(rowIdx, 1),
                 description: spreadsheet.getValue(rowIdx, 2),
                 link: spreadsheet.getValue(rowIdx, 3),
                 category: spreadsheet.getValue(rowIdx, 4),
-                approved: parseInt(spreadsheet.getValue(rowIdx, 5), 10),
-            };
+                approved: parseInt(spreadsheet.getValue(rowIdx, 5), 10) };
         })
         // filter out resources that have not been approved yet
         .filter(({approved}) => approved === 1)
@@ -146,6 +139,6 @@ $(document).ready(() => {
         .then(buildResourceListHTMLString)
         .then(injectResourceList)
         .then(setResourceListInteractions)
-        .catch(console.log);
+        .catch( ({message}) => console.log(message) );
 });
 

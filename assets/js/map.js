@@ -36,7 +36,7 @@ function getGoogleSheet(spreadsheetUrl) {
 
         query.send((resp) => {
             if (resp.isError()) {
-                reject(resp.getDetailedMessage());
+                reject(new Error(resp.getDetailedMessage()));
             } else {
                 resolve(resp.getDataTable());
             }
@@ -228,7 +228,7 @@ function getStates() {
             if (err) reject(err);
 
             topojson.presimplify(mapJSON);
-            resolve(topojson.feature(mapJSON, mapJSON.objects.countries)
+            resolve(topojson.feature(mapJSON, mapJSON.objects.states)
                 .features);
         });
     });
@@ -312,6 +312,6 @@ $(document).ready(() => {
     Promise.all([getStates(), getGoogleSheet(SPREADSHEET_URL)])
         .then(populateStates)
         .then(draw)
-        .catch(console.log);
+        .catch( ({message}) => console.log(message) );
 });
 
