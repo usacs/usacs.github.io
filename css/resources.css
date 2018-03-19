@@ -20,9 +20,10 @@ h2, h3 {
     border-top: 0;
 }
 
-.resource a{
+.resource a {
     text-decoration: underline;
 }
+
 .list-group .list-group-item {
     border-right: 0;
     border-top: 0;
@@ -37,10 +38,6 @@ h2, h3 {
 .category-name:hover {
     cursor: pointer;
     cursor: hand;
-}
-
-.selected {
-    border-bottom: 0;
 }
 
 .resource-description {

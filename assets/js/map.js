@@ -26,11 +26,31 @@ const MAP_BASE_HEIGHT = 400;
 const REDRAW_THROTTLE_TIME = 300;
 
 /*
+ * Resolves with a 'DataTable' for a given Google Sheet
+ * or rejects with a string detailing the error
+ */
+function getGoogleSheet(spreadsheetUrl) {
+    return new Promise((resolve, reject) => {
+        const query = new google.visualization.Query(spreadsheetUrl);
+        query.setQuery("SELECT *");
+
+        query.send((resp) => {
+            if (resp.isError()) {
+                reject(new Error(resp.getDetailedMessage()));
+            } else {
+                resolve(resp.getDataTable());
+            }
+        });
+    });
+}
+
+/*
  * Returns the path attribute for the map's <path> elements.
  */
 function getMapPath(width, height) {
-    const scale = (width < height) ?
-        width / MAP_BASE_WIDTH : height / MAP_BASE_HEIGHT;
+    const widthRatio = width / MAP_BASE_WIDTH;
+    const heightRatio = height / MAP_BASE_HEIGHT;
+    const scale = Math.min(widthRatio, heightRatio);
     const area = 1;
 
     const simplify = d3.geo.transform({
@@ -52,8 +72,15 @@ function getMapPath(width, height) {
  * Returns dimensions of map based on current window dimensions.
  */
 function getNewMapDimensions() {
-    const width = $('#map-container').width() * .75;
-    const height = $("#map-container").height() - $("#map-heading").height();
+    let width = $('#map-container').width() * .75;
+    let height = $("#map-container").height() - $("#map-heading").height();
+
+    // maintain aspect ratio
+    if (width < height) {
+        height = (width * MAP_BASE_HEIGHT) / MAP_BASE_WIDTH;
+    } else {
+        width = ((height * MAP_BASE_WIDTH) / MAP_BASE_HEIGHT) * .75;
+    }
 
     return [width, height];
 }
@@ -201,7 +228,7 @@ function getStates() {
             if (err) reject(err);
 
             topojson.presimplify(mapJSON);
-            resolve(topojson.feature(mapJSON, mapJSON.objects.countries)
+            resolve(topojson.feature(mapJSON, mapJSON.objects.states)
                 .features);
         });
     });
@@ -210,65 +237,81 @@ function getStates() {
 /*
  * Grab everyones' info from a Google Sheet and add them to the proper state.
  */
-function populateStates(states) {
-    return new Promise((resolve, reject) => {
-        const query = new google.visualization.Query(SPREADSHEET_URL);
-        query.setQuery("SELECT *");
+function populateStates([states, spreadsheet]) {
+    const normalize = (val, [min, max]) => {
+        return (val - min) / (max - min)
+    };
 
-        query.send((resp) => {
-            if (resp.isError()) reject(resp.getDetailedMessage());
+    // returns [1, 2, 3, ..., n]
+    const range = (n) => { 
+        arr = new Array(n);
+        for (let i = 0; i < n; i++) {
+            arr[i] = i;
+        }
 
-            // make map from "state name" to [people in that state]
-            // this will make it easy to quickly add a person to a state
-            const stateMap = {};
-            for (let state of states) {
-                state['properties']['people'] = [];
-                const peopleList = state['properties']['people'];
-                const stateName = state['properties']['NAME10'].toLowerCase();
+        return arr;
+    };
 
-                stateMap[stateName] = peopleList;
+    const stateMap = range(spreadsheet.getNumberOfRows())
+        .map((rowIdx) => {
+            return {
+                name: spreadsheet.getValue(rowIdx, 2),
+                company: spreadsheet.getValue(rowIdx, 1),
+                location: spreadsheet.getValue(rowIdx, 4),
+                state: spreadsheet.getValue(rowIdx, 5).toLowerCase()
+            };
+        })
+        .reduce((stateMap, person) => {
+            if (!stateMap.hasOwnProperty(person.state)) {
+                stateMap[person.state] = [person];
+            } else {
+                stateMap[person.state].push(person);
             }
 
-            // populate lists of people per state
-            const table = resp.getDataTable();
-            for (let i = 0; i < table.getNumberOfRows(); i++) {
-                const stateName = table.getValue(i, 5).toLowerCase();
-                const name = table.getValue(i, 2);
-                const company = table.getValue(i, 1);
-                const location = table.getValue(i, 4);
-                const person = { name, company, location };
+            return stateMap;
+        }, {});
+    for (let state of states) {
+        state['properties']['people'] = stateMap[
+            state['properties']['NAME10'].toLowerCase()
+        ] || [];
+    }
 
-                stateMap[stateName].push(person);
-            }
-
-            // store bg-color per state for heatmap
-            const numPeoplePerState = states.map((state) => state.properties['people'].length);
-            const min = Math.min.apply(Math, numPeoplePerState);
-            const max = Math.max.apply(Math, numPeoplePerState);
-            const range = max - min;
-            const stateColors = numPeoplePerState.map((numPeople) => {
-                const colorGradientRange = 230;
-                const normalizedVal = (numPeople - min) / range;
-                const colorGradientVal = Math.round(colorGradientRange * normalizedVal);
-
-                return `rgb(255, ${colorGradientRange - colorGradientVal}, 0)`;
-            });
-            for (let i = 0; i < stateColors.length; i++) {
-                states[i].properties['bgcolor'] = stateColors[i];
-            }
-
-            resolve(states);
+    // store color per state for heatmap
+    const colors = states
+    // get number of people per state
+        .map((state) => {
+            return state.properties['people'].length;
+        })
+    // normalize
+        .map((numPeople, idx, arr) => {
+            return normalize(numPeople, d3.extent(arr));
+        })
+    // we want the complement percentage since larger numbers
+    // should yield a smaller 'G' value in the RGB
+        .map((normalized) => {
+            return 1 - normalized;
+        })
+    // calculate 'G' value
+        .map((complement) => {
+            return Math.round(230 * complement);
+        })
+        .map((g, idx) => {
+            return `rgb(255, ${g}, 0)`;
         });
-    });
+    for (let i = 0; i < colors.length; i++) {
+        states[i].properties['bgcolor'] = colors[i];
+    }
+
+    return states;
 }
 
 /* 
  * Init map
  */
 $(document).ready(() => {
-    getStates()
+    Promise.all([getStates(), getGoogleSheet(SPREADSHEET_URL)])
         .then(populateStates)
         .then(draw)
-        .catch(console.log);
+        .catch( ({message}) => console.log(message) );
 });
 
