@@ -14,8 +14,9 @@ GEOPROJECT = $(BIN)/geoproject
 
 US_STATES_GEO_JSON_URL = https://raw.githubusercontent.com/jgoodall/us-maps/master/geojson/state.geo.json
 MAP_WIDTH = 750
-MAP_HEIGHT = 400
+MAP_HEIGHT = 300
 MAP_SCALE = 700
+MAP_Y_OFFSET = 50
 
 all: $(FINAL_PRODUCT)
 
@@ -40,7 +41,7 @@ us-states-projected-topo.json: us-states-projected-geo.json $(DEPS)
 
 # pre-projecting the points will save a lot of time at runtime
 us-states-projected-geo.json: us-states-geo.json $(DEPS)
-	$(GEOPROJECT) 'd3.geoAlbersUsa().translate([$(MAP_WIDTH) / 2, $(MAP_HEIGHT) / 2]).scale($(MAP_SCALE))' < $< > $@
+	$(GEOPROJECT) 'd3.geoAlbersUsa().translate([$(MAP_WIDTH) / 2, ($(MAP_HEIGHT) / 2) + $(MAP_Y_OFFSET)]).scale($(MAP_SCALE))' < $< > $@
 
 # grab the raw geojson for the US
 us-states-geo.json:
