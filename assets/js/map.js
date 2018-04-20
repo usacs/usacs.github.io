@@ -10,6 +10,9 @@
  *
  */
 
+// imports
+const {d3, topojson, google, $} = window;
+
 // url for Google Sheet containing everyones' responses.
 const SPREADSHEET_URL = "https://docs.google.com/spreadsheets/d/1HgouuYpc9auDTOLhinS-RWxULmJhb0tcnzHaQ-8W3xQ/edit#gid=1052913673";
 
@@ -24,6 +27,9 @@ const MAP_BASE_HEIGHT = 400;
 
 // Minimum time (in ms) required before map is redrawn.
 const REDRAW_THROTTLE_TIME = 300;
+
+// geojson objects for each state
+var states = null;
 
 /*
  * Resolves with a 'DataTable' for a given Google Sheet
@@ -72,71 +78,56 @@ function getMapPath(width, height) {
  * Returns dimensions of map based on current window dimensions.
  */
 function getNewMapDimensions() {
-    let width = $('#map-container').width() * .75;
-    let height = $("#map-container").height() - $("#map-heading").height();
+    let width = $('#map-container').width();
+    let height = ($("#map-container").height() - $("#map-heading").height());
+    const widthDelta = (width - MAP_BASE_WIDTH) / MAP_BASE_WIDTH;
+    const heightDelta = (height - MAP_BASE_HEIGHT) / MAP_BASE_HEIGHT;
 
     // maintain aspect ratio
-    if (width < height) {
+    if (widthDelta < heightDelta) {
         height = (width * MAP_BASE_HEIGHT) / MAP_BASE_WIDTH;
     } else {
-        width = ((height * MAP_BASE_WIDTH) / MAP_BASE_HEIGHT) * .75;
+        width = ((height * MAP_BASE_WIDTH) / MAP_BASE_HEIGHT);
     }
 
     return [width, height];
 }
 
 /*
- * Resize the map based on new window dimensions
- */
-function resize() {
-    const [width, height] = getNewMapDimensions();
-    const path = getMapPath(width, height);
-
-    // set map width/height
-    d3.select("#map").attr("width", width).attr("height", height);
-
-    // update 'd' attribute for all state <path>'s
-    d3.select("#map g").selectAll(".state").attr("d", path);
-}
-
-/*
  * Draws the map. Should only be called once on document.ready()
  */
-function draw(states) {
+function draw() {
     const [width, height] = getNewMapDimensions();
     const tooltip = d3.select(".tooltip");
     const path = getMapPath(width, height);
     const svg = d3.select("#map");
     const statesGroup = svg.select("g");
+    const roughSvg = rough.svg(document.getElementById('map'),
+        { options: { simplification: 0.2, roughness: .65 } });
+
+    // something happened to Puerto Rico :(
+    // TODO: investigate
+    states = states.filter((state) => {return state.geometry !== null;});
 
     // reduce the amount of times we have to redraw the map
     d3.select(window).on("resize", throttleRedraw);
 
     // set map width/height and define pan/zoom behavior
-    svg.attr("width", width)
-        .attr("height", height)
-        .call(d3.behavior.zoom().scaleExtent([1, 8]).on("zoom", () => {
-            const translate = d3.event.translate;
-            const scale = d3.event.scale;
-            const strokeWidth = 1 / scale;
-
-            svg.select("g").style("stroke-width", strokeWidth)
-                .attr("transform", `translate(${translate}) scale(${scale})`);
-        }));
+    svg.attr("width", width).attr("height", height);
 
     // add new state elements to map
+    statesGroup.html('');
     let statesEnter = statesGroup.selectAll(".state").data(states).enter();
     statesEnter = statesEnter.append("a").attr("href", "#map-listing")
-        .append("path")
-        .attr("class", "state")
-        .attr("d", path)
-        .attr("style", function(state, i) {
-            return `fill: ${state.properties['bgcolor']};`
+        .append(function(state) {
+            const options = {simplification: .7, roughness: .75,
+                fill: state.properties['bgcolor'], fillStyle: 'solid'};
+            return roughSvg.path(path(state), options);
         });
 
     // define interactivity for new state elements in map
     statesEnter
-        .on("click", function(state, i) { 
+        .on("click", function(state) { 
             const stateName = state.properties['NAME10'];
 
             // toggle selected state
@@ -155,32 +146,32 @@ function draw(states) {
 
             // update existing list elements
             people.classed("list-group-item", true)
-                .html(function(person, i) {
+                .html(function(person) {
                     const tab = '&nbsp;&nbsp;&nbsp;&nbsp;';
-                    return `${person.name} ${tab}//${tab}     ${person.company} ${tab}//${tab} ${person.location}`
+                    return `${person.name} ${tab}//${tab} ${person.company} ${tab}//${tab} ${person.location} ${tab}//${tab} ${person.jobtype}`;
                 });
 
             // add new list elements
             people.enter()
                 .append("li")
                 .classed("list-group-item", true)
-                .html(function(person, i) {
+                .html(function(person) {
                     const tab = '&nbsp;&nbsp;&nbsp;&nbsp;';
-                    return `${person.name} ${tab}//${tab}     ${person.company} ${tab}//${tab} ${person.location}`
+                    return `${person.name} ${tab}//${tab} ${person.company} ${tab}//${tab} ${person.location} ${tab}//${tab} ${person.jobtype}`;
                 });
 
             // remove any excess list elements
             people.exit().remove();
 
-            // add placeholder text to list, if noone is working in that state
+            // add placeholder text to list, if no one is working in that state
             if (!d3.select("#map-listing").html()) {
                 d3.select("#map-listing")
                     .append("li")
                     .classed("list-group-item", true)
-                    .html("Looks like noone is working here yet!");
+                    .html("Looks like no one is working here yet!");
             }
         })
-        .on("mousemove", function(state,i) {
+        .on("mousemove", function(state) {
             const stateName = state.properties['NAME10'];
 
             // get mouse position
@@ -195,8 +186,8 @@ function draw(states) {
                 .attr("style", `left: ${mouse[0] + offsetL}px; top: ${mouse[1] + offsetT}px;`)
                 .html(stateName);
         })
-        .on("mouseout",  function(d,i) {
-            tooltip.classed("hidden", true)
+        .on("mouseout",  function() {
+            tooltip.classed("hidden", true);
         }); 
 
     // hide loading img
@@ -212,11 +203,11 @@ function draw(states) {
  */
 function throttleRedraw() {
     if (typeof  throttleRedraw.timer === 'undefined') {
-        throttleRedraw.timer = window.setTimeout(resize, REDRAW_THROTTLE_TIME);
+        throttleRedraw.timer = window.setTimeout(draw, REDRAW_THROTTLE_TIME);
     }
 
     window.clearTimeout(throttleRedraw.timer);
-    throttleRedraw.timer = window.setTimeout(resize, REDRAW_THROTTLE_TIME);
+    throttleRedraw.timer = window.setTimeout(draw, REDRAW_THROTTLE_TIME);
 }
 
 /* 
@@ -228,8 +219,8 @@ function getStates() {
             if (err) reject(err);
 
             topojson.presimplify(mapJSON);
-            resolve(topojson.feature(mapJSON, mapJSON.objects.states)
-                .features);
+            states = topojson.feature(mapJSON, mapJSON.objects.states).features;
+            resolve(states);
         });
     });
 }
@@ -239,12 +230,12 @@ function getStates() {
  */
 function populateStates([states, spreadsheet]) {
     const normalize = (val, [min, max]) => {
-        return (val - min) / (max - min)
+        return (val - min) / (max - min);
     };
 
     // returns [1, 2, 3, ..., n]
     const range = (n) => { 
-        arr = new Array(n);
+        const arr = new Array(n);
         for (let i = 0; i < n; i++) {
             arr[i] = i;
         }
@@ -258,7 +249,8 @@ function populateStates([states, spreadsheet]) {
                 name: spreadsheet.getValue(rowIdx, 2),
                 company: spreadsheet.getValue(rowIdx, 1),
                 location: spreadsheet.getValue(rowIdx, 4),
-                state: spreadsheet.getValue(rowIdx, 5).toLowerCase()
+                state: spreadsheet.getValue(rowIdx, 5).toLowerCase(),
+                jobtype: spreadsheet.getValue(rowIdx, 6)
             };
         })
         .reduce((stateMap, person) => {
@@ -295,8 +287,9 @@ function populateStates([states, spreadsheet]) {
         .map((complement) => {
             return Math.round(230 * complement);
         })
-        .map((g, idx) => {
-            return `rgb(255, ${g}, 0)`;
+    // states with no people should just be white
+        .map((g) => {
+            return (g === 230) ? 'rgb(255, 255, 255)' : `rgb(255, ${g}, 0)`;
         });
     for (let i = 0; i < colors.length; i++) {
         states[i].properties['bgcolor'] = colors[i];
