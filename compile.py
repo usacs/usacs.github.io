@@ -23,12 +23,12 @@ def render(dirPath, layoutPath, globalData):
 def getFiles(dirPath, layoutPath, globalData):
     from os import listdir
     viewNames=listdir(dirPath)
-    files=list(map(file2json(dirPath, globalData),viewNames))
+    files = [file2json(dirPath, globalData)(viewName) for viewName in viewNames if viewName.endswith('.mustache')]
     return files
 
 def compile(dirPath, layoutPath, outputDir='.', globalData={}):
     files=getFiles(dirPath, layoutPath, globalData)
-    
+
     renderedFiles=list(map(render(dirPath, layoutPath, globalData), files))
 
     for i in range(0, len(files)):

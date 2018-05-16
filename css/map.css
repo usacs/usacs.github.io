@@ -3,8 +3,6 @@ h3 {
 }
 
 #map {
-    border: 2px solid #d0d0d0;
-    border-radius: 5px;
     background-color: #fff;
     display: block;
     margin: auto;
@@ -19,7 +17,6 @@ h3 {
     display block;
     margin: auto;
     width: 75%;
-    height: 80%;
     overflow: auto;
 }
 
@@ -75,6 +72,8 @@ body {
 
 #map-container {
     height: 65%;
+    width: 75%;
+    margin: auto;
 }
 
 #map-listing-container {
@@ -84,4 +83,10 @@ body {
 
 #map-heading {
     height: 20%;
+}
+
+@media (max-width:768px) {
+    #map-container {
+        width: 100%;
+    }
 }
