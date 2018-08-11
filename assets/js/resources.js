@@ -2,8 +2,7 @@
  * Resource List for RU students.
  */
 
-const SPREADSHEET_URL = "https://docs.google.com/spreadsheets/d\
-/1YVK9AwOS5iB64B5vLv-bInPz6F-mf4ad1M3oOE_b1bI/edit#gid=1783909318";
+const SPREADSHEET_URL = "https://docs.google.com/spreadsheets/d/11KUoTQXkEiePp01oh4HUtyw87AxLvC-d-j4LJKLJD6w/edit#gid=1783909318"
 
 // TODO: should just get some SVG's for this stuff
 const PLUS_SIGN_ENCODED = '%2B';
