@@ -10,7 +10,7 @@ def file2json(dirPath, data):
         title=fileName.replace('.mustache', '')
         outputName=fileName.replace('.mustache', '.html')
         fileContents=renderer.render_path(filePath, data)
-        return {'title':title, 'body':fileContents, 'outputName':outputName}
+        return {'title':title, 'body':fileContents, 'outputName':outputName} # , 'links': ['test']
     return curriedFunc
 
 def render(dirPath, layoutPath, globalData):
@@ -20,16 +20,18 @@ def render(dirPath, layoutPath, globalData):
     return curriedFunc
 
 # builds json array from files to build
-def getFiles(dirPath, layoutPath, globalData):
+def getFiles(dirPath, layoutPath, globalData, exclusions):
     from os import listdir
     viewNames=listdir(dirPath)
-    files = [file2json(dirPath, globalData)(viewName) for viewName in viewNames if viewName.endswith('.mustache')]
+    files = [file2json(dirPath, globalData)(viewName) for viewName in viewNames if viewName.endswith('.mustache') and viewName not in exclusions]
     return files
 
-def compile(dirPath, layoutPath, outputDir='.', globalData={}):
-    files=getFiles(dirPath, layoutPath, globalData)
+def compile(dirPath, layoutPath, exclusions, outputDir='.', globalData={}):
+    files=getFiles(dirPath, layoutPath, globalData, exclusions)
 
     renderedFiles=list(map(render(dirPath, layoutPath, globalData), files))
+
+    # todo generate navbar based on exclusion
 
     for i in range(0, len(files)):
         name=outputDir+'/'+files[i]['outputName']

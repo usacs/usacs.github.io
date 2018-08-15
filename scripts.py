@@ -92,7 +92,8 @@ if __name__ == '__main__':
         globalData={}
         layoutName="layouts/layout.mustache"
         outputDir="."
-        compile.compile(dirName, layoutName, outputDir, globalData)
+        exclusions = set(['mentors.mustache'])
+        compile.compile(dirName, layoutName, exclusions, outputDir, globalData)
     else:
         print("Dude, wut?")
         print("Run '-h' for help.")
