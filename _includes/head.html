@@ -1,0 +1,103 @@
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>{% if page.title %}{{ page.title | strip_html }} &#8211; {% endif %}{{ site.title | strip_html }}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Take meta info from current page, if possible -->
+    <meta name="description" content="{% if page.summary %}{{ page.summary | xml_escape }}{% else %}{{ site.description | xml_escape }}{% endif %}">
+    <meta name="author" content="{{ site.author }}">
+    {% if page.categories %}<meta name="keywords" content="{{ page.categories | join: ', ' }}">{% endif %}
+    <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
+    
+    <link rel="alternate" type="application/rss+xml" title="RSS Feed for {{ site.title }}" href="{{ /feed.xml | prepend: site.baseurl }}" />
+
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+    <!-- Our custom styles -->
+   
+    <link rel="stylesheet" href="{{ '/css/common.css' | prepend: site.baseurl }}?{{ site.time | date: '%Y%m%d%H%M' }}" type="text/css">
+    <link rel="stylesheet" href="{{ '/css/modules.css' | prepend: site.baseurl }}?{{ site.time | date: '%Y%m%d%H%M' }}" type="text/css">
+    {% if page.layout == 'front' %}
+    <link rel="stylesheet" href="{{ '/css/landing.css' | prepend: site.baseurl }}?{{ site.time | date: '%Y%m%d%H%M' }}" type="text/css">
+    {% endif %}
+    <!-- Open Graph -->
+    <meta property="og:locale" content="en_EN">
+    <meta property="fb:app_id" content="{{ site.facebook_app_id }}" />
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="{% if page.title %}{{ page.title | xml_escape }}{% else %}{{ site.title | xml_escape }}{% endif %}">
+    <meta property="og:image" content="{% if page.cover_url %}{{ page.cover_url | prepend: site.baseurl | prepend: site.url }}{% else %}{{ '/images/cover.jpg' | prepend: site.baseurl | prepend: site.url }}{% endif %}">
+
+    <meta property="og:description" content="{% if page.summary %}{{ page.summary | xml_escape }}{% else %}{{ site.description | xml_escape }}{% endif %}">
+    <meta property="og:url" content="{{ site.url }}{{ site.baseurl }}{{ page.url }}">
+    <meta property="og:site_name" content="{{ site.title | xml_escape }}">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary" />
+    {% if site.twitter_username %}
+        <meta name="twitter:site" content="@{{ site.twitter_username }}" />
+    {% endif %}
+    <meta name="twitter:title" content="{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}" />
+    <meta name="twitter:description" content="{% if page.summary %}{{ page.summary }}{% else %}{{ site.description }}{% endif %}" />
+    <meta name="twitter:url" content="{{ site.url }}{{ page.url }}" />
+
+    <!-- Icons -->
+    <link rel="apple-touch-icon-precomposed" sizes="57x57" href="{{ '/images/favicons/apple-touch-icon-57x57.png' | prepend: site.baseurl }}" />
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="{{ '/images/favicons/apple-touch-icon-114x114.png' | prepend: site.baseurl }}" />
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="{{ '/images/favicons/apple-touch-icon-72x72.png' | prepend: site.baseurl }}" />
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="{{ '/images/favicons/apple-touch-icon-144x144.png' | prepend: site.baseurl }}" />
+    <link rel="apple-touch-icon-precomposed" sizes="60x60" href="{{ '/images/favicons/apple-touch-icon-60x60.png' | prepend: site.baseurl }}" />
+    <link rel="apple-touch-icon-precomposed" sizes="120x120" href="{{ '/images/favicons/apple-touch-icon-120x120.png' | prepend: site.baseurl }}" />
+    <link rel="apple-touch-icon-precomposed" sizes="76x76" href="{{ '/images/favicons/apple-touch-icon-76x76.png' | prepend: site.baseurl }}" />
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="{{ '/images/favicons/apple-touch-icon-152x152.png' | prepend: site.baseurl }}" />
+    <link rel="icon" href="{{ '/favicon.ico' | prepend: site.baseurl }}" type="image/x-icon" />
+    <link rel="icon" type="image/png" href="{{ '/images/favicons/favicon-196x196.png' | prepend: site.baseurl }}" sizes="196x196" />
+    <link rel="icon" type="image/png" href="{{ '/images/favicons/favicon-96x96.png' | prepend: site.baseurl }}" sizes="96x96" />
+    <link rel="icon" type="image/png" href="{{ '/images/favicons/favicon-32x32.png' | prepend: site.baseurl }}" sizes="32x32" />
+    <link rel="icon" type="image/png" href="{{ '/images/favicons/favicon-16x16.png' | prepend: site.baseurl }}" sizes="16x16" />
+    <link rel="icon" type="image/png" href="{{ '/images/favicons/favicon-128.png' | prepend: site.baseurl }}" sizes="128x128" />
+    <meta name="application-name" content="{{ site.title }}"/>
+    <meta name="msapplication-TileColor" content="#FFFFFF" />
+    <meta name="msapplication-TileImage" content="{{ 'images/favicons/mstile-144x144.png' | prepend: site.baseurl }}" />
+    <meta name="msapplication-square70x70logo" content="{{ 'images/favicons/mstile-70x70.png' | prepend: site.baseurl }}" />
+    <meta name="msapplication-square150x150logo" content="{{ 'images/favicons/mstile-150x150.png' | prepend: site.baseurl }}" />
+    <meta name="msapplication-wide310x150logo" content="{{ 'images/favicons/mstile-310x150.png' | prepend: site.baseurl }}" />
+    <meta name="msapplication-square310x310logo" content="{{ 'images/favicons/mstile-310x310.png' | prepend: site.baseurl }}" />
+
+    <!-- syntax highlighting -->
+
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    <!-- font awesome -->
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.1/css/all.css" integrity="sha384-O8whS3fhG2OnA5Kas0Y9l3cfpmYjapjI0E4theH4iuMD+pLhbf6JI0jIMfYcK3yZ" crossorigin="anonymous">
+
+    <!-- jquery -->
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+    crossorigin="anonymous"></script>
+
+    <script src="https://code.jquery.com/jquery-migrate-3.0.1.min.js" integrity="sha256-F0O1TmEa4I8N24nY0bya59eP6svWcshqX1uzwaWC4F4="
+    crossorigin="anonymous"></script>
+
+    <!-- bootstrap + popper js -->
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/js/bootstrap.min.js" integrity="sha384-o+RDsa0aLu++PJvFqy8fFScvbHFLtbvScb8AjopnFD+iEQ7wo/CG0xlczd+2O/em" crossorigin="anonymous"></script>
+
+    <!-- moment js -->
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
+
+    <!-- custom js -->
+
+    <script src="{{ '/assets/js/sticky-nav.js' | prepend: site.baseurl }}?{{ site.time | date: '%Y%m%d%H%M' }}"></script>
+    <script src="{{ '/assets/js/events-list.js' | prepend: site.baseurl }}?{{ site.time | date: '%Y%m%d%H%M' }}"></script>
+        
+
+</head> 

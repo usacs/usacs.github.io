@@ -243,4 +243,11 @@ h6 {
     position: absolute;
 }
 
-@media screen and (max-width: 900px) {}
+/* @media screen and (max-width: 900px) {} */
+
+.container {
+    height: 100%;
+    display: flex;
+    width: 100%;
+    max-width: fit-content;
+}

@@ -1,0 +1,9 @@
+# Site settings
+title:       "Rutgers - USACS"
+header_title: "RUniteCS"
+email:       rutgersusacs@gmail.com
+webmaster:      Alexander Goodkind
+description: "A volunteer outreach program to spark interest in computer science in middle school students"
+baseurl:     ""
+url:         "https://usacs.rutgers.edu"
+date_format: "%-d.%m.%Y"
