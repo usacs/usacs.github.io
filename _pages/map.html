@@ -3,44 +3,69 @@ layout: page
 title: "Map" 
 ---
 
-<link rel="stylesheet" href="/css/map.css">
-<script src="./assets/js/rough.min.js"></script>
-<script src="./assets/js/topojson.min.js"></script>
-<script src="./assets/js/d3.min.js"></script>
+<style>
+    .tooltip {
+        color: #222; 
+        background: #fff; 
+        padding: .5em; 
+        text-shadow: #f5f5f5 0 1px 0;
+        border-radius: 2px; 
+        box-shadow: 0px 0px 2px 0px #a6a6a6; 
+        opacity: 0.9; 
+        position: absolute;
+    }
+
+    .state {
+        fill: #d7c7ad;
+        stroke: black;
+    }
+
+    .state:hover{
+        stroke: #fff;
+        stroke-width: .7px;
+    }
+    
+    .selected-state {
+        stroke: #fff;
+        stroke-width: .7px;
+    }
+
+    #map-entry-point {
+        min-height: 800px;
+    }
+
+</style>
+
 <script type="text/javascript" src="http://www.google.com/jsapi"></script>
 <script> google.load('visualization', '1'); </script>
-<script type="application/javascript" src="{{ '/assets/js/interactions.js' | prepend: site.baseurl }}"></script>
-<script type="application/javascript" src="{{ '/assets/js/events-list.js' | prepend: site.baseurl }}"></script>
+<!-- <script type="application/javascript" src="{{ '/assets/js/interactions.js' | prepend: site.baseurl }}"></script> -->
 <script type="application/javascript" src="{{ '/assets/js/map.js' | prepend: site.baseurl }}"></script>
 
-<section id="content" class="pages">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12" id="map-entry-point">
-                <div id="map-container">
-                    <div id="map-heading">
-                        <h1>Where RU Working?</h1>
-                        <h3>Check out where other students/alumni are working/interning!</h3>
-                        <p>
-                            Want to be added? Add yourself
-                            <a target="_blank" href="https://goo.gl/forms/jbd9qJAPjlieT3A23">here</a>
-                        </p>
-                    </div>
 
-                    <img id="map-loading" src="{{ '/assets/img/loading-ring.svg' | prepend: site.baseurl }}"/>
-
-                    <svg id="map" class="hidden">
-                        <g></g>
-                    </svg>
-                    <div class="tooltip hidden"></div>
-
-                    <h3 id="state-name" class="hidden">
-                        Select a State
-                    </h3>
-                    <ul id="map-listing" class="list-group list-group-flush"></ul>
-                </div>
-            </div>
+<div class="col-md-12" id="map-entry-point">
+    <div id="map-container" class="mx-auto w-75 h-75">
+        <div id="map-heading">
+            <h1>Where RU Working?</h1>
+            <h3 class="text-center">Check out where other students/alumni are working/interning!</h3>
+            <p class="text-center">
+                Want to be added? Add yourself
+                <a target="_blank" href="https://goo.gl/forms/jbd9qJAPjlieT3A23">here</a>
+            </p>
         </div>
+
+        <!-- <img id="map-loading" src="{{ '/assets/img/loading-ring.svg' | prepend: site.baseurl }}"/> -->
+
+        <svg id="map" class="hidden d-block">
+            <g></g>
+        </svg>
+        <div class="tooltip hidden"></div>
+
+        <h3 id="state-name" class="hidden">
+            Select a State
+        </h3>
+        <ul id="map-listing" class="list-group list-group-flush"></ul>
     </div>
-</section>
+</div>
+
+
 
