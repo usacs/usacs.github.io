@@ -13,7 +13,9 @@ __pycache__/
 
 #jekyll
 _site/
+_config.dev.yml
 
 #ruby
 /.bundle
 /vendor/bundle
+
