@@ -3,20 +3,15 @@ layout: page
 title: "Map" 
 ---
 
-<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script> -->
-<!-- <link rel="stylesheet" href="bootstrap/css/bootstrap.css"> -->
-<!-- <link rel="stylesheet" href="./css/bootstrap.4.0.0.min.css"> -->
-<!-- <link rel="stylesheet" href="css/common.css">
-<link rel="stylesheet" href="css/modules.css">
-<link rel="stylesheet" href="css/map.css"> -->
+<link rel="stylesheet" href="/css/map.css">
 <script src="./assets/js/rough.min.js"></script>
 <script src="./assets/js/topojson.min.js"></script>
 <script src="./assets/js/d3.min.js"></script>
 <script type="text/javascript" src="http://www.google.com/jsapi"></script>
 <script> google.load('visualization', '1'); </script>
-<script type="application/javascript" src="./assets/js/interactions.js"></script>
-<script type="application/javascript" src="./assets/js/events-list.js"></script>
-<script type="application/javascript" src="./assets/js/map.js"></script>
+<script type="application/javascript" src="{{ '/assets/js/interactions.js' | prepend: site.baseurl }}"></script>
+<script type="application/javascript" src="{{ '/assets/js/events-list.js' | prepend: site.baseurl }}"></script>
+<script type="application/javascript" src="{{ '/assets/js/map.js' | prepend: site.baseurl }}"></script>
 
 <section id="content" class="pages">
     <div class="container">
@@ -32,7 +27,7 @@ title: "Map"
                         </p>
                     </div>
 
-                    <img id="map-loading" src="./assets/img/loading-ring.svg"/>
+                    <img id="map-loading" src="{{ '/assets/img/loading-ring.svg' | prepend: site.baseurl }}"/>
 
                     <svg id="map" class="hidden">
                         <g></g>

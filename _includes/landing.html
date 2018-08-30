@@ -1,12 +1,15 @@
 <section id="landing">
     <nav class="special">
-       {% include nav.html %}
+        {% include nav.html %}
     </nav>
-    <div class="container">
-        <div class="row">
-            <div class="center-wrapper">
-                <img src="assets/img/usacs-logo.svg"/>
-                <h6>Undergraduate Student Alliance of Computer Scientists</h6>
+    <div class="container d-flex landing-header text-center ">
+        <div class="row mr-auto ml-auto">
+            <div class="center-wrapper ">
+
+                <img src="{{ 'assets/img/usacs-logo.svg' | prepend: site.baseurl }}"/>
+
+                <h1 class="text-white">Undergraduate Student Alliance of Computer Scientists</h1>
+
                 <div class="social-media">
                     <a href="https://www.facebook.com/rutgers.usacs/?ref=br_tf"><img src="assets/img/fb.svg"></a>
                     <a href="https://twitter.com/Rutgers_Usacs"><img src="assets/img/twitter.svg"></a>
@@ -16,16 +19,8 @@
                     <a href="https://usacs.slack.com/"><img src="assets/img/slack-mark.png"></a>
                 </div>
 
-                <!-- I just want to add this quickly. -->
-                <!-- TODO: apply css once I know the proper location to for the MailingListBtn-->
-                <br/>
-                <br/>
-                <br/>
-                <br/>
-
                 <div class="button-container button-inline">
-                    <a class="button" href="http://eepurl.com/NrOvb">
-                    get on the mailing list</a>
+                    <a class="button" href="http://eepurl.com/NrOvb">get on the mailing list</a>
                 </div>
             </div>
         </div>

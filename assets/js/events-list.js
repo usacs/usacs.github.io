@@ -1,3 +1,7 @@
+---
+layout: null
+---
+
 $(function() {
     /**
      * Fills the parameter wrapper with calendar events from the start of the
@@ -22,7 +26,7 @@ $(function() {
                 'orderBy': 'startTime',
                 'timeMax': endDate,
                 'timeMin': startDate,
-                'key': 'AIzaSyDYNLmUM-EXwuHokTW50UqsP6q_NHxI6ZM'
+                'key': '{{ site.google_api_key }}'
             },
         })
         .done(function(data) {

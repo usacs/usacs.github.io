@@ -49,26 +49,14 @@ li {
 }
 
 h1 {
-    font-size: 1.875rem;
     font-family: 'Gotham Bold';
-    text-align: center;
 }
 h2 {
-    font-size: 1.25rem;
     font-family: 'Gotham Bold';
-    text-align: center;
-}
-h3 {
-    font-size: 0.9375rem;
 }
 h2, h3 {
     color: #b22828;
-    margin-bottom: 20px;
 }
-p {
-    margin-bottom: 20px;
-}
-
 /******* NAV ********/
 
 nav {
