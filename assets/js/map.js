@@ -178,12 +178,12 @@ function draw() {
             const mouse = d3.mouse(svg.node()).map((d) => parseInt(d));
 
             // offsets for tooltip relative to mouse position
-            const offsetL = $('#map-entry-point').offset()['left'] + (width/30);
-            const offsetT = $('#map-entry-point').offset()['top'] + (height/30);
+            const offsetL = $('#map').offset()['left'];
+            const offsetT = $('#map').offset()['top'];
 
             tooltip
                 .classed("hidden", false)
-                .attr("style", `left: ${mouse[0] + offsetL}px; top: ${mouse[1] + offsetT}px;`)
+                .attr("style", `left: ${mouse[0]}px; top: ${mouse[1] + offsetT}px;`)
                 .html(stateName);
         })
         .on("mouseout",  function() {
