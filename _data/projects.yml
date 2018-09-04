@@ -1,0 +1,24 @@
+- name: Prank-Roulette
+  url: https://github.com/sagnew/Prank-Roulette
+  description: A web app that allows users to set up phone calls between two people and enables the user to anonymously listen.
+  image: python
+- name: Shrednought
+  url: https://github.com/9/Shrednought
+  description: Shrednought takes in audio created from a real guitar and is relayed as controls for a 3D world survival game.
+  image: unity
+- name: iSight
+  url: http://devpost.com/software/isight
+  description: iSight uses computer vision via tesseract to convert any image file to braille to assist the visually impared.
+  image: python
+- name: Transactr
+  url: http://devpost.com/software/transakt
+  description: Transactr tracks your spending habits by updating you through your pebble watch about your recent transactions.
+  image: js
+- name: SmartFindr
+  url: http://devpost.com/software/smartfindr
+  description: Helps people quickly browse webpages by targeting the important concepts within a dense amount of material.
+  image: chrome
+- name: Wikilio
+  url: http://devpost.com/software/wikilio
+  description: Uses Twilio to enable non-smartphone users to research and browse wikipedia through text/image messages.
+  image: python

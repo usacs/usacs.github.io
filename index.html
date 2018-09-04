@@ -1,161 +1,223 @@
-<html>
+---
+layout: front
+---
 
-    <head>
-        <meta charset="utf8">
-        <link rel="stylesheet" href="bootstrap/css/bootstrap.css">
-        <link rel="stylesheet" href="css/common.css">
-        <link rel="stylesheet" href="css/modules.css">
-        <link rel="stylesheet" href="css/landing.css">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-        <script type="application/javascript" src="./assets/js/sticky-nav.js"></script>
-        <script type="application/javascript" src="./assets/js/events-list.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
-        <title>Rutgers - USACS</title>
-    </head>
+<style>
+    .events wrapper > p {
+        font-family: 'Lato', sans-serif;
+        color: #4C4C4C;
+        text-align: center;
+    }
 
-    <body>
-        <section id="landing">
-            <nav class="special">
-                <ul class="logo">
-                    <a href="index.html">
-                        <img id="usacs-logo" src="./assets/img/usacs.svg">
-                    </a>
-                </ul>
-                <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="events.html">Events</a></li>
-                    <li><a href="get-involved.html">Get Involved</a></li>
-                    <li><a href="projects.html">Projects</a></li>
-                    <li><a href="mission.html">Mission</a></li>
-                    <li><a href="outreach.html">Outreach</a></li>
-            	    <li><a href="map.html">Map</a></li>
-            	    <li><a href="resources.html">Resources</a></li>
-                </ul>
-            </nav>
+    #landing {
+        height: 100vh;
+        min-height: 450px;
+        position: relative;
+    }
+
+    body:before {
+        content: '';
+        background-image: url('../assets/img/landing-bg.jpg');
+        background-size: cover;
+        background-position: center top;
+        background-attachment: fixed;
+        opacity: 1;
+        height: 100%;
+        width: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+
+    body:after {
+        content: '';
+        height: 100%;
+        width: 100%;
+        position: absolute;
+        background-color: rgba(0, 0, 0, .8);
+        top: 0;
+        left: 0;
+    }
+
+    .center-wrapper {
+        width: 100%;
+        height: 100%;
+        padding-top: 50px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        vertical-align: middle;
+        padding: 30px;
+        position: relative;
+        z-index: 3;
+    }
+
+    .center-wrapper>img {
+        margin-bottom: 15px;
+    }
+
+    .events-wrapper {
+        padding: 20px 20px 50px;
+    }
+
+    .event {
+        display: inline-block;
+        margin-bottom: 20px;
+    }
+
+    .event>div {
+        display: inline-block;
+        float: left;
+    }
+
+    .event-date .day {
+        display: block;
+        min-width: 60px;
+        font-size: 2.25rem;
+        line-height: 35px;
+    }
+
+    .event-description {
+        width: calc(100% - 100px);
+    }
+
+    .event-description>span {
+        display: block;
+    }
+
+    .event-description .title {
+        font-size: 1.125rem;
+        color: #b22828;
+    }
+
+    .event-description .description {
+        font-size: 0.8125rem;
+    }
+
+    .locations-header {
+        height: 50px;
+        text-align: center;
+        text-transform: capitalize;
+        color: #b22828;
+        line-height: 50px;
+        font-size: 1.9375rem;
+        font-family: 'Gotham Bold';
+        border: 1px solid lightgray;
+        border-left: 0px;
+        border-right: 0px;
+    }
+
+    .location {
+        padding-bottom: 30px;
+        position: relative;
+        border-bottom: 1px solid lightgray;
+        background-color: rgba(0, 0, 0, .6);
+        background-blend-mode: multiply;
+        min-height: 400px;
+    }
+
+    .location:before {
+        content: '';
+        top: 0;
+        left: 0;
+        z-index: -1;
+        display: block;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        background-size: cover;
+        background-position: center top;
+        background-repeat: no-repeat;
+        -ms-background-size: cover;
+        background-size: cover;
+        opacity: 1;
+    }
+
+    /* jekyllize lines 140-154 */
+
+    .location:first-child:before {
+        background-image: url("../assets/img/cave-bg.jpg");
+    }
+
+    .location:nth-child(2):before {
+        background-image: url("../assets/img/commandCenter-bg.jpg");
+    }
+
+    .location:nth-child(3):before {
+        background-image: url("../assets/img/hackerspace-bg.jpg");
+    }
+
+    .location:last-child:before {
+        background-image: url("../assets/img/makerspace-bg.jpg");
+    }
+
+    .social-media {
+        bottom: 0px;
+        left: 0;
+        position: absolute;
+    }
+
+    .landing-header {
+        min-height: 100%;
+    }
+</style>
+
+<section id="content">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-2"></div>
+            <div class="col-md-8">
+                <div class="events-wrapper">
+                    <h1>Upcoming Events</h1>
+
+                    <div class="events-upcoming"></div>
+                    <script>
+                        $(document).ready(function () {
+                            getEvents(6, '.events-upcoming');
+                        });
+                    </script>
+
+                    <div class="button-container">
+                        <a class="button" href="events">
+                            See Full Calendar
+                        </a>
+                    </div>
+                    <h2 class="text-rured text-center" style="margin: 20px 0px 10px;">Wanna learn about how to get more
+                        involved?</h2>
+                    <p style="margin-bottom: 20px; font-size: 1rem">Get outside the classroom and come see what USACS
+                        events you are missing out on!</p>
+                    <div class="button-container">
+                        <a class="button" href="get-involved">
+                            Get Involved
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section id="locations">
+    <div class="locations-header">
+        locations
+    </div>
+    <div class="locations-flex">
+
+        {% assign locations = site.data.locations %}
+        {% for location in locations %}
+        <div class="location">
             <div class="container">
                 <div class="row">
-                    <div class="center-wrapper">
-                        <img src="assets/img/usacs-logo.svg"/>
-                        <h6>Undergraduate Student Alliance of Computer Scientists</h6>
-                        <div class="social-media">
-                            <a href="https://www.facebook.com/rutgers.usacs/?ref=br_tf"><img src="assets/img/fb.svg"></a>
-                            <a href="https://twitter.com/Rutgers_Usacs"><img src="assets/img/twitter.svg"></a>
-                            <a href="https://www.instagram.com/Rutgers_Usacs/"><img src="assets/img/insta.svg"></a>
-                            <a href="https://github.com/usacs"><img src="assets/img/github-mark.png"></a>
-                            <a href="https://medium.com/@rutgersusacs"><img src="assets/img/medium_logo.png"></a>
-                            <a href="https://usacs.slack.com/"><img src="assets/img/slack-mark.png"></a>
+                    <div class="col-sm-8">
+                        <div class="location-description text-white mt-5">
+                            <h1 class="text-uppercase">{{ location.name }}</h1>
+                            <p>{{ location.description }}</p>
                         </div>
-
-                        <!-- I just want to add this quickly. -->
-                        <!-- TODO: apply css once I know the proper location to for the MailingListBtn-->
-                        <br/>
-                        <br/>
-                        <br/>
-                        <br/>
-
-						<div class="button-container button-inline">
-                            <a class="button" href="http://eepurl.com/NrOvb">
-                            get on the mailing list</a>
-                        </div>
-
-
                     </div>
+                    <div class="col-sm-4"></div>
                 </div>
             </div>
-        </section>
-        <section id="content">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-2"></div>
-                    <div class="col-md-8">
-                        <div class="events-wrapper">
-                            <h1>Upcoming Events</h1>
+        </div>
+        {% endfor %}
 
-                            <div class="events-upcoming"></div>
-
-							<div class="button-container">
-                                <a class="button" href="events.html">
-                                    See Full Calendar
-                                </a>
-                            </div>
-
-
-                            <h2 style="margin: 20px 0px 10px;">Wanna learn about how to get more involved?</h2>
-                            <p style="margin-bottom: 20px; font-size: 1rem">Get outside the classroom and come see what USACS events you are missing out on!</p>
-                            <div class="button-container">
-                                <a class="button" href="get-involved.html">
-                                    Get Involved
-                                </a>
-                            </div>
-                        </div>
-                        <div class="col-md-2"></div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <section id="locations">
-            <div class="locations-header">
-                locations
-            </div>
-            <div class="locations-flex">
-                <div class="loc1">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-sm-8">
-                                <div class="location-description">
-                                    <h1>the cave</h1>
-                                    <p>The CAVE (Collaborative Academic Versatile Environment) is located on the second floor of the Hill Bldg Annex in Room 252. Part of the Computer Science Instructional Labs, The CAVE was designed to provide students their own atmosphere for collaboration and group projects.</p>
-
-                                </div>
-                            </div>
-                            <div class="col-sm-4"></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="loc2">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-sm-8">
-                                <div class="location-description">
-                                    <h1>command center</h1>
-                                    <p>Right next door to the CAVE, the command center is stocked with Linux machines and whiteboards, perfect for late night cram sessions.</p>
-                                </div>
-                            </div>
-                            <div class="col-sm-4"></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="loc3">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-sm-8">
-                                <div class="location-description">
-                                    <h1>hackerspace</h1>
-                                    <p>The Hack-R-space is located on the second floor of the Hill Bldg Annex in Room 254. As one of the newest additions to the Computer Science Instructional Labs, the Hack-R-Space is a workshop for students to tinker and build. The Hack-R-Space offers students access to an abundance of resources, including 3D printing, Robotics, Oculus Rifts, and Instrumental recording hardware. </p>
-
-                                </div>
-                            </div>
-                            <div class="col-sm-4"></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="loc4">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-sm-8">
-                                <div class="location-description">
-                                    <h1>makerspace</h1>
-                                    <p>The Makerspace is designed for Rutgers affiliates of all experience levels to bring their ideas to life. Located near Livingston Campus, the Makerspace is a tech atelier for students to design and construct hardware.
-                                    </p>
-
-                                </div>
-                            </div>
-                            <div class="col-sm-4"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </body>
-
-</html>
+    </div>
+</section>
