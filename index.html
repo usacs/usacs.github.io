@@ -15,7 +15,7 @@ layout: front
         position: relative;
     }
 
-    #landing:before {
+    body:before {
         content: '';
         background-image: url('../assets/img/landing-bg.jpg');
         background-size: cover;
@@ -27,10 +27,9 @@ layout: front
         position: absolute;
         top: 0;
         left: 0;
-        z-index: 1;
     }
 
-    #landing:after {
+    body:after {
         content: '';
         height: 100%;
         width: 100%;
@@ -38,7 +37,6 @@ layout: front
         background-color: rgba(0, 0, 0, .8);
         top: 0;
         left: 0;
-        z-index: 2;
     }
 
     .center-wrapper {
