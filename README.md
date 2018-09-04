@@ -1,6 +1,34 @@
-make a copy of _config.yml -> _config.dev.yml
+# USACS
 
+## Prerequisites
+Make sure you have ruby, jekyll, bundler, and github-pages (optional) installed
+
+## Install pre-reqs
 ```bash
-bundle exec jekyll serve --watch JEKYLL_ENV=development --config _
-config.dev.yml
+$ bundle install
 ```
+
+## Deployment
+To run locally:
+```bash
+$ bundle exec jekyll serve
+```
+
+To run from Github pages: `commit your changes and push`
+
+## Built With...
+- HTML 5
+- CSS
+- JavaScript
+- jQuery
+- Bootstrap
+- Ruby
+- Jekyll
+- Github Pages
+
+# Contributing
+See CONTRIBUTING.md
+
+# Authors
+@agoodkind
+@hemangandhi 
