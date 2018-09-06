@@ -102,7 +102,6 @@ nav > ul > li > ul > li {
     }
 }
 .active-wrap {
-    overflow: hidden;
     position: relative;
 }
 .active-area {
