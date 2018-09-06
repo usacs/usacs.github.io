@@ -27,7 +27,7 @@ defaults:
 # Google services
 google_analytics: "UA-124239918-1"
 google_verification: ""
-google_api_key: AIzaSyCSh7602bHZRIAn8-OvmAPy4V76ThyRVno
+google_api_key: AIzaSyA07liNlwBQDLqiOmVz5uvKxVxSk34Q4ko
 
 # Facebook
 facebook_app_id: ""
