@@ -72,6 +72,11 @@ h2 {
 nav > ul > li > ul > li a:hover,
 nav ul li a:hover {
     background-color: #FF3939;
+
+}
+
+a.nav-link:hover {
+    color: white !important;
 }
 
 nav > ul > li > ul > li {
