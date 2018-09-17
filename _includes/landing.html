@@ -1,0 +1,99 @@
+<style>
+    .unspecial {
+    font-size: 0.75rem;
+    width: 100%;
+    left: 0;
+    position: fixed;
+    display: block;
+    border-bottom: 1px solid rgba(57, 57, 57, 0.24);
+    background-color: rgba(255, 255, 255, 0.9);
+    z-index: 10;
+    transition: all .2s ease-in-out;
+    opacity: 1;
+}
+
+.special {
+    text-align: center;
+    position: absolute;
+    border-bottom: none;
+    top: 0px !important;    
+    transition: all .2s ease-in-out;
+    color: white !important;
+}
+
+
+.special ul li a {
+    color: white !important;
+}
+
+.special .logo {
+    display: none;
+}
+
+.special ul {
+    float: none;
+    margin: 0 auto;
+}
+.special ul li {
+    font-size: 0.875rem;
+}
+.special > ul > li > ul > li {
+    background-color: rgba(0, 0, 0, 0);
+}
+</style>
+
+
+<section id="landing">
+    <header>
+
+        <nav class="unspecial special navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="container-fluid mx-auto">
+                <a class="logo navbar-brand mr-auto" href="{{ '/' | prepend: site.baseurl }}">
+                    <img id="usacs-logo" src="/assets/img/usacs.svg">
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item mx-auto">
+                            <a class="nav-link" href="{{ '/' | prepend: site.baseurl }}">Home</a>
+                        </li>
+                        {% for page in site.pages %} {% if page.published %}
+                        <li class="nav-item mx-auto">
+                            <a class="nav-link" href="{{ page.url }}">{{ page.title }}</a>
+                        </li>
+                        {% endif %} {% endfor %}
+                    </ul>
+                </div>
+            </div>
+
+        </nav>
+
+    </header>
+    <div class="container d-flex landing-header text-center ">
+        <div class="row mr-auto ml-auto">
+            <div class="center-wrapper ">
+
+                <img src="{{ 'assets/img/usacs-logo.svg' | prepend: site.baseurl }}" />
+
+                <h1 class="text-white">Undergraduate Student Alliance of Computer Scientists</h1>
+
+                <div class="social-media">
+                    <a href="https://www.facebook.com/{{ site.facebook_username }}"><img src="assets/img/fb.svg"></a>
+                    <a href="https://twitter.com/{{ site.twitter_username }}"><img src="assets/img/twitter.svg"></a>
+                    <a href="https://www.instagram.com/{{ site.instagram_username }}/"><img src="assets/img/insta.svg"></a>
+                    <a href="https://github.com/{{ site.github_username }}"><img src="assets/img/github-mark.png"></a>
+                    <a href="https://medium.com/@{{ site.twitter_username }}"><img src="assets/img/medium_logo.png"></a>
+                    <a href="https://usacs.slack.com/"><img src="assets/img/slack-mark.png"></a>
+                </div>
+
+                <div class="button-container button-inline">
+                    <a class="button" href="http://eepurl.com/NrOvb">get on the mailing list</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

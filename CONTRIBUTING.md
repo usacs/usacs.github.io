@@ -5,16 +5,26 @@ Thank you so much!
 ## How to contribute
 
 1. Fork this repo. [Here's what this means.](https://help.github.com/articles/fork-a-repo/)
-1. Do the things.
-    2. EDIT THE FILES IN VIEWS DON'T DIRECTLY EDIT THE HTML!!! ITS MUCH EASIER!!! (read [BUILDING.md](BUILDING.md))
-    2. Over the course of this, you will have to commit and push.
-       At least once for the pull request.
-1. Test the things. Run `python3 scripts.py build` to compile the site. (Read BUILDING.md a second time)
-   Then you can open the files in chrome since everything is static.
+2. Read and have on hand the Jekyll reference: https://jekyllrb.com/docs/quickstart/
+3. Read and have on hand the Shopify liquid templating reference: https://help.shopify.com/en/themes/liquid
+4. Please use bootstrap for everything! https://getbootstrap.com/
+5. Create a dev config file:
+   ```bash
+   $ cp _config.yml  _config.dev.yml
+   ```
+6. Run a local instance of Jekyll with file watch in dev:
+    ```bash
+    $ bundle exec jekyll serve --watch JEKYLL_ENV=development --config _config.dev.yml
+    ```
+7. Open http://localhost:4000/ in your browser to view
+8. Pages can be edited by finding their name.html in the pages directory
+9.  Page parts (templates) can be edited by going to _includes or _layouts and editing the html
+10. Fork the repo and commit your changes then create a pull request
+11. Test the things. 
    Make sure the expected things are done. Make sure the rest of the page works.
-1. Open a pull request. [And here's what that means.](https://help.github.com/articles/about-pull-requests/) Don't forget to compare your fork and USACS, so
+11. Open a pull request. [And here's what that means.](https://help.github.com/articles/about-pull-requests/) Don't forget to compare your fork and USACS, so
    head is the USACS repo and base is your branch. It's called a PR.
-1. Wait for me to merge it. I'll request changes if needed.
+12. Wait for use to merge it. We'll request changes if needed.
 
 ### Why?
 
@@ -28,7 +38,9 @@ and approve of the style and intent.
 
 ## Help and Resources
 
-- Me! (@hemangandhi) The rest of USACS!
+- @agoodkind
+- @hemangandhi 
+- The rest of USACS!
 - [The GitHub flow.](https://guides.github.com/introduction/flow/)
 - [What commiting etc. means.](https://git-scm.com/book/en/v2/Git-Basics-Recording-Changes-to-the-Repository)
 - [This is what pushing means.](https://help.github.com/articles/pushing-to-a-remote/)

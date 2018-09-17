@@ -1,0 +1,53 @@
+# Site settings
+title:       "Rutgers - USACS"
+header_title: "RUniteCS"
+landing_title: "Undergraduate Student Alliance of Computer Scientists"
+email:       rutgersusacs@gmail.com
+webmaster:      Alexander Goodkind
+description: "A volunteer outreach program to spark interest in computer science in middle school students"
+baseurl:     "" # no trailing slash !
+url:         "https://usacs.rutgers.edu"
+date_format: "%-d.%m.%Y"
+
+include: ['_pages']
+
+collections:
+  pages:
+    output: true
+    permalink: /:path
+
+defaults:
+  - scope:
+      path: ""
+      type: pages
+    values:
+      layout: page
+      published: true
+
+# Google services
+google_analytics: "UA-124239918-1"
+google_verification: ""
+google_api_key: AIzaSyCKTQCRrJRfa70zK179sz1gvz0OXhCYvYM
+
+# Facebook
+facebook_app_id: ""
+
+# Social
+github_username: usacs
+bitbucket_username:
+stackoverflow_id:
+twitter_username: rutgers_usacs
+google_plus_id:
+linkedin_username:
+facebook_username: rutgers.usacs
+angellist_username:
+medium_id:
+bitcoin_url:
+paypal_url:
+flattr_button:
+instagram_username: rutgers_usacs
+
+# Build settings
+markdown:     kramdown
+redcarpet:
+  extensions: ['smart', 'tables', 'with_toc_data']
