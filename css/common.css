@@ -1,15 +1,17 @@
 ---
-layout: null
----
+layout: null 
+--- 
 
 @font-face {
     font-family: 'Gotham Bold';
-    src: url("{{ '/assets/fonts/Gotham-Bold.ttf' | prepend: site.baseurl }}") format('truetype'), url("{{ '/assets/fonts/gotham-bold-webfont.woff' | prepend: site.baseurl }}") format('woff');
+    src: url("{{ '/assets/fonts/Gotham-Bold.ttf' | prepend: site.baseurl }}") format('truetype'),
+    url("{{ '/assets/fonts/gotham-bold-webfont.woff' | prepend: site.baseurl }}") format('woff');
 }
 
 @font-face {
     font-family: 'Gotham Book';
-    src: url("{{ '/assets/fonts/Gotham-Book.ttf' | prepend: site.baseurl }}") format('truetype'), url("{{ '/assets/fonts/gotham-book-webfont.woff' | prepend: site.baseurl }}") format('woff');
+    src: url("{{ '/assets/fonts/Gotham-Book.ttf' | prepend: site.baseurl }}") format('truetype'),
+    url("{{ '/assets/fonts/gotham-book-webfont.woff' | prepend: site.baseurl }}") format('woff');
 }
 
 @font-face {
@@ -18,6 +20,7 @@ layout: null
 }
 
 @import url(https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic);
+
 * {
     -web-kit-box-sizing: border-box;
     -mox-box-sizing: border-box;
@@ -26,8 +29,8 @@ layout: null
     padding: 0;
 }
 
-.hidden { 
-    display: none; 
+.hidden {
+    display: none;
 }
 
 html {
@@ -56,12 +59,15 @@ li {
 h1 {
     font-family: 'Gotham Bold';
 }
+
 h2 {
     font-family: 'Gotham Bold';
 }
+
 .text-rured {
     color: #b22828;
 }
+
 /******* NAV ********/
 
 
@@ -69,7 +75,7 @@ h2 {
 
 
 
-nav > ul > li > ul > li a:hover,
+nav>ul>li>ul>li a:hover,
 nav ul li a:hover {
     background-color: #FF3939;
 
@@ -79,7 +85,7 @@ a.nav-link:hover {
     color: white !important;
 }
 
-nav > ul > li > ul > li {
+nav>ul>li>ul>li {
     background-color: white;
 }
 
@@ -101,9 +107,11 @@ nav > ul > li > ul > li {
         background-size: cover;
     }
 }
+
 .active-wrap {
     position: relative;
 }
+
 .active-area {
     display: inline-block;
     padding-bottom: 50px;
@@ -113,6 +121,7 @@ nav > ul > li > ul > li {
     transition: all .2s ease-in-out;
     opacity: 1;
 }
+
 .active-area:not(.current) {
     opacity: 0;
 }
@@ -155,4 +164,19 @@ nav > ul > li > ul > li {
 footer {
     clear: both;
     background: black;
+}
+
+
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+.footer {
+    bottom: 0;
+    width: 100%;
+    height: 90px;
+    /* Set the fixed height of the footer here */
 }
