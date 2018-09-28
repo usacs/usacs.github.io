@@ -1,41 +1,267 @@
---- 
-layout: page 
-title: "Mentors" 
-published: false
+---
+layout: page
+title: "Mentors"
 ---
 
-<script src="assets/js/plugins.js"></script>
-<script src="assets/js/sly.js"></script>
-<script src="assets/js/mentor-page.js"></script>
 
-<link rel="stylesheet" href="css/mission.css">
-<link rel="stylesheet" href="css/mentors.css">
-<!-- The top list of people -->
 
-<div class="row" id="list">
-  <div class="wrap">
-    <div class="frame" id="basic">
-      <ul class="clearfix">
-      </ul>
+<style>
+    .card-img {
+    width: 100%;
+}
+.card-info {
+    position: absolute;
+    bottom: 0;
+    opacity: 0;
+}
+
+.card::before {
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    content: '';
+    background-color: white;
+}
+
+.inner:hover .card-info {
+    opacity: 1;
+}
+
+.inner:hover .card::before {
+    opacity: .85;
+}
+
+.inner,
+.card::before,
+.inner:hover .card::before,
+.card-info {
+    -webkit-transition: all .25s ease-in-out !important;
+    -moz-transition: all .25s ease-in-out !important;
+    transition: all .25s ease-in-out !important;
+}
+
+.mobile .card-info{
+    margin-top: 4%;
+    position: unset;
+    opacity: 1
+}
+.mobile .card::before {
+    opacity: 0;
+}
+
+.card-info {
+    overflow-y: scroll;
+    width: unset !Important;
+}
+.card-info > h2{
+    padding-top: 10px;
+}
+</style>
+
+
+<script>
+    function shuffle(a) {
+        for (let i = a.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [a[i], a[j]] = [a[j], a[i]];
+        }
+        return a;
+    }
+    /*
+     * Resource List for RU students.
+     */
+
+    const SPREADSHEET_URL =
+        "https://docs.google.com/spreadsheets/d/1uBLzF5vNk3zsBQo3uC2VkAlDoTI4JOgM_26YA-ucLY8/edit#gid=1783909318"
+
+    // TODO: should just get some SVG's for this stuff
+    const PLUS_SIGN_ENCODED = '%2B';
+    const MINUS_SIGN_ENCODED = '%E2%88%92';
+    const DOT_HTML_ENTITY = '&#183;';
+
+    /*
+     * Resolves with a 'DataTable' for a given Google Sheet
+     * or rejects with an Error
+     */
+    function getGoogleSheet(spreadsheetUrl) {
+        return new Promise((resolve, reject) => {
+            const query = new google.visualization.Query(spreadsheetUrl);
+            query.setQuery("SELECT *");
+
+            query.send((resp) => {
+                if (resp.isError()) {
+                    reject(new Error(resp.getDetailedMessage()));
+                } else {
+                    resolve(resp.getDataTable());
+                }
+            });
+        });
+    }
+
+    /*
+     * Given a Google Sheet 'DataTable' builds the resource list
+     * and returns an HTML string to be inserted in the page
+     */
+    function buildResourceListHTMLString(spreadsheet) {
+
+        var mentors = spreadsheet.Nf
+
+        console.log(mentors[0].c)
+
+
+        // 0: date_submitted.v
+        // 1: email.v
+        // 2: name.v *
+        // 3: phone.v
+        // 4: gender.v
+        // 5: grad_year.v
+        // 6: photo.v *
+        // 7: What are your goals as a mentor? *
+        // 8: What have you worked on in the past/currently?
+        // 9: What are some of your interests outside of tech? *
+        // 10: How dedicated are you willing to be to your mentee(s)?
+        // 11: What would you like to focus on with your mentee(s)?
+        // 12: Preferred Campus to meet on/spend most of time 
+        // 13:  
+
+        var mentors_list = []
+
+        for (var i in mentors) {
+            if (mentors[i].c[6]) {
+                let current_mentor = {}
+                current_mentor.photo = mentors[i].c[6].v
+                if (mentors[i].c[2]) {
+                    current_mentor.name = mentors[i].c[2].v
+                }
+                if (mentors[i].c[1]) {
+                    current_mentor.email = mentors[i].c[1].v
+                }
+                if (mentors[i].c[5]) {
+                    current_mentor.year = mentors[i].c[5].v
+                }
+                if (mentors[i].c[7]) {
+                    current_mentor.goals = mentors[i].c[7].v
+                }
+                if (mentors[i].c[9]) {
+                    current_mentor.interested = mentors[i].c[9].v
+                }
+                mentors_list.push(current_mentor)
+            }
+        }
+
+
+        // https://drive.google.com/uc?authuser=0&id=1FAjruqiVHNWKWjazVZEcrCCcdlDnrUtL
+        // https://drive.google.com/file/d/1FAjruqiVHNWKWjazVZEcrCCcdlDnrUtL/view
+        // https://doc-0k-0s-docs.googleusercontent.com/docs/securesc/gehdqo7381s3ctpqb1lkefnrl1vq2cb6/pj4cc2oa22rrbu5cso6bai27747dmj5l/1538078400000/12102552045399258049/03554027487350900372/1FAjruqiVHNWKWjazVZEcrCCcdlDnrUtL
+
+        shuffle(mentors_list)
+
+        for (var i in mentors_list) {
+            m = mentors_list[i];
+
+            let id = m.photo.split('/')[3].split('?')[1]
+
+            console.log(id)
+
+            markup =
+                `<div class="inner col-xs-7 col-md-6 mb-5">
+                    <div class="card">
+                        ${m.photo ? `<img class="card-img" src="https://drive.google.com/uc?authuser=0&${id}" alt="Photo of ${m.name}">` : ``} 
+                        <div class="container card-info">
+                            ${m.name ? `<h2>${m.name}</h2>` : ``} 
+                            ${m.goals ? `<p><b>What are your goals as a mentor?:</b> ${m.goals}</p>` : ``} 
+                            ${m.interested ? `<p><b>What are some of your interests outside of tech?:</b> ${m.interested}</p>` : ``} 
+                            ${m.year ? `<p><b>Year:</b> ${m.year}</p>` : ``} 
+                        </div>
+                    </div>
+                </div>`;
+
+            $('.outer').append(markup)
+        }
+    }
+
+    /*
+     * Init resource list
+     */
+    $(document).ready(() => {
+        getGoogleSheet(SPREADSHEET_URL)
+            .then(buildResourceListHTMLString)
+            .catch(({
+                message
+            }) => console.log(message));
+    });
+</script>
+
+<div class="container">
+    <div class="row outer">
+        <!-- {% for person in amabassadors %}
+            <div class=" col-lg-4 col-md-6 col-xs-6 mb-5">
+                <div class="card">
+                    <img class="img-fluid" src="{{ '/docs/ambassadors/' | prepend: site.baseurl }}{{ person.image }}" alt="{{ person.name }}" style="width:100%">
+                    <div class="container">
+                        <h2>{{ person.name }}</h2>
+                        <p class="title">{{ person.title }}</p>
+                        <p class="blurb">{{ person.blurb }}</p>
+                        {% if person.email %}<p>{{ person.email }}</p>
+                        <p>
+                            <button class="button">Contact</button>
+                        </p>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        {% endfor %} -->
     </div>
-    <div class="scrollbarL">
-      <div class="handle">
-        <div class="mousearea"></div>
-      </div>
-    </div>
-  </div>
+
 </div>
 
-<!-- The mentor-based content -->
-<section id="content" class="pages">
-  <div class="row" id="picture">
-  </div>
-  <div class="row" id="info">
-    <div class="wrap">
-      <div class="frame" id="nonitembased">
-        <div class="slidee">
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+
+<script type="text/javascript">
+    if ($.browser.mobile) {
+        $('.outer').addClass('mobile')
+    }
+
+    // init Masonry
+    var $grid = $('.outer') //.masonry({
+    //     itemSelector: '.inner'
+    // });
+    // layout Masonry after each image loads
+    // $grid.imagesLoaded().progress(function () {
+    //     $grid.masonry('layout');
+    //     // $('.inner').addClass('not-loaded');
+    //     // $('.inner.not-loaded').lazyload({
+    //     //     effect: 'fadeIn',
+    //     //     load: function () {
+    //     //         // Disable trigger on this image
+    //     //         $(this).removeClass("not-loaded");
+    //     //         $grid.masonry('reload');
+    //     //     }
+    //     // });
+    //     // $('.inner.not-loaded').trigger('scroll'); 
+    // });
+
+    $(window).resize(function () {
+        $grid.masonry('layout');
+        setHeights();
+    })
+
+    $(window).scroll(function () {
+        $grid.masonry('layout');
+        setHeights();
+    })
+
+    $grid.imagesLoaded(function () {
+        setHeights();
+    })
+
+    var setHeights = function () {
+        $('.card').each(function () {
+            $cardHeight = $(this).height();
+            $(this).children(".card-info").height($cardHeight);
+            // weird offsets 10 and 30
+        })
+    }
+</script>

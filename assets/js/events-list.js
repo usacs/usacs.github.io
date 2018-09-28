@@ -12,7 +12,7 @@ layout: null
 var getEvents = function(numOfEvents, wrapper) {
     if ($(wrapper).length === 0) return;
 
-    var start = moment().startOf('isoweek');
+    var start = moment();
     var startDate = start.utc().format();
 
     $.ajax({
