@@ -11,6 +11,8 @@ date_format: "%-d.%m.%Y"
 
 include: ['_pages']
 
+mentors_spreadsheet_id: 1uBLzF5vNk3zsBQo3uC2VkAlDoTI4JOgM_26YA-ucLY8
+
 collections:
   pages:
     output: true
