@@ -175,8 +175,14 @@ html {
 }
 
 .footer {
+    position: absolute;
     bottom: 0;
     width: 100%;
     height: 90px;
     /* Set the fixed height of the footer here */
 }
+
+body {
+    min-height: 100%; 
+    padding-bottom: 6rem;
+  }
