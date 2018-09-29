@@ -26,17 +26,17 @@ title: "Mentors"
     background-color: white;
 }
 
-.inner:hover .card-info {
+.inner-grid:hover .card-info {
     opacity: 1;
 }
 
-.inner:hover .card::before {
+.inner-grid:hover .card::before {
     opacity: .85;
 }
 
-.inner,
+.inner-grid,
 .card::before,
-.inner:hover .card::before,
+.inner-grid:hover .card::before,
 .card-info {
     -webkit-transition: all .25s ease-in-out !important;
     -moz-transition: all .25s ease-in-out !important;
@@ -109,9 +109,7 @@ title: "Mentors"
 
         var mentors = spreadsheet.Nf
 
-        console.log(mentors[0].c)
-
-
+        // console.log(mentors[0].c)
         // 0: date_submitted.v
         // 1: email.v
         // 2: name.v *
@@ -164,10 +162,10 @@ title: "Mentors"
 
             let id = m.photo.split('/')[3].split('?')[1]
 
-            console.log(id)
+            // console.log(id)
 
             markup =
-                `<div class="inner col-xs-7 col-md-6 mb-5">
+                `<div class="inner-grid col-xs-7 col-md-6 mb-5">
                     <div class="card">
                         ${m.photo ? `<img class="card-img" src="https://drive.google.com/uc?authuser=0&${id}" alt="Photo of ${m.name}">` : ``} 
                         <div class="container card-info">
@@ -179,7 +177,7 @@ title: "Mentors"
                     </div>
                 </div>`;
 
-            $('.outer').append(markup)
+            $('.outer-grid').append(markup)
         }
     }
 
@@ -189,6 +187,12 @@ title: "Mentors"
     $(document).ready(() => {
         getGoogleSheet(SPREADSHEET_URL)
             .then(buildResourceListHTMLString)
+            .then(function() {
+                $grid = $('.outer-grid').masonry({
+                    itemSelector: '.inner-grid'
+                });
+                gridReady();
+            })
             .catch(({
                 message
             }) => console.log(message));
@@ -196,72 +200,46 @@ title: "Mentors"
 </script>
 
 <div class="container">
-    <div class="row outer">
-        <!-- {% for person in amabassadors %}
-            <div class=" col-lg-4 col-md-6 col-xs-6 mb-5">
-                <div class="card">
-                    <img class="img-fluid" src="{{ '/docs/ambassadors/' | prepend: site.baseurl }}{{ person.image }}" alt="{{ person.name }}" style="width:100%">
-                    <div class="container">
-                        <h2>{{ person.name }}</h2>
-                        <p class="title">{{ person.title }}</p>
-                        <p class="blurb">{{ person.blurb }}</p>
-                        {% if person.email %}<p>{{ person.email }}</p>
-                        <p>
-                            <button class="button">Contact</button>
-                        </p>
-                        {% endif %}
-                    </div>
-                </div>
-            </div>
-        {% endfor %} -->
+    <div class="row outer-grid">
     </div>
-
 </div>
 
 
 <script type="text/javascript">
-    if ($.browser.mobile) {
-        $('.outer').addClass('mobile')
-    }
+    function gridReady() {
+        if ($.browser.mobile) {
+            $('.outer-grid').addClass('mobile')
+        }
 
-    // init Masonry
-    var $grid = $('.outer') //.masonry({
-    //     itemSelector: '.inner'
-    // });
-    // layout Masonry after each image loads
-    // $grid.imagesLoaded().progress(function () {
-    //     $grid.masonry('layout');
-    //     // $('.inner').addClass('not-loaded');
-    //     // $('.inner.not-loaded').lazyload({
-    //     //     effect: 'fadeIn',
-    //     //     load: function () {
-    //     //         // Disable trigger on this image
-    //     //         $(this).removeClass("not-loaded");
-    //     //         $grid.masonry('reload');
-    //     //     }
-    //     // });
-    //     // $('.inner.not-loaded').trigger('scroll'); 
-    // });
+        // init Masonry
+        var $grid = $('.outer-grid').masonry({
+            itemSelector: '.inner-grid'
+        });
 
-    $(window).resize(function () {
-        $grid.masonry('layout');
-        setHeights();
-    })
+        $grid.imagesLoaded().progress(function () {
+            $grid.masonry('layout');
+        });
 
-    $(window).scroll(function () {
-        $grid.masonry('layout');
-        setHeights();
-    })
-
-    $grid.imagesLoaded(function () {
-        setHeights();
-    })
-
-    var setHeights = function () {
-        $('.card').each(function () {
-            $cardHeight = $(this).height();
-            $(this).children(".card-info").height($cardHeight);
-            // weird offsets 10 and 30
+        $(window).resize(function () {
+            $grid.masonry('layout');
+            setHeights();
         })
+
+        $(window).scroll(function () {
+            $grid.masonry('layout');
+            setHeights();
+        })
+
+        $grid.imagesLoaded(function () {
+            setHeights();
+        })
+
+        var setHeights = function () {
+            $('.card').each(function () {
+                $cardHeight = $(this).height();
+                $(this).children(".card-info").height($cardHeight);
+                // weird offsets 10 and 30
+            })
+        }
     }
 </script>
