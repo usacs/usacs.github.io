@@ -43,18 +43,20 @@ title: "Mentors"
     transition: all .25s ease-in-out !important;
 }
 
-.mobile .card-info{
+.mobile .card-info {
     margin-top: 4%;
     position: unset;
-    opacity: 1
+    opacity: 1;
+    height: unset !important;
 }
+
 .mobile .card::before {
     opacity: 0;
 }
 
 .card-info {
     overflow-y: scroll;
-    width: unset !Important;
+    /* width: unset !Important; */
 }
 .card-info > h2{
     padding-top: 10px;
@@ -129,7 +131,7 @@ title: "Mentors"
         for (var i in mentors) {
             if (mentors[i].c[6]) {
                 let current_mentor = {}
-                current_mentor.photo = mentors[i].c[6].v
+                current_mentor.photo = mentors[i].c[6].v.split('/')[3].split('?')[1]
                 if (mentors[i].c[2]) {
                     current_mentor.name = mentors[i].c[2].v
                 }
@@ -159,18 +161,18 @@ title: "Mentors"
         for (var i in mentors_list) {
             m = mentors_list[i];
 
-            let id = m.photo.split('/')[3].split('?')[1]
-
             markup =
                 `<div class="inner-grid col-xs-7 col-md-6 mb-5">
                     <div class="card">
-                        ${m.photo ? `<img class="card-img" src="https://drive.google.com/uc?authuser=0&${id}" alt="Photo of ${m.name}">` : ``} 
+                        ${m.photo ? `<img class="card-img" src="https://drive.google.com/uc?${m.photo}" alt="Photo of ${m.name}">
                         <div class="container card-info">
                             ${m.name ? `<h2>${m.name}</h2>` : ``} 
                             ${m.goals ? `<p><b>What are your goals as a mentor?:</b> ${m.goals}</p>` : ``} 
                             ${m.interested ? `<p><b>What are some of your interests outside of tech?:</b> ${m.interested}</p>` : ``} 
                             ${m.year ? `<p><b>Year:</b> ${m.year}</p>` : ``} 
+                            ${m.email ? `<p><b>Contact me!:</b> <a href="mailto:${m.email}">${m.email}</a></p>` : ``} 
                         </div>
+                        ` : ``} 
                     </div>
                 </div>`;
 
@@ -204,9 +206,12 @@ title: "Mentors"
 
 <script type="text/javascript">
     function gridReady() {
-        if ($.browser.mobile) {
-            $('.outer-grid').addClass('mobile')
+        function checkMobile() {
+            if ($.browser.mobile) {
+                $('.outer-grid').addClass('mobile')
+            }
         }
+
 
         // init Masonry
         var $grid = $('.outer-grid').masonry({
@@ -215,21 +220,25 @@ title: "Mentors"
 
         $grid.imagesLoaded().progress(function () {
             $grid.masonry('layout');
+            setHeights();
+            checkMobile();
         });
 
         $(window).resize(function () {
             $grid.masonry('layout');
             setHeights();
+            checkMobile();
         })
 
-        $(window).scroll(function () {
-            $grid.masonry('layout');
-            setHeights();
-        })
+        // $(window).scroll(function () {
+        //     $grid.masonry('layout');
+        //     setHeights();
+        // })
 
-        $grid.imagesLoaded(function () {
-            setHeights();
-        })
+        // $grid.imagesLoaded(function () {
+        //     setHeights();
+        //     checkMobile();
+        // })
 
         var setHeights = function () {
             $('.card').each(function () {
