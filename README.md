@@ -1,4 +1,5 @@
 # USACS
+USACS stands for Undergraduate Student Alliance of Computer Sciencetists, and is Rutgers University's Student-run Organization for Computer Scientists!
 
 ## Prerequisites
 Make sure you have ruby, jekyll, bundler, and github-pages (optional) installed
