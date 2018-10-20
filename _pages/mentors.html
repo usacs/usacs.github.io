@@ -168,13 +168,12 @@ title: "Mentors"
                         ` : ``} 
                     </div>
                 </div>`;
-
             $('.outer-grid').append(markup)
         }
     }
 
     /*
-     * Init resource list
+     * init mentors list
      */
     $(document).ready(() => {
         getGoogleSheet(SPREADSHEET_URL)
@@ -196,7 +195,6 @@ title: "Mentors"
     </div>
 </div>
 
-
 <script type="text/javascript">
     function gridReady() {
         function checkMobile() {
@@ -204,7 +202,6 @@ title: "Mentors"
                 $('.outer-grid').addClass('mobile')
             }
         }
-
 
         // init Masonry
         var $grid = $('.outer-grid').masonry({
