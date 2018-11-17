@@ -37,7 +37,7 @@ var getEvents = function(numOfEvents, wrapper) {
             mEventEnd = moment(event.end.dateTime);
 
             event.location = event.location || "TBD";
-            event.description = event.description || "<span style='opacity: 0.7'>Ask us for details! <a href=\"/contacts.html\">Contact us!</a></span>";
+            event.description = event.description; //|| "<span style='opacity: 0.7'>Ask us for details! <a href=\"/contacts.html\">Contact us!</a></span>";
 
             events.append('<div class="event-wrapper"><div class="event"><div class="event-date"><span class="day">' + mEventStart.format('D') + '</span><span class="month">' + mEventStart.format('MMM') + '</span></div><div class="event-description"><span class="title">' + event.summary + ' | ' + event.location + ' | ' + mEventStart.format('h[:]mm A') + '-' + mEventEnd.format('h[:]mm A') + '</span><span class="description">' + event.description + '</span></div></div></div>');
         }
