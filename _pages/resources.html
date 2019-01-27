@@ -1,0 +1,48 @@
+---
+layout: page
+title: "Resources"
+---
+
+<script type="application/javascript" src="{{ '/assets/js/resources.js' | prepend: site.baseurl }}"></script>
+
+<style>
+    .resource {
+        padding-left: 3em;
+        border-top: 0;
+    }
+    
+    .resource a {
+        text-decoration: underline;
+    }
+    
+    .list-group .list-group-item {
+        border-right: 0;
+        border-top: 0;
+        border-bottom: 0;
+    }
+    
+    .category-name {
+        font-size: 19px;
+        font-weight: bold;
+    }
+    
+    .category-name:hover {
+        cursor: pointer;
+        cursor: hand;
+    }
+    
+    .resource-description {
+        font-weight: normal;
+    }
+</style>
+
+<div>
+    <h1>Resources</h1>
+    <h4 class="mb-3 text-rured"> A community-driven collection of resources to aid you in your CS endeavors. </h4>
+</div>
+<p>
+    Want to add something?
+    <a target="_blank" href="https://goo.gl/forms/59Sqty3OCPahv4192">Let us know.</a>
+</p>
+
+<ul id="resource-list" class="list-group w-75 text-left d-block mx-auto"></ul>

@@ -17,7 +17,7 @@ const {d3, topojson, google, $} = window;
 const SPREADSHEET_URL = "https://docs.google.com/spreadsheets/d/1HgouuYpc9auDTOLhinS-RWxULmJhb0tcnzHaQ-8W3xQ/edit#gid=1052913673";
 
 // url for map.
-const MAP_JSON_URL = "assets/map/us-states-quantized-topo.json";
+const MAP_JSON_URL = "/assets/map/us-states-quantized-topo.json";
 
 // The dimensions that the map was initially projected to. A ratio of this
 // to the current window dimensions defines the scale at which the
@@ -178,12 +178,12 @@ function draw() {
             const mouse = d3.mouse(svg.node()).map((d) => parseInt(d));
 
             // offsets for tooltip relative to mouse position
-            const offsetL = $('#map-entry-point').offset()['left'] + (width/30);
-            const offsetT = $('#map-entry-point').offset()['top'] + (height/30);
+            const offsetL = $('#map').offset()['left'];
+            const offsetT = $('#map').offset()['top'];
 
             tooltip
                 .classed("hidden", false)
-                .attr("style", `left: ${mouse[0] + offsetL}px; top: ${mouse[1] + offsetT}px;`)
+                .attr("style", `left: ${mouse[0]}px; top: ${mouse[1] + offsetT}px;`)
                 .html(stateName);
         })
         .on("mouseout",  function() {

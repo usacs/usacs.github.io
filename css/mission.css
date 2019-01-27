@@ -1,7 +1,4 @@
-ul, p {
-    text-align: left;
-    padding-bottom: 20px;
-}
+
 h2 {
     text-align: left;
 }
@@ -22,8 +19,8 @@ a {
     padding-bottom: 40px;
 }
 
-/* prevent the above rule from messing up the USACS logo */
-#usacs-logo {
+/* prevent the above rule from messing up the USACS logo */ /* it won't because #usacs logo isn't .item */
+/* #usacs-logo {
     max-width: 100%;
     display: inline;
-}
+} */

@@ -10,3 +10,15 @@ __pycache__/
 
 #pyenv
 .python-version
+
+#jekyll
+_site/
+_config.dev.yml
+
+## Environment normalization:
+/.bundle
+/vendor/bundle
+
+# these should all be checked in to normalize the environment:
+# Gemfile.lock, .ruby-version, .ruby-gemset
+

@@ -1,0 +1,57 @@
+---
+layout: page
+title: "Projects"
+published: false
+---
+
+<style>
+  .project a {
+    text-align: center;
+    font-size: 0.65em;
+    color: #b22828
+  }
+
+  .project h1 {
+    color: #b22828;
+    background-color: white;
+    border-style: solid;
+    border-width: 3px;
+    border-radius: 10px;
+  }
+
+  .project h1 {
+    font-size: 30;
+  }
+
+  .project {
+    height: 180px;
+  }
+
+  .project p {
+    margin: 0;
+    background-color: white;
+    border-style: solid;
+    border-color: #b22828;
+    border-radius: 10px;
+    padding: 5px;
+  }
+</style>
+
+<h1>Projects made by the community!</h1>
+<h3>We do fun stuff. We make fun stuff. Check out some of our best work!</h3>
+
+<div class="row" id="project-container">
+
+  {% assign projects = site.data.projects %}
+  {% for project in projects %} 
+
+  <div class="project col-sm-6" style="background-image: url({{ '/assets/img/' | prepend: site.baseurl | append: project.image | append: '.png' }})">
+    <a href="{{ project.url }}">
+      <h1>{{ project.name }}</h1>
+    </a>
+    <p>{{ project.description }}</p>
+  </div>
+
+  {% endfor %}
+
+</div>

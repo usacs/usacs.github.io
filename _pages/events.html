@@ -1,0 +1,73 @@
+--- 
+layout: page 
+title: "Events" 
+---
+
+<style>
+.event {
+	display: inline-block;
+	margin-bottom: 20px;
+	width: 100%;
+}
+
+.event > div {
+	display: inline-block;
+	float: left;
+}
+
+.event-date {
+	margin-right: 15px;
+	font-family: 'Gotham Book';
+	color: #b22828;
+	text-align: center;
+	margin-left: 20px;
+}
+
+.event-date .day {
+	display: block;
+	min-width: 60px;
+    font-size: 2.25rem;
+	line-height: 35px;
+}
+
+.event-date .month {
+	font-family: 'Gotham Bold';
+	text-transform: uppercase;
+	display: block;
+    font-size: 1.0625rem;
+	letter-spacing: 5px;
+}
+
+.event-description {
+	width: calc(100% - 100px);
+}
+
+.event-description > span {
+	display: block;
+}
+
+.event-description .title {
+    font-size: 1.125rem;
+	color: #b22828;
+}
+
+.event-description .description {
+    font-size: 0.8125rem;
+}
+
+.event-wrapper{
+	margin-bottom: 20px;
+	width: 80%;
+}
+</style>
+
+
+<h1>Events Calendar</h1>
+
+<div class="events-full mt-5"></div>
+<script>$(document).ready(function() { getEvents(14, '.events-full'); });</script>
+
+<h4>To find out about more events outside this month, checkout the offical USACS Google Calendar</h4>
+<div class="button-container button-inline">
+  <a class="button" href="https://calendar.google.com/calendar/embed?src=rutgersusacs%40gmail.com&ctz=America/New_York"> USACS Calendar</a>
+</div>
