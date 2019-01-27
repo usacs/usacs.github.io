@@ -1,0 +1,76 @@
+--- 
+layout: page 
+title: "Rutgers Alumni - Where are they now?" 
+---
+
+<style>
+
+    .state {
+        fill: #d7c7ad;
+        stroke: black;
+    }
+    
+    .tooltip {
+        color: #222; 
+        background: #fff; 
+        padding: .5em; 
+        text-shadow: #f5f5f5 0 1px 0;
+        border-radius: 2px; 
+        box-shadow: 0px 0px 2px 0px #a6a6a6; 
+        opacity: 0.9; 
+        position: absolute;
+    }
+    
+    .state:hover{
+        stroke: #fff;
+        stroke-width: .7px;
+    }
+    
+    .selected-state {
+        stroke: #fff;
+        stroke-width: .7px;
+    }
+    
+    #map-entry-point {
+        min-height: 600px;
+        height: 800px;
+    }
+    
+    #map-container {
+        height: 100%;
+        margin: auto;
+    }
+    
+    
+    </style>
+    
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script> google.load('visualization', '1'); </script>
+    <!-- <script type="application/javascript" src="{{ '/assets/js/interactions.js' | prepend: site.baseurl }}"></script> -->
+    <script type="application/javascript" src="{{ '/assets/js/map.js' | prepend: site.baseurl }}"></script>
+    
+    
+    <div id="map-entry-point">
+        <div id="map-container">
+            <div id="map-heading">
+                <h1>Where RU Working?</h1>
+                <h3 class="text-center text-rured">Check out where other students/alumni are working/interning!</h3>
+                <p class="text-center">
+                    Want to be added? Add yourself
+                    <a target="_blank" href="https://goo.gl/forms/jbd9qJAPjlieT3A23">here</a>
+                </p>
+            </div>
+    
+            <!-- <img id="map-loading" src="{{ '/assets/img/loading-ring.svg' | prepend: site.baseurl }}"/> -->
+    
+            <svg id="map" class="hidden d-block mx-auto">
+                <g></g>
+            </svg>
+            <div class="tooltip hidden"></div>
+    
+            <h3 id="state-name" class="hidden">
+                Select a State
+            </h3>
+            <ul id="map-listing" class="list-group list-group-flush"></ul>
+        </div>
+    </div>

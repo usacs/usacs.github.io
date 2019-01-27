@@ -1,0 +1,26 @@
+a {
+	color: #b22828;
+}
+
+p{
+	text-align:center;
+	margin-left: 20%;
+}
+
+.social-media{
+	background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
+	display: inline;
+	position: absolute;
+	float: left;
+	display: inline-block;
+	margin-left: 40%;
+}
+
+.social-media-wrapper{
+	margin-top: 6%;
+	margin-bottom: 7%;
+}
+
+.container{
+	margin-bottom: 5%;
+}
