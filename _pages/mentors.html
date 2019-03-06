@@ -1,7 +1,6 @@
 ---
 layout: page
 title: "Mentors"
-published: false
 ---
 
 
@@ -78,7 +77,7 @@ published: false
      */
 
     const SPREADSHEET_URL =
-        "https://docs.google.com/spreadsheets/d/1uBLzF5vNk3zsBQo3uC2VkAlDoTI4JOgM_26YA-ucLY8/edit#gid=1783909318"
+        "https://docs.google.com/spreadsheets/d/1dY6ma36cDXprWzPt_p6bw5sHkay6nLH4MpvkBFeFX_0/edit"
 
     // TODO: should just get some SVG's for this stuff
     const PLUS_SIGN_ENCODED = '%2B';
@@ -110,43 +109,38 @@ published: false
      */
     function buildResourceListHTMLString(spreadsheet) {
 
+        console.log(spreadsheet);
+
         var mentors = spreadsheet.Nf
+
+        console.log(mentors);
         
         // 0: date_submitted.v
-        // 1: email.v
-        // 2: name.v *
-        // 3: phone.v
-        // 4: gender.v
-        // 5: grad_year.v
-        // 6: photo.v *
-        // 7: What are your goals as a mentor? *
-        // 8: What have you worked on in the past/currently?
-        // 9: What are some of your interests outside of tech? *
-        // 10: How dedicated are you willing to be to your mentee(s)?
-        // 11: What would you like to focus on with your mentee(s)?
-        // 12: Preferred Campus to meet on/spend most of time 
-        // 13:  
+        // 1: name
+        // 2: picture
+        // 3: What are your goals as a mentor? *
+        // 4: What have you worked on in the past/currently?
+        // 5: What are some of your interests outside of tech? *
+
 
         var mentors_list = []
 
         for (var i in mentors) {
-            if (mentors[i].c[6]) {
+            if (mentors[i].c[2]) {
                 let current_mentor = {}
-                current_mentor.photo = mentors[i].c[6].v.split('/')[3].split('?')[1]
-                if (mentors[i].c[2]) {
-                    current_mentor.name = mentors[i].c[2].v
-                }
+
+                current_mentor.photo = mentors[i].c[2].v.split('/')[5];
+
+                console.log(mentors[i]);
+
                 if (mentors[i].c[1]) {
-                    current_mentor.email = mentors[i].c[1].v
+                    current_mentor.name = mentors[i].c[1].v
+                }
+                if (mentors[i].c[3]) {
+                    current_mentor.goals = mentors[i].c[3].v
                 }
                 if (mentors[i].c[5]) {
-                    current_mentor.year = mentors[i].c[5].v
-                }
-                if (mentors[i].c[7]) {
-                    current_mentor.goals = mentors[i].c[7].v
-                }
-                if (mentors[i].c[9]) {
-                    current_mentor.interested = mentors[i].c[9].v
+                    current_mentor.interested = mentors[i].c[5].v
                 }
                 mentors_list.push(current_mentor)
             }
@@ -158,13 +152,11 @@ published: false
             markup =
                 `<div class="inner-grid col-xs-7 col-md-6 mb-5">
                     <div class="card">
-                        ${m.photo ? `<img class="card-img" src="https://drive.google.com/uc?${m.photo}" alt="Photo of ${m.name}">
+                        ${m.photo ? `<img class="card-img" src="https://drive.google.com/uc?id=${m.photo}" alt="Photo of ${m.name}">
                         <div class="container card-info">
                             ${m.name ? `<h2>${m.name}</h2>` : ``} 
                             ${m.goals ? `<p><b>What are your goals as a mentor?:</b> ${m.goals}</p>` : ``} 
                             ${m.interested ? `<p><b>What are some of your interests outside of tech?:</b> ${m.interested}</p>` : ``} 
-                            ${m.year ? `<p><b>Year:</b> ${m.year}</p>` : ``} 
-                            ${m.email ? `<p><b>Contact me!:</b> <a href="mailto:${m.email}">${m.email}</a></p>` : ``} 
                         </div>
                         ` : ``} 
                     </div>
@@ -208,17 +200,18 @@ published: false
         var $grid = $('.outer-grid').masonry({
             itemSelector: '.inner-grid'
         });
+        checkMobile();
 
         $grid.imagesLoaded().progress(function () {
             $grid.masonry('layout');
             setHeights();
-            checkMobile();
         });
+
+        
 
         $(window).resize(function () {
             $grid.masonry('layout');
             setHeights();
-            checkMobile();
         })
 
         var setHeights = function () {
