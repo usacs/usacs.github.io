@@ -1,22 +1,3 @@
 <footer class="footer">
-    <div class="social-media">
-        <a href="https://www.facebook.com/rutgers.usacs/?ref=br_tf">
-            <img src="{{ '/assets/img/fb.svg' | prepend: site.baseurl }}">
-        </a>
-        <a href="https://twitter.com/Rutgers_Usacs">
-            <img src="{{ '/assets/img/twitter.svg' | prepend: site.baseurl }}">
-        </a>
-        <a href="https://www.instagram.com/Rutgers_Usacs/">
-            <img src="{{ '/assets/img/insta.svg' | prepend: site.baseurl }}">
-        </a>
-        <a href="https://github.com/usacs">
-            <img src="{{ '/assets/img/github-mark.png' | prepend: site.baseurl }}">
-        </a>
-        <a href="https://medium.com/@rutgersusacs">
-            <img src="{{ '/assets/img/medium_logo.png' | prepend: site.baseurl }}">
-        </a>
-        <a href="https://discord.gg/hPzufZ2">
-            <img src="{{ '/assets/img/discord.png' | prepend: site.baseurl }}">
-        </a>
-    </div>
+    {% include social_media.html %}
 </footer>
