@@ -1,34 +1,28 @@
 <header>
-
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="{% if page.layout == 'front' %}special unspecial bg-dark {% else %}bg-light {% endif %}navbar navbar-expand-lg navbar-light">
         <div class="container-fluid mx-auto">
-            <a class="navbar-brand mr-auto" href="{{ '/' | prepend: site.baseurl }}">
-                <img id="usacs-logo" src="/assets/img/usacs.svg">
+            <a class="{% if page.layout == 'front' %}logo {% endif %}navbar-brand mr-auto" href="{{ '/' | prepend: site.baseurl }}">
+                <img id="usacs-logo" src="{{ site.baseurl }}/assets/img/usacs.svg">
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav ml-auto">
-
-
-
                     <li class="nav-item mx-auto" >
                         <a class="nav-link" href="{{ '/' | prepend: site.baseurl }}">Home</a>
                     </li>
-                    {% for page in site.pages %} {% if page.published %}
-                    <li class="nav-item mx-auto" >
-                        <a class="nav-link" href="{{ page.url }}">{{ page.title }}</a>
-                    </li>
-                    {% endif %} {% endfor %}
-
-
+                    {% assign pages = site.pages | sort: 'order' %}
+                    {% for page in pages %} 
+                        {% if page.published %}
+                        <li class="nav-item mx-auto" >
+                            <a class="nav-link" href="{{ page.url }}">{{ page.title }}</a>
+                        </li>
+                        {% endif %} 
+                    {% endfor %}
                 </ul>
             </div>
         </div>
-
     </nav>
-
 </header>

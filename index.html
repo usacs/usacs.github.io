@@ -173,7 +173,7 @@ layout: front
                     <div class="events-upcoming"></div>
                     <script>
                         $(document).ready(function () {
-                            getEvents(6, '.events-upcoming');
+                            getEvents(4, '.events-upcoming');
                         });
                     </script>
 
@@ -201,7 +201,6 @@ layout: front
         locations
     </div>
     <div class="locations-flex">
-
         {% assign locations = site.data.locations %}
         {% for location in locations %}
         <div class="location">
@@ -218,6 +217,5 @@ layout: front
             </div>
         </div>
         {% endfor %}
-
     </div>
 </section>

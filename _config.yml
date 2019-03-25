@@ -11,25 +11,27 @@ date_format: "%-d.%m.%Y"
 
 include: ['_pages']
 
-mentors_spreadsheet_id: 1uBLzF5vNk3zsBQo3uC2VkAlDoTI4JOgM_26YA-ucLY8
-
 collections:
   pages:
     output: true
     permalink: /:path
 
 defaults:
-  - scope:
+  -
+    scope:
       path: ""
-      type: pages
+      type: "pages"
     values:
-      layout: page
+      layout: "page"
       published: true
+      order: 99
 
 # Google services
 google_analytics: "UA-124239918-1"
 google_verification: ""
 google_api_key: AIzaSyCKTQCRrJRfa70zK179sz1gvz0OXhCYvYM
+
+mentors_spreadsheet_id: 1uBLzF5vNk3zsBQo3uC2VkAlDoTI4JOgM_26YA-ucLY8
 
 # Facebook
 facebook_app_id: ""
