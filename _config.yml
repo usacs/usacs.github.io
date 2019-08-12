@@ -1,11 +1,11 @@
 # Site settings
-title:       "Rutgers - USACS"
-header_title: "RUniteCS"
-landing_title: "Undergraduate Student Alliance of Computer Scientists"
-email:       rutgersusacs@gmail.com
-webmaster:      Alexander Goodkind
-description: "A volunteer outreach program to spark interest in computer science in middle school students"
-baseurl:     "" # no trailing slash !
+title: "Rutgers USACS"
+header_title: "USACS"
+webmaster:      "Alexander Goodkind <alexander@goodkind.io>"
+author: "Rutgers University Undergraduate Student Alliance of Computer Scientists"
+description: "Rutgers University Undergraduate Student Alliance of Computer Scientists is the prominent undergraduate CS organization at Rutgers, faciliating the growth and network of Rutgers CS students."
+
+baseurl:    "" # no trailing slash !
 url:         "https://usacs.rutgers.edu"
 date_format: "%-d.%m.%Y"
 
@@ -26,8 +26,13 @@ defaults:
       published: true
       order: 99
 
-# Google services
-google_analytics: "UA-124239918-1"
+# include trailing slash !!!
+favicon_path: "/assets/img/favicons/"  
+css_path: "/assets/css/"
+js_path: "/assets/js/"
+
+# Google
+google_analytics_tracking_code: "UA-124239918-1"
 google_verification: ""
 google_api_key: AIzaSyCKTQCRrJRfa70zK179sz1gvz0OXhCYvYM
 

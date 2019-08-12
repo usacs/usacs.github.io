@@ -1,221 +1,111 @@
 ---
-layout: front
+layout: landing
 ---
 
-<style>
-    .events wrapper > p {
-        font-family: 'Lato', sans-serif;
-        color: #4C4C4C;
-        text-align: center;
-    }
+<header class="masthead">
+    <div class="container h-100">
+        <div class="row h-100">
+            <div class="col-lg-7 d-flex flex-column my-auto">
+                <div class="header-content mx-auto">
+                    <img src="{{ 'assets/img/usacs-logo.svg' | prepend: site.baseurl }}" />
+                    <a href="#about" class="btn btn-outline btn-xl js-scroll-trigger learn-btn">Learn More</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
 
-    #landing {
-        height: 100vh;
-        min-height: 450px;
-        position: relative;
-    }
+<section class="about" id="about">
+    <div class="container text-white">
+        <h2>%</h2>
+        <p class="text-white">The Percentage Project is an artistic, visual outlet for data collected from an
+            anonymous survey of 900 University of Pennsylvania Computer Science students in early 2018. The goal is
+            to showcase data along with advocates to put a face to a number; we aim to encourage reflection upon
+            the situations of minorities affected by microaggression, discrimination, and for what could be done to
+            alleviate these instances.</p>
+        <a alt="Click here to learn more" href="#gallery" class="mr-2 btn btn-outline btn-xl js-scroll-trigger ">Gallery</a>
+        <a alt="Click here to see the gallery of participating students" href="#contact" class="ml-2 btn btn-outline btn-xl js-scroll-trigger">Contact</a>
+    </div>
+    <div class="overlay"></div>
+</section>
 
-    body:before {
-        content: '';
-        background-image: url('../assets/img/landing-bg.jpg');
-        background-size: cover;
-        background-position: center top;
-        background-attachment: fixed;
-        opacity: 1;
-        height: 100%;
-        width: 100%;
-        position: absolute;
-        top: 0;
-        left: 0;
-    }
+<section class="contact" id="contact">
+    <div class="container text-white">
+        <h2>Contact</h2>
+        <p class="text-white">
+            If you are interested in participating or bringing The % Project to your campus, shoot us an email.<br />
+            Lucia: <a href="mailto:luciahuo@sas.upenn.edu">luciahuo@sas.upenn.edu</a><br />
+	        Megan: <a href="mailto:megpaik@seas.upenn.edu">megpaik@seas.upenn.edu</a><br />
+            Stephanie: <a href="mailto:steptang@seas.upenn.edu">steptang@seas.upenn.edu</a>
+        </p>
+        {% comment %} <ul class="list-inline list-social">
+            <li class="list-inline-item social-twitter">
+                <a href="#">
+                    <i class="fab fa-twitter"></i>
+                </a>
+            </li>
+            <li class="list-inline-item social-facebook">
+                <a href="#">
+                    <i class="fab fa-facebook"></i>
+                </a>
+            </li>
+            <li class="list-inline-item social-google-plus">
+                <a href="#">
+                    <i class="fab fa-google-plus"></i>
+                </a>
+            </li>
+        </ul> {% endcomment %}
+    </div>
+</section>
 
-    body:after {
-        content: '';
-        height: 100%;
-        width: 100%;
-        position: absolute;
-        background-color: rgba(0, 0, 0, .8);
-        top: 0;
-        left: 0;
-    }
-
-    .center-wrapper {
-        /* width: 100%; */
-        height: 100%;
-        padding-top: 50px;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        padding: 30px;
-        /* position: relative; */
-        z-index: 3;
-    }
-
-    .center-wrapper>img {
-        margin-bottom: 15px;
-        width: 100%;
-    }
-
-    .events-wrapper {
-        padding: 20px 20px 50px;
-    }
-
-    .event {
-        display: inline-block;
-        margin-bottom: 20px;
-    }
-
-    .event>div {
-        display: inline-block;
-        float: left;
-    }
-
-    .event-date .day {
-        display: block;
-        min-width: 60px;
-        font-size: 2.25rem;
-        line-height: 35px;
-    }
-
-    .event-description {
-        width: calc(100% - 100px);
-    }
-
-    .event-description>span {
-        display: block;
-    }
-
-    .event-description .title {
-        font-size: 1.125rem;
-        color: #b22828;
-    }
-
-    .event-description .description {
-        font-size: 0.8125rem;
-    }
-
-    .locations-header {
-        height: 50px;
-        text-align: center;
-        text-transform: capitalize;
-        color: #b22828;
-        line-height: 50px;
-        font-size: 1.9375rem;
-        font-family: 'Gotham Bold';
-        border: 1px solid lightgray;
-        border-left: 0px;
-        border-right: 0px;
-    }
-
-    .location {
-        padding-bottom: 30px;
-        position: relative;
-        border-bottom: 1px solid lightgray;
-        background-color: rgba(0, 0, 0, .6);
-        background-blend-mode: multiply;
-        min-height: 400px;
-    }
-
-    .location:before {
-        content: '';
-        top: 0;
-        left: 0;
-        z-index: -1;
-        display: block;
-        width: 100%;
-        height: 100%;
-        position: absolute;
-        background-size: cover;
-        background-position: center top;
-        background-repeat: no-repeat;
-        -ms-background-size: cover;
-        background-size: cover;
-        opacity: 1;
-    }
-
-    /* jekyllize lines 140-154 */
-
-    .location:first-child:before {
-        background-image: url("../assets/img/cave-bg.jpg");
-    }
-
-    .location:nth-child(2):before {
-        background-image: url("../assets/img/commandCenter-bg.jpg");
-    }
-
-    .location:nth-child(3):before {
-        background-image: url("../assets/img/hackerspace-bg.jpg");
-    }
-
-    .location:last-child:before {
-        background-image: url("../assets/img/makerspace-bg.jpg");
-    }
-
-    .social-media {
-        bottom: 0px;
-        left: 0;
-        position: absolute;
-    }
-
-    .landing-header {
-        min-height: 100%;
-    }
-</style>
-
-<section id="content">
+<section class="features mb-5" id="gallery">
     <div class="container">
-        <div class="row">
-            <div class="col-md-2"></div>
-            <div class="col-sm-11 col-md-12 col-l-9 ml-auto mr-auto">
-                <div class="events-wrapper">
-                    <h1>Upcoming Events</h1>
-
-                    <div class="events-upcoming"></div>
-                    <script>
-                        $(document).ready(function () {
-                            getEvents(4, '.events-upcoming');
-                        });
-                    </script>
-
-                    <div class="button-container">
-                        <a class="button" href="events">
-                            See Full Calendar
-                        </a>
-                    </div>
-                    <h2 class="text-rured text-center" style="margin: 20px 0px 10px;">Wanna learn about how to get more
-                        involved?</h2>
-                    <p style="margin-bottom: 20px; font-size: 1rem">Get outside the classroom and come see what USACS
-                        events you are missing out on!</p>
-                    <div class="button-container">
-                        <a class="button" href="get-involved">
-                            Get Involved
-                        </a>
+        <img class="loading" src="{{ '/assets/img/dribbble.gif' | prepend: site.baseurl }}" />
+        <div class="row" id="photos">
+            {% assign photos = site.static_files | where: "image", true %}
+            {% for photo in photos %}
+            <div style="display:none;" class="col-xs-7 col-md-6 mt-5 card-outer">
+                <div class="card">
+                    <img class="card-img-top" data-src="{{ photo.path | prepend: 'https://cdn.jsdelivr.net/gh/penn-wics/Percentage-Project' }}" alt="Image of {{ photo.path  }}">
+                    <div class="card-hover-body">
+                        <a href="#about" alt="Click here to learn more" class="btn js-scroll-trigger photo-button">Learn More</a>
                     </div>
                 </div>
             </div>
+            {% endfor %}
         </div>
     </div>
 </section>
-<section id="locations">
-    <div class="locations-header">
-        locations
-    </div>
-    <div class="locations-flex">
-        {% assign locations = site.data.locations %}
-        {% for location in locations %}
-        <div class="location">
-            <div class="container">
-                <div class="row">
-                    <div class="col-sm-8">
-                        <div class="location-description text-white mt-5">
-                            <h1 class="text-uppercase">{{ location.name }}</h1>
-                            <p>{{ location.description }}</p>
-                        </div>
-                    </div>
-                    <div class="col-sm-4"></div>
-                </div>
-            </div>
-        </div>
-        {% endfor %}
-    </div>
-</section>
+
+<script type="text/javascript">
+    if ($.browser.mobile) { // only need this to be called once and not dynamically because its unlikely that one would suddenly change their user agent
+        $('body').addClass('mobile');
+    }
+    // init Masonry
+    var $grid = $('#photos').masonry({
+        itemSelector: '.card-outer'
+    });
+    $(function () {
+        $('.card-img-top').Lazy({
+            afterLoad: function (element) {
+                $grid.masonry('appended', element).masonry();
+                $grid.masonry('layout');
+            },
+            onFinishedAll: function (element) {
+                $('.card-outer').fadeIn();
+                $('.loading').fadeOut();
+                $grid.masonry('reloadItems').masonry('layout');
+            },
+            onError: function (element) {
+                console.log('error loading ' + element.data('src'));
+            }
+        });
+
+    });
+    $(window).resize(function () {
+        $grid.masonry('layout');
+    });
+    $(window).scroll(function () {
+        $grid.masonry('layout');
+    });
+</script>
