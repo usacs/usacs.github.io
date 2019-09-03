@@ -23,4 +23,4 @@ _config.dev.yml
 # Gemfile.lock, .ruby-version, .ruby-gemset
 
 #sass
-.sass_cache/
+.sass-cache/
