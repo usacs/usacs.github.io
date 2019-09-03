@@ -1,7 +1,20 @@
-#mainNav.navbar-shrink .navbar-brand {
-    display: block !important;
+#mainNav .navbar-brand {
+    -webkit-transition: opacity .35s ease-in-out;
+    -moz-transition: opacity .35s ease-in-out;
+    transition: opacity .35s ease-in-out;
 }
 
-.usacs-main-logo {
+#mainNav .navbar-brand > img.usacs-nav-logo {
+    opacity: 0;
+    height: 0;
+}
+
+#mainNav.navbar-shrink .navbar-brand > img.usacs-nav-logo {
+    opacity: 1;
+    height: unset;
+}
+
+
+img.usacs-main-logo {
     width: 100%;
 }
