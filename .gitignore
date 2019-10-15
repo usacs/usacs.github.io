@@ -23,3 +23,5 @@ _config.dev.yml
 # Gemfile.lock, .ruby-version, .ruby-gemset
 
 .sass-cache/
+
+.jekyll-metadata
