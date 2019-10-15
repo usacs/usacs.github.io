@@ -22,3 +22,4 @@ _config.dev.yml
 # these should all be checked in to normalize the environment:
 # Gemfile.lock, .ruby-version, .ruby-gemset
 
+.sass-cache/
