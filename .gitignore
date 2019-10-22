@@ -14,6 +14,8 @@ __pycache__/
 #jekyll
 _site/
 _config.dev.yml
+.jekyll-cache
+
 
 ## Environment normalization:
 /.bundle
@@ -24,3 +26,7 @@ _config.dev.yml
 
 #sass
 .sass-cache/
+
+
+# vscode
+.vscode

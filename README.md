@@ -1,2 +1,1 @@
-# %
-The Percentage Project is an artistic, visual outlet for data collected from an anonymous survey of 900 University of Pennsylvania Computer Science students in early 2018. The goal is to showcase data along with advocates to put a face to a number; we aim to encourage reflection upon the situations of minorities affected by microaggression, discrimination, and for what could be done to alleviate these instances.
+# USACS

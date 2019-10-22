@@ -1,6 +1,5 @@
 ---
 ---
-
 @import "custom";
 
 @font-face {
@@ -32,6 +31,10 @@ a {
   -webkit-transition: all .35s;
   -moz-transition: all .35s;
   transition: all .35s;
+}
+
+a:hover {
+  text-decoration: unset;
 }
 
 hr {
@@ -186,7 +189,6 @@ header.masthead {
 
   header.masthead .header-content {
     margin-bottom: 0;
-    text-align: left;
   }
 
   header.masthead .header-content h1 {
@@ -319,38 +321,29 @@ section.features .feature-item i {
 
 /*about & contact*/
 
-section.contact, section.about {
-  
+section {
+
   display: flex;
   flex-direction: column;
   justify-content: center;
   height: 100%;
-  
+
 }
 
-/* about */
+section:nth-child(odd) {
 
-section.about {
-  text-align: left;
-  background-color: rgb(17,17,17);
+  background-color: rgb(17, 17, 17);
 }
 
-section.about h2 {
+section h2 {
   margin-top: 0;
   margin-bottom: 25px;
 }
 
-/*contact*/
-
-section.contact {
-  text-align: center;
+section:nth-child(even) {
   background-color: black;
 }
 
-section.contact h2 {
-  margin-top: 0;
-  margin-bottom: 25px;
-}
 
 .no-gutter>[class*='col-'] {
   padding-right: 0;

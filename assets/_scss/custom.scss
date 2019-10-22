@@ -18,3 +18,13 @@
 img.usacs-main-logo {
     width: 100%;
 }
+
+.social-media i {
+    font-size: 4vw;
+    padding: 0 3vmin;
+    color: white;
+}
+
+.social-media a:hover > i {
+    filter: invert(20%);
+}

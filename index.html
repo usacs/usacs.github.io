@@ -2,46 +2,43 @@
 layout: landing
 ---
 
-<header class="masthead">
-    <div class="container h-100">
-        <div class="row h-100">
-            <div class="col-lg-7 d-flex flex-column my-auto">
-                <div class="header-content mx-auto">
-                    <div class="usacs-main-logo-container pb-4">
-                        <img  class="usacs-main-logo" src="{{ 'assets/img/usacs-logo.svg' | prepend: site.baseurl }}"/>
+<section>
+    <header class="masthead">
+        <div class="container h-100">
+            <div class="row h-100">
+                <div class="col-lg d-flex flex-column my-auto">
+                    <div class="header-content mx-auto">
+                        <div class="usacs-main-logo-container pb-4">
+                            <img class="usacs-main-logo" src="{{ 'assets/img/usacs-logo.svg' | prepend: site.baseurl }}" />
+                        </div>
+
+                            <a alt="Click here to learn more" href="#belowFold"
+                                class="mr-2 btn btn-outline btn-xl js-scroll-trigger">Learn More</a>
+                            <a alt="Click here to get on our mailing list" href="http://eepurl.com/NrOvb" class="ml-2 btn btn-outline btn-xl">Get on the mailing list</a>
                     </div>
-                    <div class="about-header-button">
-                        <a href="#about" class="btn btn-outline btn-xl js-scroll-trigger learn-btn">Learn More</a>
-                    </div>
-                    
                 </div>
             </div>
         </div>
-    </div>
-</header>
+    </header>
+</section>
 
-<section class="about" id="about">
+<section id="belowFold">
     <div class="container text-white">
         <h2>%</h2>
-        <p class="text-white">The Percentage Project is an artistic, visual outlet for data collected from an
-            anonymous survey of 900 University of Pennsylvania Computer Science students in early 2018. The goal is
-            to showcase data along with advocates to put a face to a number; we aim to encourage reflection upon
-            the situations of minorities affected by microaggression, discrimination, and for what could be done to
-            alleviate these instances.</p>
-        <a alt="Click here to learn more" href="#gallery" class="mr-2 btn btn-outline btn-xl js-scroll-trigger ">Gallery</a>
-        <a alt="Click here to see the gallery of participating students" href="#contact" class="ml-2 btn btn-outline btn-xl js-scroll-trigger">Contact</a>
+        <p class="text-white">asjldkas text etkjalskjdkjalkjsflkjalskjdlaksjdlaksjd  askdjla daksdja jalskjdlaksjdkljalksfjas d asdas gsd g f asd asd asf g we fa sf asfs ga sfa sf .</p>
+        <a alt="Click here to learn more" href="#gallery"
+            class="mr-2 btn btn-outline btn-xl js-scroll-trigger ">Gallery</a>
+        <a alt="Click here to see the gallery of participating students" href="#contact"
+            class="ml-2 btn btn-outline btn-xl js-scroll-trigger">Contact</a>
     </div>
     <div class="overlay"></div>
 </section>
 
-<section class="contact" id="contact">
+<section id="contact">
     <div class="container text-white">
         <h2>Contact</h2>
         <p class="text-white">
-            If you are interested in participating or bringing The % Project to your campus, shoot us an email.<br />
-            Lucia: <a href="mailto:luciahuo@sas.upenn.edu">luciahuo@sas.upenn.edu</a><br />
-	        Megan: <a href="mailto:megpaik@seas.upenn.edu">megpaik@seas.upenn.edu</a><br />
-            Stephanie: <a href="mailto:steptang@seas.upenn.edu">steptang@seas.upenn.edu</a>
+           hello !.<br />
         </p>
         {% comment %} <ul class="list-inline list-social">
             <li class="list-inline-item social-twitter">
@@ -62,55 +59,3 @@ layout: landing
         </ul> {% endcomment %}
     </div>
 </section>
-
-<section class="features mb-5" id="gallery">
-    <div class="container">
-        <img class="loading" src="{{ '/assets/img/dribbble.gif' | prepend: site.baseurl }}" />
-        <div class="row" id="photos">
-            {% assign photos = site.static_files | where: "image", true %}
-            {% for photo in photos %}
-            <div style="display:none;" class="col-xs-7 col-md-6 mt-5 card-outer">
-                <div class="card">
-                    <img class="card-img-top" data-src="{{ photo.path | prepend: 'https://cdn.jsdelivr.net/gh/penn-wics/Percentage-Project' }}" alt="Image of {{ photo.path  }}">
-                    <div class="card-hover-body">
-                        <a href="#about" alt="Click here to learn more" class="btn js-scroll-trigger photo-button">Learn More</a>
-                    </div>
-                </div>
-            </div>
-            {% endfor %}
-        </div>
-    </div>
-</section>
-
-<script type="text/javascript">
-    if ($.browser.mobile) { // only need this to be called once and not dynamically because its unlikely that one would suddenly change their user agent
-        $('body').addClass('mobile');
-    }
-    // init Masonry
-    var $grid = $('#photos').masonry({
-        itemSelector: '.card-outer'
-    });
-    $(function () {
-        $('.card-img-top').Lazy({
-            afterLoad: function (element) {
-                $grid.masonry('appended', element).masonry();
-                $grid.masonry('layout');
-            },
-            onFinishedAll: function (element) {
-                $('.card-outer').fadeIn();
-                $('.loading').fadeOut();
-                $grid.masonry('reloadItems').masonry('layout');
-            },
-            onError: function (element) {
-                console.log('error loading ' + element.data('src'));
-            }
-        });
-
-    });
-    $(window).resize(function () {
-        $grid.masonry('layout');
-    });
-    $(window).scroll(function () {
-        $grid.masonry('layout');
-    });
-</script>
