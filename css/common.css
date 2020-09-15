@@ -71,8 +71,11 @@ h2 {
 /******* NAV ********/
 
 
-
-
+/* Modify brand and text color */ 
+.navbar-custom .navbar-brand, 
+.navbar-custom .navbar-text { 
+    color: blue; 
+} 
 
 
 nav>ul>li>ul>li a:hover,
