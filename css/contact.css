@@ -11,7 +11,7 @@ p{
 	background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
 	display: inline;
 	position: absolute;
-	float: left;
+	float: none;
 	display: inline-block;
 	margin-left: 40%;
 }
