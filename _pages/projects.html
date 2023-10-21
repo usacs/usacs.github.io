@@ -45,7 +45,7 @@ published: false
   {% assign projects = site.data.projects %}
   {% for project in projects %} 
 
-  <div class="project col-sm-6" style="background-image: url({{ '/assets/img/' | prepend: site.baseurl | append: project.image | append: '.png' }})">
+  <div class="project col-sm-6" style="background-image: url('{{ site.baseurl }}/assets/img/{{ project.image }}.png')">
     <a href="{{ project.url }}">
       <h1>{{ project.name }}</h1>
     </a>

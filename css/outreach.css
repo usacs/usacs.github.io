@@ -1,0 +1,76 @@
+			/* Style for cards for each project in the projects section*/
+			.wrapper.style3 ul{
+				font-size: large;
+			}
+			
+			.wrapper.style3 div.cards{
+				display:flex;
+				flex-wrap: wrap;
+			}
+			
+			.wrapper.style3 .card{
+				flex: 1 0 30%;
+				margin: 35px;
+				box-shadow: 5px 5px 20px black;
+				overflow: hidden;
+				position: relative;
+			}
+
+			.wrapper.style3 img{
+				width: 100%;
+				height: 100%;
+				object-fit: cover;
+				transition: transform 0.3s ease;
+				filter: brightness(80%);
+			}
+
+			.wrapper.style3 .project-card:hover .card-img {
+				transform: scale(1.1);
+			}
+
+			.wrapper.style3 .content{
+				width: 100%;
+				height: 100%;
+				padding-left: 6px;
+				box-sizing: border-box;
+				position: absolute;
+				color: white;
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+				align-items: center;
+				opacity: 0;
+   				transition: opacity 2s ease;
+			}
+
+			.wrapper.style3 .content h1, h4{
+				text-transform: capitalize;
+			}
+
+			.wrapper.style3 .content h1, h4, p{
+				overflow: auto;
+			}
+
+			.wrapper.style3 .content.buttons{
+				display: flex;
+				align-items: center;
+				justify-content: center;
+			}
+
+			.wrapper.style3 .content.buttons.button{
+				flex: 1 0 30%;
+
+			}
+
+			.card:hover{
+				cursor: pointer;
+			}
+
+			.card:hover .content{
+				backdrop-filter: blur(15px);
+				width: 100%;
+				height: 100%;
+				opacity: 1;
+			}
+
+			/* End of cards */
