@@ -16,10 +16,10 @@ Thank you so much!
     ```bash
     $ bundle exec jekyll serve --watch JEKYLL_ENV=development --config _config.dev.yml
     ```
-7. Open http://localhost:4000/ in your browser to view
-8. Pages can be edited by finding their name.html in the pages directory
-9.  Page parts (templates) can be edited by going to _includes or _layouts and editing the html
-10. Fork the repo and commit your changes then create a pull request
+7. Open http://localhost:4000/ in your browser to view.
+8. Pages can be edited by finding their name.html in the pages directory.
+9.  Page parts (templates) can be edited by going to _includes or _layouts and editing the HTML.
+10. Fork the repo and commit your changes then create a pull request.
 11. Test the things. 
    Make sure the expected things are done. Make sure the rest of the page works.
 11. Open a pull request. [And here's what that means.](https://help.github.com/articles/about-pull-requests/) Don't forget to compare your fork and USACS, so
@@ -32,7 +32,7 @@ This is how many open-source communities work. So this will give you practice.
 
 **But why do they do this?**
 
-Open source communities do this to allow a measure of control over the code theyhave.
+Open source communities do this to allow a measure of control over the code they have.
 By forcing the PR process, somebody who knows what's going on can test the code
 and approve of the style and intent.
 
@@ -42,7 +42,7 @@ and approve of the style and intent.
 - @hemangandhi 
 - The rest of USACS!
 - [The GitHub flow.](https://guides.github.com/introduction/flow/)
-- [What commiting etc. means.](https://git-scm.com/book/en/v2/Git-Basics-Recording-Changes-to-the-Repository)
+- [What committing etc. means.](https://git-scm.com/book/en/v2/Git-Basics-Recording-Changes-to-the-Repository)
 - [This is what pushing means.](https://help.github.com/articles/pushing-to-a-remote/)
 - [This is what merging, branching, etc. is about.](https://git-scm.com/book/en/v2/Git-Branching-Basic-Branching-and-Merging)
 
