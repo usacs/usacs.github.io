@@ -6,6 +6,7 @@ import PageSubtitle from "../components/PageSubtitle";
 
 // ===== PAGE =====
 export default function DonatePage() {
+  const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
   return (
     <main className="min-h-screen bg-[#F7F0E6]">
       {" "}
@@ -82,7 +83,7 @@ export default function DonatePage() {
         >
           <div className="overflow-hidden rounded-4xl bg-white shadow-sm">
             <Image
-              src="/icons/donate_dog.png"
+              src={`${basePath}/icons/donate_dog.png`}
               alt="USACS community event"
               width={900}
               height={600}
@@ -94,7 +95,7 @@ export default function DonatePage() {
 
           <div className="overflow-hidden rounded-4xl bg-white shadow-sm">
             <Image
-              src="/icons/donate_dog.png"
+              src={`${basePath}/icons/donate_dog.png`}
               alt="USACS student collaboration"
               width={900}
               height={600}

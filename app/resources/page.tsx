@@ -130,7 +130,7 @@ export default async function ResourcesPage() {
         >
           <p className="text-[var(--usacs-red-dark)]">
             Want to add something?{" "}
-            <Link href="#" className="font-extrabold underline">
+            <Link href="https://forms.gle/3quC3hwgBD1ushwQ9" target="_blank" rel="noopener noreferrer" className="font-extrabold underline">
               Let us know.
             </Link>
           </p>
@@ -364,10 +364,12 @@ export default async function ResourcesPage() {
           {/* THE CSL */}
           <div className="grid grid-cols-1 lg:grid-cols-2 items-start gap-8 lg:gap-20">
             <div className="order-2 lg:order-1 overflow-hidden rounded-[28px] relative">
+              {/* <img src={`${basePath}/icons/csl.png`} alt="test" /> */}
               <Image
                 src={`${basePath}/icons/csl.png`}
                 alt="The CSL"
-                fill
+                width={520}
+                height={300}
                 className="w-full h-[220px] sm:h-[260px] lg:h-[300px] object-cover"
               />
             </div>
@@ -378,7 +380,7 @@ export default async function ResourcesPage() {
               </h3>
               <p className="text-base sm:text-lg lg:text-xl leading-7 sm:leading-8 text-[#54412F]">
                 The CSL (Coding & Social Lounge) is located on the second floor
-                of the Hill Center Room 252. Part of the Computer Science
+                of the Hill Center in Room 252. Part of the Computer Science
                 Instructional Labs, the CSL was designed to provide students
                 their own atmosphere for collaboration and group projects.
               </p>
@@ -402,7 +404,8 @@ export default async function ResourcesPage() {
               <Image
                 src={`${basePath}/icons/meltdown-lab.png`}
                 alt="Meltdown Lab"
-                fill
+                width={520}
+                height={300}
                 className="w-full h-[220px] sm:h-[260px] lg:h-[300px] object-cover"
               />
             </div>
@@ -414,7 +417,8 @@ export default async function ResourcesPage() {
               <Image
                 src={`${basePath}/icons/hackerspace.png`}
                 alt="Hackerspace"
-                fill
+                width={520}
+                height={300}
                 className="w-full h-[220px] sm:h-[260px] lg:h-[300px] object-cover"
               />
             </div>
@@ -450,7 +454,9 @@ export default async function ResourcesPage() {
               <Image
                 src={`${basePath}/icons/makerspace.png`}
                 alt="Makerspace"
-                fill
+                width={520}
+                height={300}
+                // fill
                 className="w-full h-[220px] sm:h-[260px] lg:h-[300px] object-cover"
               />
             </div>
