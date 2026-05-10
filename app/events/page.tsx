@@ -36,8 +36,6 @@ const events = () => {
             src="https://calendar.google.com/calendar/embed?src=923a9274ef4f95a6740bf40750c60b8b6f5108141aca6b488d5639eee61d131e%40group.calendar.google.com&ctz=America%2FNew_York"
             className="w-full h-[600px] rounded-3xl"
             /* full width iframe with fixed height and rounded corners */
-            frameBorder="0"
-            scrolling="no"
           />
         </div>
       </PageHeader>
