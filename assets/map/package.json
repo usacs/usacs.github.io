@@ -1,8 +1,0 @@
-{
-  "dependencies": {
-    "@mapbox/geojson-merge": "1.0.2",
-    "d3-geo-projection": "2.3.2",
-    "shapefile": "0.6.6",
-    "topojson": "3.0.2"
-  }
-}
