@@ -1,3 +1,4 @@
+import Link from "next/link";
 // ===== IMPORTS =====
 import Image from "next/image";
 import PageHeader from "../components/PageHeader";
@@ -52,7 +53,7 @@ export default function DonatePage() {
         >
           <li>
             Go{" "}
-            <a
+            <Link
               className="font-semibold text-[#7F1D1D] underline underline-offset-4 hover:opacity-90"
               /* styled link with underline offset and hover feedback */
               href="https://give.rutgers.edu/"
@@ -60,7 +61,7 @@ export default function DonatePage() {
               rel="noreferrer"
             >
               here
-            </a>
+            </Link>
             .
           </li>
           <li>

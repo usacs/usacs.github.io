@@ -2,8 +2,11 @@ import SectionWrapper from "../components/SectionWrapper";
 import PageHeader from "../components/PageHeader";
 import Card from "../components/CardResource";
 import PageSubtitle from "../components/PageSubtitle";
+import Link from "next/link";
+import Image from "next/image";
 
 export default async function ResourcesPage() {
+  const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
   return (
     <>
       {/* red header */}
@@ -24,20 +27,20 @@ export default async function ResourcesPage() {
           The guides presented here are adapted from guides on “Succeeding in
           Rutgers CS” written by Sakib Jalal (‘18). Much of the information has
           been updated, but some is still the same. You can find his guides{" "}
-          <a
+          <Link
             href="https://github.com/sakib/succeeding_in_rutgers_cs"
             className="font-semibold underline"
           >
             here
-          </a>
+          </Link>
           . For further reading, Vaibhav Verma (‘15) created his own set of
           guides. You can find his guides{" "}
-          <a
+          <Link
             href="https://vverma.net/succeeding-in-rutgers-cs.html"
             className="font-semibold underline"
           >
             here
-          </a>
+          </Link>
           .
         </p>
 
@@ -63,52 +66,52 @@ export default async function ResourcesPage() {
 
         <ul className="list-disc space-y-1 pl-6 text-lg leading-8">
           <li>
-            <a
+            <Link
               href="https://www.linkedin.com/in/jiayue-xue/"
               className="underline"
             >
               Angela Xue (‘26)
-            </a>
+            </Link>
           </li>
           <li>
-            <a
+            <Link
               href="https://www.linkedin.com/in/ranajay531/"
               className="underline"
             >
               Jay Rana (‘26)
-            </a>
+            </Link>
           </li>
           <li>
-            <a
+            <Link
               href="https://www.linkedin.com/in/farhan-khan29/"
               className="underline"
             >
               Farhan Khan (‘26)
-            </a>
+            </Link>
           </li>
           <li>
-            <a
+            <Link
               href="https://www.linkedin.com/in/barghavig/"
               className="underline"
             >
               Barghavi Gopinath (‘26)
-            </a>
+            </Link>
           </li>
           <li>
-            <a
+            <Link
               href="https://www.linkedin.com/in/martin5390/"
               className="underline"
             >
               Martin Shen (‘27)
-            </a>
+            </Link>
           </li>
           <li>
-            <a
+            <Link
               href="https://www.linkedin.com/in/hasan-ali-618021292/"
               className="underline"
             >
               Hasan Ali (‘27)
-            </a>
+            </Link>
           </li>
         </ul>
       </section>
@@ -127,9 +130,9 @@ export default async function ResourcesPage() {
         >
           <p className="text-[var(--usacs-red-dark)]">
             Want to add something?{" "}
-            <a href="#" className="font-extrabold underline">
+            <Link href="#" className="font-extrabold underline">
               Let us know.
-            </a>
+            </Link>
           </p>
         </Card>
       </section>
@@ -170,7 +173,7 @@ export default async function ResourcesPage() {
         cursor-pointer
       "
           >
-            <a
+            <Link
               href="/resources/academics"
               className="block h-full no-underline text-inherit"
             >
@@ -182,9 +185,11 @@ export default async function ResourcesPage() {
                   bg-[var(--resource-circle)]
                 "
               >
-                <img
-                  src="/icons/academics.png"
+                <Image
+                  src={`${basePath}/icons/academics.png`}
                   alt="Academics"
+                  width={100}
+                  height={100}
                   className="h-[100px] w-[100px] object-contain block"
                 />
               </div>
@@ -196,7 +201,7 @@ export default async function ResourcesPage() {
               <p className="text-[var(--cream)] text-sm leading-[1.35]">
                 Advice for succeeding in the classroom in Rutgers CS.
               </p>
-            </a>
+            </Link>
           </Card>
 
           {/* CAREER */}
@@ -213,7 +218,7 @@ export default async function ResourcesPage() {
         cursor-pointer
       "
           >
-            <a
+            <Link
               href="/resources/career"
               className="block h-full no-underline text-inherit"
             >
@@ -225,9 +230,11 @@ export default async function ResourcesPage() {
     bg-[var(--resource-circle)]
   "
               >
-                <img
-                  src="/icons/career.png"
+                <Image
+                  src={`${basePath}/icons/career.png`}
                   alt="Career"
+                  width={100}
+                  height={100}
                   className="h-[100px] w-[100px] object-contain block"
                 />
               </div>
@@ -241,7 +248,7 @@ export default async function ResourcesPage() {
                 to land a tech internship. Includes resources for learning new
                 technical skills.
               </p>
-            </a>
+            </Link>
           </Card>
 
           {/* GENERAL */}
@@ -258,7 +265,7 @@ export default async function ResourcesPage() {
             cursor-pointer
       "
           >
-            <a
+            <Link
               href="/resources/general"
               className="block h-full no-underline text-inherit"
             >
@@ -270,9 +277,11 @@ export default async function ResourcesPage() {
                 bg-[var(--resource-circle)]
               "
               >
-                <img
-                  src="/icons/general.png"
+                <Image
+                  src={`${basePath}/icons/general.png`}
                   alt="General"
+                  width={100}
+                  height={100}
                   className="h-[100px] w-[100px] object-contain block"
                 />
               </div>
@@ -284,7 +293,7 @@ export default async function ResourcesPage() {
               <p className="text-[var(--cream)] text-sm leading-[1.35]">
                 Advice we wish we had when we began Rutgers CS.
               </p>
-            </a>
+            </Link>
           </Card>
 
           {/* ALUMNI ADVICE */}
@@ -301,7 +310,7 @@ export default async function ResourcesPage() {
       cursor-pointer
     "
           >
-            <a
+            <Link
               href="/resources/alumni"
               className="block h-full no-underline text-inherit"
             >
@@ -313,9 +322,11 @@ export default async function ResourcesPage() {
           bg-[var(--resource-circle)]
         "
               >
-                <img
-                  src="/icons/alumni-advice.png"
+                <Image
+                  src={`${basePath}/icons/alumni-advice.png`}
                   alt="Alumni Advice"
+                  width={100}
+                  height={100}
                   className="h-[100px] w-[100px] object-contain block"
                 />
               </div>
@@ -327,7 +338,7 @@ export default async function ResourcesPage() {
               <p className="text-[var(--cream)] text-sm leading-[1.35]">
                 Tips from accomplished graduates.
               </p>
-            </a>
+            </Link>
           </Card>
         </section>
       </SectionWrapper>
@@ -352,10 +363,11 @@ export default async function ResourcesPage() {
         <section className="max-w-[1200px] mx-auto px-8 mt-32 space-y-32">
           {/* THE CSL */}
           <div className="grid grid-cols-1 lg:grid-cols-2 items-start gap-8 lg:gap-20">
-            <div className="order-2 lg:order-1 overflow-hidden rounded-[28px]">
-              <img
-                src="/icons/csl.png"
+            <div className="order-2 lg:order-1 overflow-hidden rounded-[28px] relative">
+              <Image
+                src={`${basePath}/icons/csl.png`}
                 alt="The CSL"
+                fill
                 className="w-full h-[220px] sm:h-[260px] lg:h-[300px] object-cover"
               />
             </div>
@@ -386,10 +398,11 @@ export default async function ResourcesPage() {
               </p>
             </div>
 
-            <div className="order-2 lg:order-2 overflow-hidden rounded-[28px]">
-              <img
-                src="/icons/meltdown-lab.png"
+            <div className="order-2 lg:order-2 overflow-hidden rounded-[28px] relative">
+              <Image
+                src={`${basePath}/icons/meltdown-lab.png`}
                 alt="Meltdown Lab"
+                fill
                 className="w-full h-[220px] sm:h-[260px] lg:h-[300px] object-cover"
               />
             </div>
@@ -397,10 +410,11 @@ export default async function ResourcesPage() {
 
           {/* HACKERSPACE */}
           <div className="grid grid-cols-1 lg:grid-cols-2 items-start gap-8 lg:gap-20">
-            <div className="order-2 lg:order-1 overflow-hidden rounded-[28px]">
-              <img
-                src="/icons/hackerspace.png"
+            <div className="order-2 lg:order-1 overflow-hidden rounded-[28px] relative">
+              <Image
+                src={`${basePath}/icons/hackerspace.png`}
                 alt="Hackerspace"
+                fill
                 className="w-full h-[220px] sm:h-[260px] lg:h-[300px] object-cover"
               />
             </div>
@@ -432,10 +446,11 @@ export default async function ResourcesPage() {
               </p>
             </div>
 
-            <div className="order-2 lg:order-2 overflow-hidden rounded-[28px]">
-              <img
-                src="/icons/makerspace.png"
+            <div className="order-2 lg:order-2 overflow-hidden rounded-[28px] relative">
+              <Image
+                src={`${basePath}/icons/makerspace.png`}
                 alt="Makerspace"
+                fill
                 className="w-full h-[220px] sm:h-[260px] lg:h-[300px] object-cover"
               />
             </div>

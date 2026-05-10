@@ -2,6 +2,7 @@
 
 // ===== IMPORTS =====
 import { useEffect, useState } from "react";
+import Link from "next/link";
 
 // Navigation bar shown at the top of the site
 // Includes desktop links and a toggleable mobile menu
@@ -34,20 +35,20 @@ export default function NavBar() {
     // Sticky navbar that stays at the top while scrolling
     <nav className="sticky top-0 z-50 bg-[var(--usacs-red-dark)] shadow-sm">
       <div className="w-full px-6 sm:px-10 h-14 flex items-center justify-between">
-        <a href="/" className="text-white font-extrabold tracking-wide">
+        <Link href="/" className="text-white font-extrabold tracking-wide">
           USACS
-        </a>
+        </Link>
 
         {/* Desktop navigation (hidden on smaller screens) */}
         <div className="hidden md:flex items-center gap-6">
           {links.map((l) => (
-            <a
+            <Link
               key={l.href}
               href={l.href}
               className="px-3 py-2 text-white font-bold text-sm no-underline"
             >
               {l.label}
-            </a>
+            </Link>
           ))}
         </div>
 
@@ -93,14 +94,14 @@ export default function NavBar() {
             /* stacked vertical links */
           >
             {links.map((l) => (
-              <a
+              <Link
                 key={l.href}
                 href={l.href}
                 className="py-3 text-white font-bold text-sm no-underline"
                 onClick={() => setOpen(false)}
               >
                 {l.label}
-              </a>
+              </Link>
             ))}
           </div>
         </div>

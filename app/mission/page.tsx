@@ -46,6 +46,7 @@ const committees: Committee[] = [
 
 // ===== COMPONENT =====
 function CommitteeCard({ item }: { item: Committee }) {
+  const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
   return (
     <div
       className="flex h-full flex-col rounded-[28px] bg-[#7A1A1A] px-6 pb-6 pt-7 shadow-[0_12px_30px_rgba(0,0,0,0.15)]"
@@ -64,7 +65,7 @@ function CommitteeCard({ item }: { item: Committee }) {
 
       <div className="mt-5 mb-3 flex justify-center">
         <Image
-          src={item.imageSrc}
+          src={`${basePath}${item.imageSrc}`}
           alt={item.imageAlt}
           width={180}
           height={180}
@@ -89,6 +90,7 @@ function CommitteeCard({ item }: { item: Committee }) {
 
 // ===== PAGE =====
 export default function MissionPage() {
+  const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
   return (
     <main className="min-h-screen bg-[#F7F0E6]">
       {/* ===== HERO ===== */}
@@ -181,7 +183,7 @@ export default function MissionPage() {
               /* responsive image container with curved left edge */
             >
               <Image
-                src="/icons/1.png"
+                src={`${basePath}/icons/1.png`}
                 alt="USACS members in a meetup"
                 fill
                 className="object-cover"
@@ -230,7 +232,7 @@ export default function MissionPage() {
                 /* mirrored image style with curved right edge */
               >
                 <Image
-                  src="/icons/2.png"
+                  src={`${basePath}/icons/2.png`}
                   alt="USACS classroom and whiteboard"
                   fill
                   className="object-cover"

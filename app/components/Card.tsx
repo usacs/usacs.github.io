@@ -1,4 +1,5 @@
 "use client";
+import Image from "next/image";
 
 // ===== TYPES =====
 type CardProps = {
@@ -26,6 +27,7 @@ const Card = ({
   // Dynamic styling based on role
   const bgColor = isCoPresident ? "#481110" : "#E4D1C3";
   const fontColor = isCoPresident ? "#fbf4e4" : "#54412F";
+  const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
 
   return (
     <div
@@ -39,9 +41,11 @@ const Card = ({
           className="flex items-start mt-8 mx-6 gap-6"
           /* horizontal layout with spacing between image and text */
         >
-          <img
-            src={imageSrc}
+          <Image
+            src={`${basePath}${imageSrc}`}
             alt={`${name} profile picture`}
+            width={144}
+            height={144}
             className="w-36 h-36 rounded-full object-cover"
             /* fixed square image → circular crop */
           />
