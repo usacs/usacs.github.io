@@ -76,7 +76,7 @@ Here is another helpful [resource](https://www.techinterviewhandbook.org/resume/
 
 <span style="text-decoration:underline;">Projects</span>
 
-After experiences, the projects section will highlight projects that you have built. Some templates include a space for the tech stack, while others do not. For each project, include the tech stack, what the project is (ie. “Built a full stack app”), why you built it (ie. “that allows musicians to generate looped song clips from their Spotify playlists to speed up transcription”), any technical problems/goals you accomplished/solved (ie. “Designed a NoSQL schema to efficiently map songs to clip”, and any impact the project has/had. For instance, if your project has a significant user base, include it. Open source contributions can also go here.
+After experiences, the projects section will highlight projects that you have built. Some templates include a space for the tech stack, while others do not. For each project, include the tech stack, what the project is (ie. “Built a full stack app”), why you built it (ie. “that allows musicians to generate looped song clips from their Spotify playlists to speed up transcription”), any technical problems/goals you accomplished/solved (ie. “Designed a NoSQL schema to efficiently map songs to clip”), and any impact the project has/had. For instance, if your project has a significant user base, include it. Open source contributions can also go here.
 
 <span style="text-decoration:underline;">Skills</span> \
 Typically, this is the place for you to showcase your technical skills. You can split up your skills by categories such as “AI/ML”, “Full Stack”, “Infra”, etc. Sometimes, people also include personal hobbies and interests to add a more personal touch.

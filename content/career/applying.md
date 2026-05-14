@@ -18,7 +18,7 @@ Job application season is stressful. It’s like a part-time job while you’re 
 
 ## Finding Open Internship Roles
 
-Here are some resources that actively update with open roles. If you are an underclassman, check out this [list](https://github.com/zapplyjobs/underclassmen-internships).
+Here are some resources that actively update with open roles. Most internships are for juniors, but many companies have programs for freshman and sophomores too. If you are an underclassman, check out this [list](https://github.com/zapplyjobs/underclassmen-internships).
 
 1. [SWE List](https://swelist.com/) - A comprehensive list of tech internships and new grad roles for a particular cycle (e.g 2026 Summer Internship role postings) sent daily to your inbox.
 2. [Simplify Internship List](https://github.com/SimplifyJobs/Summer2026-Internships) - A large github repository of summer tech internships updated daily with new roles.
