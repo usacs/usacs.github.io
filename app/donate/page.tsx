@@ -83,7 +83,7 @@ export default function DonatePage() {
         >
           <div className="overflow-hidden rounded-4xl bg-white shadow-sm">
             <Image
-              src={`${basePath}/icons/donate_dog.png`}
+              src={`${basePath}/icons/donate_1.png`}
               alt="USACS community event"
               width={900}
               height={600}
@@ -95,7 +95,7 @@ export default function DonatePage() {
 
           <div className="overflow-hidden rounded-4xl bg-white shadow-sm">
             <Image
-              src={`${basePath}/icons/donate_dog.png`}
+              src={`${basePath}/icons/donate_2.png`}
               alt="USACS student collaboration"
               width={900}
               height={600}
