@@ -136,6 +136,9 @@ export default async function ResourcesPage() {
           </p>
         </Card>
       </section>
+      <p className="mt-7 px-4 sm:px-7 text-center text-base sm:text-lg text-[var(--usacs-red-dark)]">
+        Click the tiles below to explore our resources!
+      </p>
 
       {/* resource cards */}
       {/* Resource tiles (Academics, Career, General, Alumni) */}

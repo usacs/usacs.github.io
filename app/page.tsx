@@ -27,29 +27,35 @@ export default function HomePage() {
               />
 
               <div className="mt-6">
-                <PageSubtitle
-                  className="
-                    inline-flex items-center gap-4
-                    py-4
-                    bg-[var(--resource-tile)]
-                    text-[var(--cream-light)]
-                    whitespace-nowrap
-                    rounded-full
-                    px-5
-                    mx-auto 
-                  "
-                >
-                  <Image
-                    src={`${basePath}/icons/mail.png`}
-                    alt=""
-                    width={24}
-                    height={24}
-                    className="h-6 w-auto shrink-0"
-                  />
-                  <span className="font-extrabold tracking-wide">
-                    GET ON THE MAILING LIST
-                  </span>
-                </PageSubtitle>
+                  <Link
+                    href="https://rutgers.us3.list-manage.com/subscribe?u=d0e16a630d5a466a9afc69666&id=992091332f"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                  <PageSubtitle
+                    className="
+                      inline-flex items-center gap-4
+                      py-4
+                      bg-[var(--resource-tile)]
+                      text-[var(--cream-light)]
+                      whitespace-nowrap
+                      rounded-full
+                      px-5
+                      mx-auto 
+                    "
+                  >
+                    <Image
+                      src={`${basePath}/icons/mail.png`}
+                      alt=""
+                      width={24}
+                      height={24}
+                      className="h-6 w-auto shrink-0"
+                    />
+                    <span className="font-extrabold tracking-wide">
+                      GET ON THE MAILING LIST
+                    </span>
+                  </PageSubtitle>
+                </Link>
 
                 <div className="mt-5 flex flex-wrap items-center gap-2 justify-center px-4 md:px-0">
                   <Link
@@ -259,7 +265,7 @@ export default function HomePage() {
                 alt="USACS group photo"
                 width={1200}
                 height={800}
-                className="w-full h-auto object-contain"
+                className="w-full h-auto object-contain rounded-[28px]"
               />
             </div>
           </div>
