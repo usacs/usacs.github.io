@@ -15,26 +15,26 @@ export type BoardMember = {
 
 export const EXEC_BOARD: BoardMember[] = [
   {
-    name: "Angela Xue",
-    position: "Co-President",
-    major: "CS, Math, & Cognitive Science",
-    description1:
-      "Angela Xue is a senior triple majoring in Computer Science, Mathematics, and Cognitive Science, and she currently serves as the Co-President of USACS. Known for her year-on-year growth, Angela brings energy and dedication to the organization while also being a proud member of Rutgers’ Women’s Ultimate Frisbee team, Nightshades.",
-    description2:
-      "She has countless favorite USACS events—Paws and Professors, Mock Interviews, and the Bloomberg office visit to name a few—but her favorite memories are hosting board meetings with a team of kind, passionate, and driven board members. Angela is especially interested in exploring finance and tech career paths outside of traditional software engineering roles.",
-    imageSrc: "/profiles/angela-r.png",
-    isCoPresident: true,
-  },
-  {
-    name: "Ishita Gabhane",
-    position: "Vice President & Road to SWE Co-Director",
+    name: "Pallavi Biswas",
+    position: "President",
     major: "CS & Data Science",
     minor: "Business Administration",
     description1:
-      "Ishita Gabhane is a senior double-majoring in Computer Science and Data Science with a minor in Business Administration. She serves as Vice President of USACS and Co-Director of Road to SWE, bringing three years of board experience to the role.",
+      "Pallavi is a senior, bringing three years of board experience to the role. She hopes to continue fostering a welcoming and inclusive environment for all members, and is excited to lead the club in its mission to connect students with opportunities in the computer science industry.",
     description2:
-      "Outside of USACS, she enjoys spending time with friends, making art, planning her next travel adventure, and trying new food spots. Ishita’s favorite events include Paws & Professors and board socials, and she is passionate about pursuing career paths in software engineering, AI/ML, and fintech.",
-    imageSrc: "/profiles/ishita-r.png",
+      "Outside of academics, she spends her time in the gym or watching re-runs of her favorite shows and movies. Pallavi is especially passionate about pursuing a career in AI/ML engineering and data analytics.",
+    imageSrc: "/profiles/pallavi-r.png",
+    isCoPresident: true,
+  },
+  {
+    name: "Reeya Singh",
+    position: "Vice President, Community Director & Mentorship Co-Director",
+    major: "CS, Data Science & Economics",
+    description1:
+      " Reeya is a senior who's been a part of USACS for three years now. With multiple roles this year, she looks forward to helping general members connect and grow in their journey as an individual in this field.",
+    description2:
+      "In my free time, I like to watch crime shows, try new cafes, and play tennis. I'm excited to meet new members and help the club grow!",
+    imageSrc: "/profiles/reeya-r.png",
     isCoPresident: true,
   },
 ];
@@ -45,71 +45,71 @@ export const EXEC_BOARD: BoardMember[] = [
 
 export const BOARD: BoardMember[] = [
   {
-    name: "Hasan Ali",
+    name: "Brayden Uglione",
     position: "Education Director",
-    major: "CS & Physics",
+    major: "CS & Data Science",
+    minor: "Math & Statistics",
     description1:
-      "Hasan Ali is a junior double-majoring in Computer Science and Physics and currently serves as the Education Director of USACS. Passionate about building community and sharing knowledge, Hasan loves connecting with peers and creating opportunities for growth within the organization.",
+      "A sophomore, this is Brayden's first year on the board, but he served as an intern for the year 2025-26.",
     description2:
-      "Outside of academics, he enjoys playing the saxophone, hitting the tennis courts, reading, and exploring his love for cars. His favorite USACS memory is attending his first Town Hall, and he’s excited to pursue a career in software engineering.",
-    imageSrc: "/profiles/hasan-r.png",
+      "Besides USACS, he is on the board of HackRU, and he loves playing basketball and spikeball.",
+    imageSrc: "/profiles/brayden-r.png",
     isCoPresident: false,
   },
   {
-    name: "Gokul Elangovan",
+    name: "Advik Bhatt",
     position: "Tech Director",
     major: "CS & Data Science",
     description1:
-      "Gokul Elangovan is a junior majoring in Computer Science and Data Science, currently serving as the Tech Director of USACS. Passionate about tech and community building, Gokul is excited to help lead and grow the organization this year.",
+      "Advik is junior, who is joining USACS for as its newest member, and is excited to be a part of the board. He is passionate about technology and loves exploring new advancements in the field, especially in AI.",
     description2:
-      "Outside of academics, he’s a big fan of sweets and enjoys creative outlets—his favorite event so far was the Paint and Sip, where he formed peers as President Sib. Gokul is especially interested in AI/ML research and loves collaborating on exciting projects.",
-    imageSrc: "/profiles/gokul-r.png",
+      "He remains dedicated to his advancements through participating and winning multiple hackathons, as well as building his startup, Rolemate.",
+    imageSrc: "/profiles/advik-r.png",
     isCoPresident: false,
   },
   {
-    name: "Zene Sangoi",
-    position: "Community Director",
-    major: "CS & Data Science",
-    minor: "Business Administration",
-    description1:
-      "Zene Sangoi is a sophomore double-majoring in Computer Science and Data Science with a minor in Business Administration, serving as Community Director of USACS. Always curious and eager to try new things, Zene loves traveling and exploring emerging technologies.",
-    description2:
-      "A fun fact about her—she’s already visited 40 countries! Her favorite USACS memory is the outdoor boba social held right before elections, and she’s especially passionate about pursuing a career in Data Science and AI/ML.",
-    imageSrc: "/profiles/zene-r.png",
-    isCoPresident: false,
-  },
-  {
-    name: "Ved Patel",
+    name: "Ethan Poon",
     position: "Outreach Director",
-    major: "CS & Data Science",
+    major: "Computer Engineering",
     description1:
-      "Ved Patel is a junior double-majoring in Computer Science and Data Science, currently serving as the Outreach Director of USACS. He’s excited to help make this year memorable and enjoys connecting with new members.",
+      "Ethan is a sophomore passionate about software engineering, AI, and building technology that solves real-world problems. As a former intern, he hopes to use his experience to grow the network between recruiters and students, and to help students find opportunities in the tech industry.",
     description2:
-      "Outside of academics, Ved loves playing basketball and going on hikes. One of his favorite USACS experiences was the mentorship socials, where he met incredible mentors who supported him along his journey. He hopes to pursue a career in software engineering and artificial intelligence.",
-    imageSrc: "/profiles/ved-r.png",
+      "Outside of tech, he loves music and enjoy discovering new artists, listening to different genres, and going to festivals.",
+    imageSrc: "/profiles/ethan-r.png",
     isCoPresident: false,
   },
   {
-    name: "Pallavi Biswas",
+    name: "Nirmit Bhoyar",
     position: "Communications Director",
     major: "CS & Data Science",
-    minor: "Business Administration",
+    minor: "Entrepreneurship",
     description1:
-      "Pallavi Biswas is a junior double-majoring in Computer Science and Data Science with a minor in Business Administration, currently serving as Communications Director of USACS.",
+      "Nirmit is a sophomore who served as a USACS intern for the 2025-26 year. He and is excited to be joining the board as Communications Director. He is always working on new projects and looking for ways to learn something new.",
     description2:
-      "She treasures events like Paws & Professors, where she combined her love for dogs with networking opportunities, and considers e-board socials a favorite. Pallavi is especially passionate about pursuing a career in AI/ML engineering and data analytics.",
-    imageSrc: "/profiles/pallavi-r.png",
+      "He is excited to help grow the Rutgers CS community and connect students with opportunities!",
+    imageSrc: "/profiles/nirmit-r.png",
+    isCoPresident: false,
+  },
+  {
+    name: "Juhi Gaware",
+    position: "Treasury Director",
+    major: "CS & Finance",
+    description1:
+      "With her second year in treasury, Juhi is our resident treasurer, and is excited to be a part of e-board and for all the exciting events coming up. She hopes to plan fun fundraising events and help the club grow.",
+    description2:
+      " Outside of USACS, she loves crocheting, trying new restaurants, and game night with her friends",
+    imageSrc: "/profiles/juhi-r.png",
     isCoPresident: false,
   },
   {
     name: "Anusha Iyer",
-    position: "Road to SWE Co-Director",
+    position: "Road to SWE Director",
     major: "CS & Math",
     minor: "Philosophy, Politics, and Economics",
     description1:
-      "Anusha Iyer is a sophomore majoring in Mathematics and Computer Science with a minor in Philosophy, Politics, and Economics, serving as Co-Director of Road to SWE.",
+      "Anusha is a junior, who has been a part of USACS for two years & founded the RTSWE program last year! She is excited to continue growing the program and helping students prepare for their future careers in SWE.",
     description2:
-      "Her favorite USACS memory is last year’s mentorship socials, where she connected with peers and mentors who inspired her journey. Outside of academics, she enjoys dancing, reading, listening to music, and solving crossword puzzles. She’s especially interested in pursuing a career in software engineering and AI/ML.",
+      "In her free time, she enjoys practicing dance, watercoloring, playing the guitar, running, and reading!",
     imageSrc: "/profiles/anusha-r.png",
     isCoPresident: false,
   },
