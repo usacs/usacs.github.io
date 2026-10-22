@@ -34,14 +34,7 @@ export default async function ResourcesPage() {
             here
           </Link>
           . For further reading, Vaibhav Verma (‘15) created his own set of
-          guides. You can find his guides{" "}
-          <Link
-            href="https://vverma.net/succeeding-in-rutgers-cs.html"
-            className="font-semibold underline"
-          >
-            here
-          </Link>
-          .
+          guides.
         </p>
 
         <h3 className="mb-3 text-2xl font-bold">Background</h3>
@@ -130,7 +123,12 @@ export default async function ResourcesPage() {
         >
           <p className="text-[var(--usacs-red-dark)]">
             Want to add something?{" "}
-            <Link href="https://forms.gle/3quC3hwgBD1ushwQ9" target="_blank" rel="noopener noreferrer" className="font-extrabold underline">
+            <Link
+              href="https://forms.gle/3quC3hwgBD1ushwQ9"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-extrabold underline"
+            >
               Let us know.
             </Link>
           </p>
